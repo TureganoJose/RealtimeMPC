@@ -1,0 +1,8 @@
+C:/Workspaces/MPC/SISL/CMakeFiles/sisl.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/s1013prob.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/s1320prob.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/INSTALL.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/s1606prob.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/PACKAGE.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/ALL_BUILD.dir
+C:/Workspaces/MPC/SISL/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,1848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\construct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvarctang.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvcrvtang.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvlintang.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\destruct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\ev_cv_off.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\eval_2_crv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\evalcrvarc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\hp_s1880.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\intjoinper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\make3D.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\makecvkreg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\makesfkreg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\maketracks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\mk_cv_cycl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\newknots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\pickcrvsf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\pocrvtang.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\refine_all.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1001.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1011.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1012.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1013.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1014.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1015.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1016.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1017.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1018.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1021.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1022.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1023.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1024.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1025.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1119.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1161.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1162.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1172.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1173.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1174.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1190.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1192.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1219.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1220.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1221.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1222.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1223.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1224.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1225.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1226.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1227.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1231.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1232.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1233.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1235.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1236.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1237.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1238.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1239.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1240.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1241.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1243.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1244.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1245.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1251.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1252.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1291.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1301.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1302.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1303.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1304.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1305.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1306.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1307.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1308.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1309.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1310.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1311.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1312.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1313.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1314.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1315.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1316.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1317.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1318.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1319.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1320.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1321.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1322.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1323.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1324.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1325.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1327.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1328.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1329.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1330.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1331.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1332.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333count.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333cycli.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1334.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1340.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1341.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1342.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1343.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1345.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1346.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1347.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1348.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1349.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1350.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1351.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1352.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1353.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1354.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1355.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1356.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1357.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1358.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1359.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1360.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1361.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1362.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1363.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1364.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1365.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1366.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1367.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1369.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1370.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1371.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1372.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1373.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1374.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1375.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1376.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1377.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1378.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1379.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1380.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1381.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1382.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1383.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1384.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1385.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1386.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1387.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1388.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1389.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1390.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1391.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1393.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1399.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1401.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1421.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1422.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1424.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1425.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1435.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1436.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1437.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1438.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1439.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1440.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1450.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1451.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1452.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1500.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1501.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1502.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1503.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1504.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1505.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1506.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1507.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1508.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1510.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1511.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1512.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1513.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1514.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1515.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1516.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1517.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1518.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1520.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1521.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1522.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1528.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1529.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1530.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1531.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1534.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1535.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1536.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1537.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1538.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1539.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1540.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1541.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1542.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1600.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1601.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1602.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1603.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1604.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1605.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1606.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1607.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1608.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1609.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1611.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1612.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1613.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1613bez.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1614.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1615.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1616.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1617.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1618.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1619.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1620.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1630.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1631.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1700.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1701.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1705.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1706.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1707.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1708.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1710.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1711.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1712.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1713.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1714.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1715.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1716.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1720.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1730.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1731.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1732.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1733.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1741.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1750.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1753.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1754.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1755.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1770.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s17702d.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1771.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1772.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1773.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1774.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1775.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1780.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1785.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1786.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1787.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1788.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1789.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1790.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1791.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1792.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1795.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1796.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1797.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1830.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1834.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1839.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1840.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1850.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1851.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1852.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1853.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1854.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1855.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1856.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1857.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1858.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1859.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1860.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1870.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1871.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1880.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1890.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1891.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1893.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1894.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1896.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1897.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1900.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1901.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1902.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1903.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1904.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1905.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1906.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1907.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1908.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1909.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1910.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1911.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1912.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1916.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1917.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1918.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1919.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1920.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1921.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1924.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1925.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1926.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1927.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1930.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1931.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1931unit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1932.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1933.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1934.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1935.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1936.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1937.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1938.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1940.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1941.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1942.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1943.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1944.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1945.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1946.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1947.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1948.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1949.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1950.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1951.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1953.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1954.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1955.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1956.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1957.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1958.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1959.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1960.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1961.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1962.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1963.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1965.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1966.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1967.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1968.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1986.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1987.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1988.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1989.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1990.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1991.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1992.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1993.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1994.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2500.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2501.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2502.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2503.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2504.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2505.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2506.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2507.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2508.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2509.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2510.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2511.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2512.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2513.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2514.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2515.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2516.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2532.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2533.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2534.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2535.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2536.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2540.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2541.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2542.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2543.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2544.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2545.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2550.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2551.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2553.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2554.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2555.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2556.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2557.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2558.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2559.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2560.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2561.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2562.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6addcurve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6affdist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6ang.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6angle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6castelja.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6chpar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crvature.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crvcheck.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6curvrad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6decomp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6degnorm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dertopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6diff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dline.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dplane.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6drawseq.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6equal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6err.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6existbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6findfac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6fndintv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6herm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6herm_bez.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idcon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idcpt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idedg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6identify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idget.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idklist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idkpt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idlis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idnpt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6inv4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6invert.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6knotmult.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6length.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6line.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lprj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lufacp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lusolp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6metric.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6move.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6mulvec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6mvec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6newbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6ratder.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6rotax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6rotmat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6schoen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6scpr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6sortpar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6sratder.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6strider.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6takunion.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6twonorm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9adsimp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9adstep.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9boundimp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9boundit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9clipimp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9clipit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9conmarch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9iterate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9iterimp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9smplknot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9surmarch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1260.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1261.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1262.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1263.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1365.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1369.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1371.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1372.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1373.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1374.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1375.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1460.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1461.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1462.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1463.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1464.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1465.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1466.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1467.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1502.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1503.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1510.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1511.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1761.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1762.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1779.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1779_at.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1780.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1780_at.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1781.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1781_at.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1782.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1783.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1784.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1786.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1787.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1790.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1794.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1830.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1831.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1834.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1839.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1850.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1851.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1852.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1853.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1854.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1855.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1856.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1857.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1858.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1859.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1860.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1870.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1871.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1922.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1923.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1924.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1925.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1926.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1927.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1928.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1929.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1930.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1992.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1993.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1994.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6clvert.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6comedg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6connect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6count.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6cvvert.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6degen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6disconn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6edgpnt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6edgred.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6evalint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6floop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6fndsplt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getgeom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getlist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getnbrs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getnext.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getothr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getprev.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getsegdiv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6gettop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idaledg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idcon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idfcros.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idget.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idkpt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idlis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idnpt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idnwun.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idrcros.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idsplit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idunite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6insert.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6inspnt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6iscnect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ishelp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6isinsid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ismain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6nmbhelp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6nmbmain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ptobj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ptouchp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6putsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6red.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6remcon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6rempnt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6sepcrv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setcnsd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setdir.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setseg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6settop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6spltgeo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6tohelp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6tomain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6topohlp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6trmlist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_1d_div.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_div_crv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_set_at.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shape.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shcheckput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shchecktyp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shcsfsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shdivsurf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shevalc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shmkhlppts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\spli_silh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\tstcyclknt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sisl-copyright.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sisl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sislP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Workspaces\MPC\SISL-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{8B9B6258-55C0-32BF-B619-CF1E42FAE3D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{054B6F52-5612-357A-BEDF-A6E3A14CEC92}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

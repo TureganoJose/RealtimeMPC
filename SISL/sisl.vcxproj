@@ -1,0 +1,1128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ACF13479-B39B-3F45-A3FA-EFD6AFD572EC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>sisl</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Workspaces\MPC\SISL\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">sisl.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">sisl</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sisl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Workspaces\MPC\SISL\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">sisl.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">sisl</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sisl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Workspaces\MPC\SISL\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">sisl.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">sisl</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">sisl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Workspaces\MPC\SISL\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">sisl.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">sisl</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">sisl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>8</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Workspaces\MPC\SISL-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Workspaces\MPC\SISL-master\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Workspaces/MPC/SISL-master -BC:/Workspaces/MPC/SISL --check-stamp-file C:/Workspaces/MPC/SISL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.17\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.17\Templates\CPackConfig.cmake.in;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeCXXCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeRCCompiler.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\3.17.0-rc2\CMakeSystem.cmake;C:\Workspaces\MPC\SISL\CMakeFiles\feature_tests.cxx;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Workspaces\MPC\SISL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sisl-copyright.h" />
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sisl.h" />
+    <ClInclude Include="C:\Workspaces\MPC\SISL-master\include\sislP.h" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\construct.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvarctang.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvcrvtang.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\crvlintang.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\destruct.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\ev_cv_off.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\eval_2_crv.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\evalcrvarc.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\hp_s1880.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\intjoinper.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\make3D.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\makecvkreg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\makesfkreg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\maketracks.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\mk_cv_cycl.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\newknots.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\pickcrvsf.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\pocrvtang.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\refine_all.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1001.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1011.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1012.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1013.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1014.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1015.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1016.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1017.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1018.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1021.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1022.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1023.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1024.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1025.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1119.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1161.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1162.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1172.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1173.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1174.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1190.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1192.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1219.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1220.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1221.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1222.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1223.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1224.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1225.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1226.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1227.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1231.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1232.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1233.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1235.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1236.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1237.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1238.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1239.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1240.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1241.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1243.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1244.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1245.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1251.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1252.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1291.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1301.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1302.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1303.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1304.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1305.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1306.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1307.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1308.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1309.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1310.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1311.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1312.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1313.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1314.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1315.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1316.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1317.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1318.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1319.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1320.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1321.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1322.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1323.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1324.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1325.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1327.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1328.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1329.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1330.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1331.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1332.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333count.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1333cycli.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1334.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1340.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1341.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1342.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1343.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1345.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1346.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1347.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1348.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1349.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1350.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1351.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1352.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1353.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1354.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1355.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1356.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1357.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1358.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1359.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1360.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1361.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1362.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1363.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1364.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1365.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1366.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1367.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1369.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1370.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1371.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1372.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1373.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1374.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1375.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1376.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1377.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1378.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1379.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1380.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1381.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1382.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1383.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1384.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1385.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1386.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1387.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1388.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1389.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1390.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1391.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1393.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1399.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1401.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1421.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1422.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1424.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1425.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1435.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1436.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1437.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1438.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1439.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1440.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1450.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1451.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1452.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1500.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1501.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1502.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1503.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1504.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1505.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1506.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1507.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1508.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1510.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1511.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1512.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1513.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1514.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1515.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1516.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1517.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1518.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1520.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1521.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1522.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1528.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1529.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1530.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1531.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1534.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1535.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1536.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1537.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1538.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1539.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1540.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1541.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1542.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1600.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1601.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1602.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1603.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1604.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1605.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1606.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1607.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1608.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1609.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1611.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1612.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1613.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1613bez.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1614.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1615.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1616.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1617.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1618.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1619.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1620.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1630.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1631.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1700.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1701.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1705.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1706.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1707.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1708.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1710.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1711.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1712.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1713.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1714.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1715.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1716.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1720.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1730.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1731.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1732.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1733.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1741.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1750.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1753.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1754.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1755.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1770.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s17702d.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1771.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1772.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1773.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1774.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1775.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1780.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1785.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1786.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1787.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1788.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1789.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1790.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1791.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1792.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1795.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1796.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1797.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1830.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1834.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1839.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1840.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1850.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1851.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1852.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1853.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1854.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1855.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1856.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1857.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1858.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1859.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1860.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1870.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1871.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1880.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1890.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1891.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1893.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1894.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1896.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1897.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1900.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1901.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1902.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1903.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1904.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1905.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1906.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1907.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1908.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1909.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1910.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1911.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1912.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1916.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1917.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1918.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1919.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1920.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1921.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1924.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1925.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1926.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1927.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1930.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1931.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1931unit.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1932.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1933.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1934.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1935.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1936.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1937.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1938.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1940.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1941.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1942.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1943.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1944.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1945.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1946.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1947.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1948.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1949.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1950.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1951.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1953.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1954.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1955.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1956.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1957.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1958.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1959.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1960.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1961.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1962.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1963.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1965.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1966.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1967.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1968.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1986.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1987.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1988.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1989.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1990.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1991.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1992.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1993.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s1994.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2500.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2501.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2502.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2503.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2504.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2505.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2506.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2507.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2508.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2509.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2510.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2511.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2512.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2513.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2514.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2515.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2516.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2532.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2533.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2534.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2535.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2536.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2540.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2541.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2542.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2543.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2544.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2545.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2550.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2551.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2553.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2554.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2555.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2556.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2557.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2558.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2559.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2560.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2561.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s2562.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6addcurve.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6affdist.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6ang.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6angle.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6castelja.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6chpar.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crss.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crvature.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6crvcheck.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6curvrad.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6decomp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6degnorm.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dertopt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6diff.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dist.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dline.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6dplane.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6drawseq.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6equal.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6err.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6existbox.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6findfac.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6fndintv.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6herm.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6herm_bez.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idcon.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idcpt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idedg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6identify.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idget.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idint.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idklist.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idkpt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idlis.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idnpt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6idput.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6inv4.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6invert.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6knotmult.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6length.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6line.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lprj.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lufacp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6lusolp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6metric.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6move.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6mulvec.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6mvec.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6newbox.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6norm.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6ratder.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6rotax.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6rotmat.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6schoen.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6scpr.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6sortpar.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6sratder.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6strider.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6takunion.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s6twonorm.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9adsimp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9adstep.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9boundimp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9boundit.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9clipimp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9clipit.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9conmarch.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9iterate.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9iterimp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9smplknot.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\s9surmarch.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1260.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1261.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1262.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1263.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1365.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1369.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1371.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1372.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1373.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1374.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1375.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1460.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1461.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1462.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1463.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1464.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1465.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1466.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1467.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1502.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1503.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1510.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1511.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1761.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1762.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1779.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1779_at.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1780.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1780_at.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1781.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1781_at.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1782.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1783.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1784.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1786.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1787.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1790.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1794.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1830.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1831.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1834.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1839.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1850.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1851.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1852.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1853.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1854.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1855.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1856.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1857.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1858.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1859.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1860.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1870.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1871.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1922.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1923.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1924.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1925.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1926.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1927.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1928.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1929.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1930.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1992.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1993.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh1994.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6clvert.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6comedg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6connect.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6count.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6cvvert.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6degen.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6disconn.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6edgpnt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6edgred.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6evalint.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6floop.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6fndsplt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getgeom.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getlist.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getmain.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getnbrs.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getnext.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getothr.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getprev.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6getsegdiv.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6gettop.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idaledg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idcon.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idfcros.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idget.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idkpt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idlis.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idnpt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idnwun.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idput.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idrcros.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idsplit.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6idunite.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6insert.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6inspnt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6iscnect.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ishelp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6isinsid.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ismain.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6nmbhelp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6nmbmain.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ptobj.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6ptouchp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6putsing.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6red.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6remcon.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6rempnt.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6sepcrv.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setcnsd.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setdir.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6setseg.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6settop.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6spltgeo.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6tohelp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6tomain.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6topohlp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh6trmlist.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_1d_div.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_div_crv.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\sh_set_at.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shape.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shcheckput.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shchecktyp.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shcsfsing.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shdivsurf.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shevalc.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shmkhlppts.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\shsing.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\spli_silh.c" />
+    <ClCompile Include="C:\Workspaces\MPC\SISL-master\src\tstcyclknt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Workspaces\MPC\SISL\ZERO_CHECK.vcxproj">
+      <Project>{A0D5D8A7-FC7A-3070-B780-584543532F31}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

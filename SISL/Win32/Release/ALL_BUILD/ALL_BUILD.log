@@ -1,0 +1,9 @@
+﻿Build started 21/03/2020 09:34:05.
+     1>Project "C:\Workspaces\MPC\SISL\ALL_BUILD.vcxproj" on node 3 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt
+     1>Done Building Project "C:\Workspaces\MPC\SISL\ALL_BUILD.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.24

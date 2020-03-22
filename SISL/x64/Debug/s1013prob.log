@@ -1,0 +1,16 @@
+﻿Build started 21/03/2020 11:43:12.
+     1>Project "C:\Workspaces\MPC\SISL\s1013prob.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (sisl.vcxproj, SislNurbs.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>CustomBuild:
+         Building Custom Rule C:/Workspaces/MPC/SISL-master/CMakeLists.txt
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Workspaces\MPC\SISL-master\include" /Zi /nologo /W3 /WX- /MP8 /Od /Ob0 /D WIN32 /D _WINDOWS /D _SCL_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt "C:\Workspaces\MPC\SISL-master\app\s1013prob.C"
+         s1013prob.C
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Workspaces\MPC\SISL\x64\Debug\s1013prob.exe" /INCREMENTAL /NOLOGO Debug\sisl.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Workspaces/MPC/SISL/Debug/s1013prob.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Workspaces/MPC/SISL/Debug/s1013prob.lib" /MACHINE:X64  /machine:X86 x64\Debug\s1013prob.obj
+     1>x64\Debug\s1013prob.obj : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'X86'
+     1>Done Building Project "C:\Workspaces\MPC\SISL\s1013prob.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.56
