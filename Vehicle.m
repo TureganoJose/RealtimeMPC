@@ -7,7 +7,7 @@ classdef Vehicle < handle
       wheelbase = 1.006+1.534;
       c_f = 70000;
       c_r = 130000;
-      delta_t = 0.2;
+      delta_t = 0.05;
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
