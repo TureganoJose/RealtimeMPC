@@ -5,18 +5,18 @@ clc
 
 %% Load track
 load('.\Tracks\track.mat')
-
+TrackScale = 1;
 figure(1);
-plot(track.outer(1,:),track.outer(2,:),'r')
+plot(track.outer(1,:)*TrackScale,track.outer(2,:)*TrackScale,'r')
 hold on
-plot(track.inner(1,:),track.inner(2,:),'r')
+plot(track.inner(1,:)*TrackScale,track.inner(2,:)*TrackScale,'r')
 hold on
-plot(track.center(1,:),track.center(2,:),'k.')
+plot(track.center(1,:)*TrackScale,track.center(2,:)*TrackScale,'k.')
 hold on
 % Vector form of track
 for i=1:1:666
-    vector(2*i-1)= track.center(1,i);
-    vector(2*i)=track.center(2,i);
+    vector(2*i-1)= track.center(1,i)*TrackScale;
+    vector(2*i)=track.center(2,i)*TrackScale;
     nptyp(i)=1;
 end
 
@@ -58,13 +58,13 @@ TrackSpline = nrbmak(track.center,knots);
 
 %% Input Parameters and class construction
 car = Vehicle;
-tSim = 5;
-tHorizon = 5;
+tSim = 100;
+tHorizon = 3;
 
 % Initial matrix state
 startIdx = 63;
-car.x0 = track.center(1,startIdx);
-car.y0 = track.center(2,startIdx);
+car.x0 = track.center(1,startIdx)*TrackScale;
+car.y0 = track.center(2,startIdx)*TrackScale;
 car.u0 = 20.0;
 car.v0 = 0.0;
 car.r0 = 0.0;
@@ -77,27 +77,47 @@ position = [0, 0, 0, 0];
 car.a_heading0 = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(1));
 
 
+% Test Nurbs vs Splines
+% for theta=1:3000
+%     test1(theta) = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
+%     test2(theta) = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,theta);
+% end
+% figure(2)
+% plot(1:3000,test1,'b.')
+% hold on
+% plot(1:3000,test2,'r.')
+
+
 %% Main Loop
 NHorizon = tHorizon/car.delta_t;
-
 dist_weights=ones(1,NHorizon);
 head_weights=ones(1,NHorizon)*50;
 
 %Init aSteer
-input_Steering = 0.00 .*ones(1,NHorizon);
-cost = Function_Cost(car,tHorizon,input_Steering,dist_weights,head_weights,Track_Nurbs);
-CarState =  car.RunSimulation(tHorizon,input_Steering);
+input_vSteering = 0.00 .*ones(1,NHorizon);
+cost = Function_Cost(car,tHorizon,input_vSteering,dist_weights,head_weights,Track_Nurbs);
+CarState =  car.RunSimulation(tHorizon,input_vSteering);
 % plot( CarState(1,:),CarState(2,:),'b.')
 
 
-% Optimisation
-lb = -ones(1,NHorizon)*0.3;
-ub = ones(1,NHorizon)*0.3;
+% Optimisation - First step
+lb = -ones(1,NHorizon)*0.2518; % Assuming 500 deg/s of steering and steering ratio of 
+ub = ones(1,NHorizon)*0.2518;
 A = [];
 b = [];
 Aeq = [];
 beq = [];
 x0 = zeros(1,NHorizon); %aSteering = zeros(1,NHorizon);
+% % %Initial guess based on heading angle derivative
+% a_steereing_angle_guess = zeros(1,NHorizon);
+% for iInitialGuess = 1: NHorizon
+%     param_dist = param_dist + [car.delta_t*car.u0 0]; %  param dist
+%     position = [0, 0, 0, 0];
+%     a_steereing_angle_guess(iInitialGuess) = atan2(ppval(traj.dppy,param_dist(1)),ppval(traj.dppx,param_dist(1)));%calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(1));
+%     if(iInitialGuess>1)
+%         x0(iInitialGuess) = (a_steereing_angle_guess(iInitialGuess)-a_steereing_angle_guess(iInitialGuess-1))/car.delta_t;
+%     end
+% end
 options = optimoptions('fmincon','Display','iter');
 nonlcon = [];
 
@@ -107,6 +127,8 @@ cost = @(aSteering)Function_Cost(car,tHorizon,aSteering,dist_weights,head_weight
 x = fmincon(cost,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
 
 CarState =  car.RunSimulation(tHorizon,x);
+
+
 figure(1)
 hold on
 plot( CarState(1,:),CarState(2,:),'b.')

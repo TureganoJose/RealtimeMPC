@@ -14,33 +14,38 @@ classdef Vehicle < handle
       u = 10.0;
       v = 0.0;
       r = 0.0;
+      a_wheel_angle = 0.0;
       x0 = 0.0;
       y0 = 0.0;
       a_heading0 = 0.0;
       u0 = 10.0;
       v0 = 0.0;
       r0 = 0.0;
+      a_wheel_angle0 = 0.0;
       dot_u = 0.0;
       dot_v = 0.0;
       dot_r = 0.0;
     end
     methods
-        function obj = Calculate_states(obj,a_wheel_angle)
-            % State vector: x y u v a_heading r 
+        function obj = Calculate_states(obj,v_wheel_angle)
+            % State vector: x y u v a_heading r a_wheel_angle
 
+            % Steering angle
+            obj.a_wheel_angle = obj.a_wheel_angle + obj.delta_t * v_wheel_angle;
+            
             % Slip angles
-            alpha_f = a_wheel_angle - atan2((obj.v + obj.a*obj.r),abs(obj.u));
+            alpha_f = obj.a_wheel_angle - atan2((obj.v + obj.a*obj.r),abs(obj.u));
             alpha_r = atan2(-obj.v+obj.b*obj.r,obj.u);
 
             % Force
             force_f = obj.c_f.*alpha_f;
             force_r = obj.c_r.*alpha_r;
+            
             % Equations of motion
-            % Constant longitudinal speed
-                       
+            % Constant longitudinal speed         
             obj.dot_u = 0;
-            obj.dot_v = ((1/obj.mass).* ( force_f.*cos(a_wheel_angle) + force_r)) - obj.r.*obj.u;
-            obj.dot_r = (obj.a*force_f.*cos(a_wheel_angle) - obj.b.*force_r)/obj.Izz;
+            obj.dot_v = ((1/obj.mass).* ( force_f.*cos(obj.a_wheel_angle) + force_r)) - obj.r.*obj.u;
+            obj.dot_r = (obj.a*force_f.*cos(obj.a_wheel_angle) - obj.b.*force_r)/obj.Izz;
             
             % Euler
             obj.v = obj.v + obj.dot_v * obj.delta_t;
@@ -60,18 +65,19 @@ classdef Vehicle < handle
 %             obj.x = obj.x + speed * cos(obj.a_heading+beta) * obj.delta_t;
 %             obj.y = obj.y + speed * sin(obj.a_heading+beta) * obj.delta_t;
         end
-        function state_matrix = RunSimulation(obj,tfinal,a_wheel_angle)
+        function state_matrix = RunSimulation(obj,tfinal,v_wheel_angle)
             NHorizon = tfinal/obj.delta_t;
             state_matrix = zeros(6,NHorizon);
             obj.InitVehicle();
             for i=1:NHorizon
-                obj.Calculate_states(a_wheel_angle(i));
+                obj.Calculate_states(v_wheel_angle(i));
                 state_matrix(1,i) = obj.x;
                 state_matrix(2,i) = obj.y;
                 state_matrix(3,i) = obj.u;
                 state_matrix(4,i) = obj.v;
                 state_matrix(5,i) = obj.a_heading;
                 state_matrix(6,i) = obj.r;
+                state_matrix(7,i) = obj.a_wheel_angle;
             end
         end
         function obj = InitVehicle(obj)
@@ -81,6 +87,7 @@ classdef Vehicle < handle
           obj.u = obj.u0;
           obj.v = obj.v0;
           obj.r = obj.r0;
+          obj.a_wheel_angle = obj.a_wheel_angle0;
         end
     end
 end
