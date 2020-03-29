@@ -1,6 +1,6 @@
-function cost = Function_Cost(car,tHorizon,aSteering,dist_weights,head_weights,track)
+function cost = Function_Cost(car,tHorizon,vSteering,dist_weights,head_weights,track)
 
-    State_Variables = car.RunSimulation(tHorizon,aSteering);
+    State_Variables = car.RunSimulation(tHorizon,vSteering);
     % compute squared distance to the current location   
     NHorizon = size(State_Variables,2);
     error_distance = zeros(1, NHorizon);
