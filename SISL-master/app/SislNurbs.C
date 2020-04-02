@@ -104,7 +104,8 @@ int main()
 	double dist;
 	int jstat3;
 
-	s1957(result_curve, point, idim, aepsco, aepsge, &param, &dist, &jstat3);
+	s1957(result_curve, point, idim, aepsco, aepsge, &param, &dist, &jstat3);
+
 	printf("Error %d Param %lf dist %lf \n", jstat3, param, dist);
 
 
@@ -136,7 +137,7 @@ SISLCurve* createNURBS(double epoint[], int nptyp[], int num_points)
 	int icnsta = 0; // no additional condition at start point
 	int icnend = 0; // no additional condition at end point
 	int iopen = -1; // periodic close
-	int ik = 2; // order of the spline curve to be produced
+	int ik = 3; // order of the spline curve to be produced
 	double astpar = 0.0; // parameter value to be used at start of curve
 	double cendpar = 0.0; // parameter value at the end of the curve (to be determined)
 	SISLCurve *result_curve = NULL; // the resulting spline curve (to be determined)
@@ -158,7 +159,7 @@ double* interrogateNURBS(SISLCurve *Curve, double param, double position[4])
 	double parvalue = param;// result_curve->et[result_curve->in]; //end parameter
 
 	s1227(Curve,          // input curve
-		1,           // evaluate position and derivatives
+		0,           // evaluate position and derivatives
 		parvalue,   // input parameter
 		&temp,       // indicates param. interval (not interesting for our purposes)
 		position, // this is what we want to calculate (3D position)

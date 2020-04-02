@@ -25,6 +25,7 @@ classdef Vehicle < handle
       dot_u = 0.0;
       dot_v = 0.0;
       dot_r = 0.0;
+      J = []; %Placeholder for Jacobian matrix
     end
     methods
         function obj = Calculate_states(obj,v_wheel_angle)
@@ -83,11 +84,64 @@ classdef Vehicle < handle
         function obj = InitVehicle(obj)
           obj.x = obj.x0;
           obj.y = obj.y0;
-          obj.a_heading = obj.a_heading0;
           obj.u = obj.u0;
           obj.v = obj.v0;
+          obj.a_heading = obj.a_heading0;
           obj.r = obj.r0;
           obj.a_wheel_angle = obj.a_wheel_angle0;
+        end
+        function obj = Jacobian_function(obj)
+            % returns the discretized, linearized model about (Xbar_k,Ubar_k)
+            % s.t. x(k+1) = Ad*x(k) + Bd*u(k) + gd
+            % x = [ x y u v a_heading r a_wheel_angle ]
+            % u = v_wheel_angle
+            syms x y u v a_heading r a_wheel_angle v_wheel_angle
+
+            a = obj.a;
+            b = obj.b;
+            c_f = obj.c_f;
+            c_r = obj.c_r;
+            mass = obj.mass;
+            Izz = obj.Izz;
+            
+            
+            %slip angles
+            syms alpha_f alpha_r  
+            alpha_f(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle) = a_wheel_angle - atan2((v + a*r),abs(u));
+            alpha_r(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle) = atan2(-v+b*r,u);
+
+            % Force
+            syms force_f force_r
+            force_f(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle) = c_f*alpha_f;
+            force_r(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle) = c_r*alpha_r;
+            
+            
+            %dX
+            f1(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle)= u*cos(a_heading) - v * sin(a_heading);
+            
+            %dY
+            f2(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle)= u*sin(a_heading) + v * cos(a_heading);
+            
+            %du=0;
+            f3 = 0;
+            
+            %dv;
+            f4(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle)= ((1/mass)* ( force_f*cos(a_wheel_angle) + force_r)) - r*u;
+            
+            %da_heading = r
+            f5(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle)= r;
+            
+            %dr
+            f6(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle)= (a*force_f*cos(a_wheel_angle) - b*force_r)/Izz;
+            
+            %da_wheel_angle
+            f7(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle) = v_wheel_angle;
+            
+            
+            obj.J = jacobian([f1,f2,f3,f4,f5,f6,f7],[x, y, u, v, a_heading, r, a_wheel_angle]);
+        end
+        function Jacobian_output = Jacobian_eval(obj,v_wheel_angle)
+            Jacobian_output = obj.J(obj.x, obj.y, obj.u, obj.v, obj.a_heading, obj.r, obj.a_wheel_angle);
         end
     end
 end

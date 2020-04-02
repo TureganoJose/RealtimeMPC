@@ -1,7 +1,12 @@
 clear all
 close all
 clc
+% Lots of solvers. Wrong calculation of theta
 % https://arxiv.org/pdf/1711.07300.pdf
+% Approach QP
+% https://arxiv.org/pdf/1903.04240.pdf
+% https://www.researchgate.net/publication/308737646_From_linear_to_nonlinear_MPC_bridging_the_gap_via_the_real-time_iteration
+
 
 %% Load track
 load('.\Tracks\track.mat')
@@ -183,7 +188,7 @@ plot( CarState(1,:),CarState(2,:),'b.')
 %% Unloading NURBS
 
 calllib('SislNurbs','freeNURBS',Track_Nurbs)
-% unloadlibrary SislNurbs
+unloadlibrary SislNurbs
 
 % plot( CarState(1,:),CarState(2,:),'b.')
 
