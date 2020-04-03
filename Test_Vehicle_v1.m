@@ -8,6 +8,9 @@ clc
 % https://www.researchgate.net/publication/308737646_From_linear_to_nonlinear_MPC_bridging_the_gap_via_the_real-time_iteration
 % from Stanford
 % Vehicle formulation with trajectory error
+% Roborace
+% https://github.com/TUMFTM/global_racetrajectory_optimization/blob/master/opt_mintime_traj/src/opt_mintime.py
+
 
 %% Load track
 load('.\Tracks\track.mat')
@@ -24,22 +27,20 @@ plot(track.inner(1,:),track.inner(2,:),'r')
 hold on
 plot(track.center(1,:),track.center(2,:),'k.')
 hold on
-% Vector form of track
-for i=1:1:666
-    vector(2*i-1)= track.center(1,i);
-    vector(2*i)=track.center(2,i);
-    nptyp(i)=1;
-end
+%% Parameterized spline
+
+% NTrack = size(track.center,2);
+% theta_param = zeros(1,NTrack);
+% 
+% for i=2:1:NTrack
+%     theta_param(i) = sqrt( (track.center(1,i)-track.center(1,i-1))^2 + (track.center(2,i)-track.center(2,i-1))^2 );
+% end
+% psx = spline(theta_param,track.center(1,:));
+% psy = spline(theta_param,track.center(2,:));
+
 
 % Load library
-addpath('C:\Workspaces\MPC\SISL\x64\Debug')
-addpath('C:\Workspaces\MPC\SISL-master\app')
-addpath('C:\Workspaces\MPC\SISL-master\include')
-loadlibrary('SislNurbs.dll','SislNurbs.h')
-% libfunctions('SislNurbs')
-% libfunctionsview SislNurbs
 
-Track_Nurbs = calllib('SislNurbs','createNURBS',vector,nptyp,666);
 
 %,'addheader','SislNurbs.h','includepath','C:\Workspaces\MPC\SISL-master\app'
 %C:\Workspaces\MPC\SISL-master\include
@@ -68,43 +69,49 @@ TrackSpline = nrbmak(track.center,knots);
 % nrbplot(TrackSpline, 2);
 
 %% Input Parameters and class construction
-car = Vehicle;
+car = Vehicle_v1();
 tSim = 20;
 tHorizon = 3;
+
+car.CreateTrack(track)
 
 % Initial matrix state
 startIdx = 63;
 car.x0 = track.center(1,startIdx);
 car.y0 = track.center(2,startIdx);
+[car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
 car.u0 = 20.0;
 car.v0 = 0.0;
 car.r0 = 0.0;
+car.d_phi = 0.0;
 trackWidth = 5;
 % [theta, ~] = findTheta([track.center(1,startIdx),track.center(2,startIdx)],track.center,traj.ppx.breaks,trackWidth,startIdx);
 % car.a_heading0 = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
-param_dist = [0, 0];
-[~,~,~,param_dist] =  calllib('SislNurbs','closestpoint',Track_Nurbs, [car.x0, car.y0],param_dist );
-
-car.a_heading0 = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(1));
+% param_dist = [0, 0];
+% [~,~,~,param_dist] =  calllib('SislNurbs','closestpoint',Track_Nurbs, [car.x0, car.y0],param_dist );
+% 
+car.a_heading0 = car.CalculateTrackPhi(car.s0);
 car.a_wheel_angle0 = 0.0;
 
-% Test Nurbs vs Splines
-for theta=1:3000
-    test1(theta) = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
-    position = [0, 0, 0, 0];
-    [~,~,position]=calllib('SislNurbs','interrogateNURBS',Track_Nurbs,theta,position);
-    xtest(theta)=position(1);
-    ytest(theta)=position(2);
-    test2(theta) = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,theta);
-end
-figure(1)
-hold on
-plot(xtest,ytest,'g.')
 
-figure(2)
-plot(1:3000,test1,'b.')
-hold on
-plot(1:3000,test2,'r.')
+
+% Test Nurbs vs Splines
+% for theta=1:3000
+%     test1(theta) = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
+%     position = [0, 0, 0, 0];
+%     [~,~,position]=calllib('SislNurbs','interrogateNURBS',Track_Nurbs,theta,position);
+%     xtest(theta)=position(1);
+%     ytest(theta)=position(2);
+%     test2(theta) = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,theta);
+% end
+% figure(1)
+% hold on
+% plot(xtest,ytest,'g.')
+% 
+% figure(2)
+% plot(1:3000,test1,'b.')
+% hold on
+% plot(1:3000,test2,'r.')
 
 
 %% Main Loop
@@ -114,10 +121,20 @@ head_weights=ones(1,NHorizon)*50;
 
 %Init aSteer
 input_vSteering = 0.00 .*ones(1,NHorizon);
-cost = Function_Cost(car,tHorizon,input_vSteering,dist_weights,head_weights,Track_Nurbs);
-CarState =  car.RunSimulation(tHorizon,input_vSteering);
-% plot( CarState(1,:),CarState(2,:),'b.')
-
+% cost = Function_Cost(car,tHorizon,input_vSteering,dist_weights,head_weights,Track_Nurbs);
+[StateVariables, CarStates] =  car.RunSimulation(tHorizon,input_vSteering);
+plot( CarStates(1,:),CarStates(2,:),'b.')
+for i=1:NHorizon
+    [real_s,real_e] =  car.CalculateTrackdistance(CarStates(1,i),CarStates(2,i));
+    figure(2)
+    plot(i,real_s,'b.')
+    hold on
+    plot(i,CarStates(3,i),'r.')
+    figure(3)
+    plot(i,real_e,'b.')
+    hold on
+    plot(i,-StateVariables(4,i),'r.')
+end
 
 % Optimisation - First step
 lb = -ones(1,NHorizon)*0.2518; % Assuming 500 deg/s of steering and steering ratio of 
