@@ -137,12 +137,7 @@ for i=1:NHorizon
 end
 
 % Optimisation - First step
-lb = -ones(1,NHorizon)*0.2518; % Assuming 500 deg/s of steering and steering ratio of 
-ub = ones(1,NHorizon)*0.2518;
-A = [];
-b = [];
-Aeq = [];
-beq = [];
+
 x0 = zeros(1,NHorizon); %aSteering = zeros(1,NHorizon);
 % %Initial guess based on heading angle derivative
 a_steereing_angle_guess = zeros(1,NHorizon);
@@ -154,13 +149,9 @@ for iInitialGuess = 1: NHorizon
         x0(iInitialGuess) = (a_steereing_angle_guess(iInitialGuess)-a_steereing_angle_guess(iInitialGuess-1))/car.delta_t;
     end
 end
-options = optimoptions('fmincon','Display','iter');
-nonlcon = [];
-
-cost = @(vSteering)Function_Cost(car,tHorizon,vSteering,dist_weights,head_weights,Track_Nurbs);
 
 
-x = fmincon(cost,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
+[ X,U,dU,info ] = Function_Cost(car,tHorizon,vSteering,x0,u0);
 
 CarState =  car.RunSimulation(tHorizon,x);
 

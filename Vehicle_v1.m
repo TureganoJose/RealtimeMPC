@@ -47,7 +47,7 @@ classdef Vehicle_v1 < handle
         end
         function obj = Calculate_states(obj,v_wheel_angle)
             % Slip angles
-            alpha_f = obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),abs(obj.u));
+            alpha_f = obj.a_wheel_angle - atan2((obj.v + obj.a*obj.r),abs(obj.u));
             alpha_r = atan2(-obj.v+obj.b*obj.r,obj.u);
 
             % Force
@@ -84,7 +84,7 @@ classdef Vehicle_v1 < handle
             % Steering
             obj.a_wheel_angle = obj.a_wheel_angle + obj.delta_t * v_wheel_angle;
             
-            %% dot state vector dot_v dot_r dot_d_phi v_wheel_angle
+            %% dot state vector dot_v dot_r dot_d_phi dot_e v_wheel_angle
             %dot_s
             obj.dot_s = obj.u - obj.v * obj.d_phi;
             %dot_e
@@ -149,65 +149,80 @@ classdef Vehicle_v1 < handle
           obj.e = obj.e0;
           obj.d_phi = obj.d_phi0;
         end
-%         function obj = Jacobian_function(obj)
-%             % returns the discretized, linearized model about (Xbar_k,Ubar_k)
-%             % s.t. x(k+1) = Ad*x(k) + Bd*u(k) + gd
-%             % x = [ x y u v a_heading r a_wheel_angle ]
-%             % u = v_wheel_angle
-%             syms x y u v a_heading r a_wheel_angle v_wheel_angle s e V sigma
-%             
-%             a = obj.a;
-%             b = obj.b;
-%             c_f = obj.c_f;
-%             c_r = obj.c_r;
-%             mass = obj.mass;
-%             Izz = obj.Izz;
-%             delta_t = obj.delta_t;
-%             
-%             
-%             %slip angles
-%             syms alpha_f alpha_r  
-%             alpha_f(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma) = a_wheel_angle - atan2((v + a*r),abs(u));
-%             alpha_r(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma) = atan2(-v+b*r,u);
-% 
-%             % Force
-%             syms force_f force_r
-%             force_f(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma) = c_f*alpha_f;
-%             force_r(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma) = c_r*alpha_r;
-%             
-%             
-%             %dX
-%             f1(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma)= u*cos(a_heading) - v * sin(a_heading);
-%             
-%             %dY
-%             f2(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma)= u*sin(a_heading) + v * cos(a_heading);
-%             
-%             %du=0;
-%             f3 = 0;
-%             
-%             %dv;
-%             f4(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma)= ((1/mass)* ( force_f*cos(a_wheel_angle) + force_r)) - r*u;
-%             
-%             %da_heading = r
-%             f5(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma)= r;
-%             
-%             %dr
-%             f6(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma)= (a*force_f*cos(a_wheel_angle) - b*force_r)/Izz;
-%             
-%             %da_wheel_angle
-%             f7(x, y, u, v, a_heading, r, a_wheel_angle, v_wheel_angle, s, e, V, sigma) = v_wheel_angle;
-%             
-%           
-%             %de
-%             f9 = V * cos(sigma);
-%             
-%             %dsigma
-%             f11 = 
-%             
-%             obj.J = jacobian([f1,f2,f3,f4,f5,f6,f7],[x, y, u, v, a_heading, r, a_wheel_angle]);
-%         end
-%         function Jacobian_output = Jacobian_eval(obj,v_wheel_angle)
-%             Jacobian_output = obj.J(obj.x, obj.y, obj.u, obj.v, obj.a_heading, obj.r, obj.a_wheel_angle);
-%         end
+        function obj = Jacobian_function(obj)
+            % returns the discretized, linearized model about (Xbar_k,Ubar_k)
+            % s.t. x(k+1) = Ad*x(k) + Bd*u(k) + gd
+            % x = [ v r d_phi e a_wheel_angle ]
+            % u = v_wheel_angle
+            syms v r d_phi e a_wheel_angle v_wheel_angle
+            
+            a = obj.a;
+            b = obj.b;
+            c_f = obj.c_f;
+            c_r = obj.c_r;
+            mass = obj.mass;
+            Izz = obj.Izz;
+            delta_t = obj.delta_t;
+            k = 0; %curvature
+            u = obj.u;
+            
+            %slip angles
+            syms alpha_f alpha_r  
+            alpha_f(v, r, d_phi, e, a_wheel_angle) = a_wheel_angle - atan2((v + a*r),abs(u));
+            alpha_r(v, r, d_phi, e, a_wheel_angle) = atan2(-v+b*r,u);
+
+            % Force
+            syms force_f force_r
+            force_f(v, r, d_phi, e, a_wheel_angle) = c_f*alpha_f;
+            force_r(v, r, d_phi, e, a_wheel_angle) = c_r*alpha_r;
+            
+            
+            
+            %% dot state vector dot_v dot_r dot_d_phi dot_e v_wheel_angle
+            % dot_v
+            f1(v, r, d_phi, e, a_wheel_angle)= ((1/mass)* ( force_f*cos(a_wheel_angle) + force_r)) - r*u;
+            % dot_r
+            f2(v, r, d_phi, e, a_wheel_angle)= (a*force_f*cos(a_wheel_angle) - b*force_r)/Izz;
+            % dot_d_phi
+            f3(v, r, d_phi, e, a_wheel_angle)=  r - k*u;
+            % dot_e
+            f4(v, r, d_phi, e, a_wheel_angle)= v + u * d_phi;
+            % dot_a_steering_wheel = v_steering_wheel
+            f5(v, r, d_phi, e, a_wheel_angle)= v_wheel_angle;
+            
+            
+            obj.J = jacobian([f1,f2,f3,f4,f5],[v, r, d_phi, e, a_wheel_angle]);
+        end
+        function Jacobian_output = Jacobian_eval(obj,v_wheel_angle)
+            Jacobian_output = obj.J(obj.v, obj.r, obj.d_phi, obj.e, obj.a_wheel_angle);
+        end
+        function [Ad,Bd,gd] = DiscretizedLinearizedMatrices(obj,x,v_wheel_angle)
+            % Note this is just for one timestep
+            % Vector state x = [v r d_phi e a_wheel_angle]
+            % Control state u = v_wheel_angle
+            Ac = obj.Jacobian_eval(v_wheel_angle);
+            Bc = [0; 0; 0; 0; 1];
+            f  = [obj.dot_v;obj.dot_r;obj.dot_d_phi;obj.dot_e;obj.v_steering_wheel];
+            
+            gc=f-Ac*x-Bc*v_wheel_angle;
+
+            Bc_aug=[Bc gc];
+
+            %discretize
+            su=0;%Num control variables - 1
+            sx=4;%Num state variables - 1
+            tmp = expm([Ac Bc_aug; zeros(su+1,sx+su+1)]*obj.delta_t);
+
+            Ad = zeros(sx+1,sx+1);
+            Bd = zeros(sx+1,su+1);
+            gd = zeros(sx+1,1);
+            Ad(1:sx,1:sx) =tmp(1:sx,1:sx);
+            Bd(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
+            gd(1:sx) =tmp(1:sx,sx+su+1);
+
+            % following to avoid numerical errors
+            Ad(end,end)=1;
+            Bd(end,end)=Ts;
+        end
     end
 end
