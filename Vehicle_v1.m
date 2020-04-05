@@ -7,7 +7,7 @@ classdef Vehicle_v1 < handle
       wheelbase = 1.006+1.534;
       c_f = 70000;
       c_r = 130000;
-      delta_t = 0.05;
+      delta_t = 0.02;
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
@@ -91,7 +91,7 @@ classdef Vehicle_v1 < handle
             obj.dot_e = obj.v + obj.u * obj.d_phi;
             %dot_d_phi
             k=0; %curvature
-            obj.dot_d_phi = obj.r - obj.u;
+            obj.dot_d_phi = obj.r - k*obj.u;
             
             % Lateral position along tracjectory
             obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
@@ -119,7 +119,7 @@ classdef Vehicle_v1 < handle
         function phi_track = CalculateTrackPhi(obj,long_dist)
             phi_track = calllib('SislNurbs','CalculateDerivate',obj.track,long_dist);
         end
-        function [state_matrix, carstate_matrix] = RunSimulation(obj,tfinal,v_wheel_angle)
+        function [state_matrix, dot_state_matrix, carstate_matrix] = RunSimulation(obj,tfinal,v_wheel_angle)
             NHorizon = tfinal/obj.delta_t;
             % State vector: v r d_phi e a_wheel_angle
             state_matrix = zeros(5,NHorizon);
@@ -132,6 +132,11 @@ classdef Vehicle_v1 < handle
                 state_matrix(3,i) = obj.d_phi;
                 state_matrix(4,i) = obj.e;
                 state_matrix(5,i) = obj.a_wheel_angle;
+                dot_state_matrix(1,i) = obj.dot_v;
+                dot_state_matrix(2,i) = obj.dot_r;
+                dot_state_matrix(3,i) = obj.dot_d_phi;
+                dot_state_matrix(4,i) = obj.dot_e;
+                dot_state_matrix(5,i) = v_wheel_angle(i);
                 carstate_matrix(1,i) = obj.x;
                 carstate_matrix(2,i) = obj.y;
                 carstate_matrix(3,i) = obj.s;
@@ -193,36 +198,37 @@ classdef Vehicle_v1 < handle
             
             obj.J = jacobian([f1,f2,f3,f4,f5],[v, r, d_phi, e, a_wheel_angle]);
         end
-        function Jacobian_output = Jacobian_eval(obj,v_wheel_angle)
-            Jacobian_output = obj.J(obj.v, obj.r, obj.d_phi, obj.e, obj.a_wheel_angle);
+        function Jacobian_output = Jacobian_eval(obj,x)
+            Jacobian_output = double(obj.J(x(1), x(2), x(3), x(4), x(5)));
         end
-        function [Ad,Bd,gd] = DiscretizedLinearizedMatrices(obj,x,v_wheel_angle)
+        function [Ak,Bk,gk] = DiscretizedLinearizedMatrices(obj,dot_x,x,v_wheel_angle)
             % Note this is just for one timestep
             % Vector state x = [v r d_phi e a_wheel_angle]
             % Control state u = v_wheel_angle
-            Ac = obj.Jacobian_eval(v_wheel_angle);
+            Ac = obj.Jacobian_eval(x);
             Bc = [0; 0; 0; 0; 1];
-            f  = [obj.dot_v;obj.dot_r;obj.dot_d_phi;obj.dot_e;obj.v_steering_wheel];
+            f  = [dot_x(1);dot_x(2);dot_x(3);dot_x(4);dot_x(5)];
             
-            gc=f-Ac*x-Bc*v_wheel_angle;
+            gc=f-Ac*x'-Bc*v_wheel_angle;
 
             Bc_aug=[Bc gc];
 
             %discretize
-            su=0;%Num control variables - 1
-            sx=4;%Num state variables - 1
+            su=1;%Num control variables 
+            sx=5;%Num state variables 
             tmp = expm([Ac Bc_aug; zeros(su+1,sx+su+1)]*obj.delta_t);
 
-            Ad = zeros(sx+1,sx+1);
-            Bd = zeros(sx+1,su+1);
-            gd = zeros(sx+1,1);
-            Ad(1:sx,1:sx) =tmp(1:sx,1:sx);
-            Bd(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
-            gd(1:sx) =tmp(1:sx,sx+su+1);
+            Ad = zeros(sx,sx);
+            Bd = zeros(sx,su);
+            gd = zeros(sx,1);
+            Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
+            Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
+            gk(1:sx,1) =tmp(1:sx,sx+su+1);
 
+           
             % following to avoid numerical errors
-            Ad(end,end)=1;
-            Bd(end,end)=Ts;
+%             Ad(end,end)=1;
+%             Bd(end,end)=obj.delta_t;
         end
     end
 end
