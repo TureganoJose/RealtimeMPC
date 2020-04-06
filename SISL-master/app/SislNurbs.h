@@ -62,6 +62,16 @@ extern "C" {
 #ifdef __cplusplus
 extern "C" {
 #endif
+	__declspec(dllexport) double CalculateCurvature(SISLCurve *Curve, double param);
+#ifdef __cplusplus
+}
+#endif
+
+
+// Get the position of the current value in the sequence.
+#ifdef __cplusplus
+extern "C" {
+#endif
 	__declspec(dllexport) void freeNURBS(SISLCurve *Curve);
 #ifdef __cplusplus
 }

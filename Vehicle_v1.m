@@ -7,7 +7,7 @@ classdef Vehicle_v1 < handle
       wheelbase = 1.006+1.534;
       c_f = 70000;
       c_r = 130000;
-      delta_t = 0.02;
+      delta_t = 0.01;
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
@@ -15,6 +15,7 @@ classdef Vehicle_v1 < handle
       v = 0.0;
       r = 0.0;
       s = 0.0;
+      k = 0.0;
       e = 0.0;
       d_phi = 0.0;
       a_wheel_angle = 0.0;
@@ -25,6 +26,7 @@ classdef Vehicle_v1 < handle
       v0 = 0.0;
       r0 = 0.0;
       s0 = 0.0;
+      k0 = 0.0;
       e0 = 0.0;
       d_phi0 = 0.0;
       a_wheel_angle0 = 0.0;
@@ -47,12 +49,12 @@ classdef Vehicle_v1 < handle
         end
         function obj = Calculate_states(obj,v_wheel_angle)
             % Slip angles
-            alpha_f = obj.a_wheel_angle - atan2((obj.v + obj.a*obj.r),abs(obj.u));
-            alpha_r = atan2(-obj.v+obj.b*obj.r,obj.u);
+            alpha_f = -obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),abs(obj.u));
+            alpha_r = atan2(obj.v-obj.b*obj.r,obj.u);
 
             % Force
-            force_f = obj.c_f.*alpha_f;
-            force_r = obj.c_r.*alpha_r;
+            force_f = -obj.c_f.*alpha_f;
+            force_r = -obj.c_r.*alpha_r;
             
             % Equations of motion
             % Constant longitudinal speed         
@@ -77,6 +79,10 @@ classdef Vehicle_v1 < handle
             param_dist = [0, 0];
             [~,~,~,param_dist] =  calllib('SislNurbs','closestpoint',obj.track, [obj.x, obj.y],param_dist );           
             
+            %curvature
+            a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+0.01);
+            obj.k = (a_heading_K - a_heading_ref)/0.01;
+            
             % Position along trajectory
             obj.s = obj.s + obj.u * cos(obj.d_phi) * obj.delta_t; %param_dist(1);
                                    
@@ -90,8 +96,7 @@ classdef Vehicle_v1 < handle
             %dot_e
             obj.dot_e = obj.v + obj.u * obj.d_phi;
             %dot_d_phi
-            k=0; %curvature
-            obj.dot_d_phi = obj.r - k*obj.u;
+            obj.dot_d_phi = obj.r - obj.k*obj.u;
             
             % Lateral position along tracjectory
             obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
@@ -168,18 +173,18 @@ classdef Vehicle_v1 < handle
             mass = obj.mass;
             Izz = obj.Izz;
             delta_t = obj.delta_t;
-            k = 0; %curvature
+            k = obj.k; %curvature
             u = obj.u;
             
             %slip angles
             syms alpha_f alpha_r  
-            alpha_f(v, r, d_phi, e, a_wheel_angle) = a_wheel_angle - atan2((v + a*r),abs(u));
-            alpha_r(v, r, d_phi, e, a_wheel_angle) = atan2(-v+b*r,u);
+            alpha_f(v, r, d_phi, e, a_wheel_angle) = -a_wheel_angle + atan2((v + a*r),abs(u));
+            alpha_r(v, r, d_phi, e, a_wheel_angle) = atan2(v-b*r,u);
 
             % Force
             syms force_f force_r
-            force_f(v, r, d_phi, e, a_wheel_angle) = c_f*alpha_f;
-            force_r(v, r, d_phi, e, a_wheel_angle) = c_r*alpha_r;
+            force_f(v, r, d_phi, e, a_wheel_angle) = -c_f*alpha_f;
+            force_r(v, r, d_phi, e, a_wheel_angle) = -c_r*alpha_r;
             
             
             

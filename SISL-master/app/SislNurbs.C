@@ -185,6 +185,20 @@ double* closestpoint(SISLCurve *Curve, double point[2], double output[2])
 	return output;
 }
 
+double CalculateCurvature(SISLCurve *Curve, double param)
+{
+	// Closest point
+	int num_ax = 1;
+	double aepsge = 1e-8;
+	double theta[1];
+	double curvature[1];
+	int jstat;
+
+	theta[0] = param;
+	s2550(Curve, theta, num_ax, curvature, &jstat);
+
+	return curvature[0];
+}
 
 double CalculateDerivate(SISLCurve *Curve, double param)
 {
@@ -209,6 +223,9 @@ double CalculateDerivate(SISLCurve *Curve, double param)
 
 	return atan2((position2[1] - position1[1]) , (position2[0] - position1[0]));
 }
+
+
+
 
 void freeNURBS(SISLCurve *Curve)
 {

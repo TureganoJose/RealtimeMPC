@@ -89,23 +89,30 @@ car.a_heading0 = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(
 car.a_wheel_angle0 = 0.0;
 
 % Test Nurbs vs Splines
-for theta=1:3000
+for theta=1:5000
     test1(theta) = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
+    test11(theta) = atan2(ppval(traj.dppy,theta+0.01),ppval(traj.dppx,theta+0.01));
+    curvature_sp(theta) = (test1(theta)  - test11(theta) )/0.01;
     position = [0, 0, 0, 0];
     [~,~,position]=calllib('SislNurbs','interrogateNURBS',Track_Nurbs,theta,position);
     xtest(theta)=position(1);
     ytest(theta)=position(2);
     test2(theta) = calllib('SislNurbs','CalculateDerivate',Track_Nurbs,theta);
+    curvature(theta)=calllib('SislNurbs','CalculateCurvature',Track_Nurbs,theta);
 end
 figure(1)
 hold on
 plot(xtest,ytest,'g.')
 
 figure(2)
-plot(1:3000,test1,'b.')
+plot(1:5000,test1,'b.')
 hold on
-plot(1:3000,test2,'r.')
+plot(1:5000,test2,'r.')
 
+figure(3)
+plot(1:5000,curvature_sp,'b.')
+hold on
+plot(1:5000,curvature,'r.')
 
 %% Main Loop
 NHorizon = tHorizon/car.delta_t;
