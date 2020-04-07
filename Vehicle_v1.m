@@ -214,7 +214,7 @@ classdef Vehicle_v1 < handle
             Bc = [0; 0; 0; 0; 1];
             f  = [dot_x(1);dot_x(2);dot_x(3);dot_x(4);dot_x(5)];
             
-            gc=f-Ac*x'-Bc*v_wheel_angle;
+            gc=f-Ac*x-Bc*v_wheel_angle;
 
             Bc_aug=[Bc gc];
 
