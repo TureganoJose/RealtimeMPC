@@ -7,7 +7,7 @@ classdef Vehicle_v1 < handle
       wheelbase = 1.006+1.534;
       c_f = 70000;
       c_r = 130000;
-      delta_t = 0.01;
+      delta_t = 0.02;
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
@@ -204,7 +204,20 @@ classdef Vehicle_v1 < handle
             obj.J = jacobian([f1,f2,f3,f4,f5],[v, r, d_phi, e, a_wheel_angle]);
         end
         function Jacobian_output = Jacobian_eval(obj,x)
-            Jacobian_output = double(obj.J(x(1), x(2), x(3), x(4), x(5)));
+%             Jacobian_output = double(obj.J(x(1), x(2), x(3), x(4), x(5)));
+            
+            v = x(1);
+            r = x(2);
+            d_phi = x(3);
+            e = x(4);
+            a_wheel_angle = x(5);
+            Jacobian_output = [     - 5000/(497*(((767*r)/5000 - v/10)^2 + 1)) - (5000*cos(a_wheel_angle))/(923*(((503*r)/5000 + v/10)^2 + 1)),        7670/(497*(((767*r)/5000 - v/10)^2 + 1)) - (5030*cos(a_wheel_angle))/(923*(((503*r)/5000 + v/10)^2 + 1)) - 10,  0, 0,     (50000*cos(a_wheel_angle))/923 - (5*sin(a_wheel_angle)*(70000*a_wheel_angle - 70000*atan((503*r)/5000 + v/10)))/6461;
+                 199420/(23807*(((767*r)/5000 - v/10)^2 + 1)) - (10060*cos(a_wheel_angle))/(3401*(((503*r)/5000 + v/10)^2 + 1)), - 7647757/(595175*(((767*r)/5000 - v/10)^2 + 1)) - (253009*cos(a_wheel_angle))/(85025*(((503*r)/5000 + v/10)^2 + 1)),  0, 0, (100600*cos(a_wheel_angle))/3401 - (10*sin(a_wheel_angle)*(70420*a_wheel_angle - 70420*atan((503*r)/5000 + v/10)))/23807;
+                                                                                                                              0,                                                                                                                    1,  0, 0,                                                                                                                        0;
+                                                                                                                              1,                                                                                                                    0, 10, 0,                                                                                                                        0;
+                                                                                                                              0,                                                                                                                    0,  0, 0,                                                                                                                        0];
+
+
         end
         function [Ak,Bk,gk] = DiscretizedLinearizedMatrices(obj,dot_x,x,v_wheel_angle)
             % Note this is just for one timestep

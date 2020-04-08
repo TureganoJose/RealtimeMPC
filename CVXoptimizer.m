@@ -23,7 +23,7 @@ cvx_begin
            HorizonIter(i).lb <= [x((i-2)*nx+1:(i-2)*nx+nx,1);u(i-1,1)] <= HorizonIter(i).ub; % bounds
         end
         for i=1:NHorizon
-            norm(HorizonIter(i).x- x( (i-1)*nx+1:i*nx),1) <= 0.5;
+            norm(HorizonIter(i).x- x( (i-1)*nx+1:i*nx),1) <= 0.2;
         end
 cvx_end   
 

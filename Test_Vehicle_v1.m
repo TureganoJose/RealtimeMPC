@@ -75,16 +75,16 @@ TrackSpline = nrbmak(track.center,knots);
 car = Vehicle_v1();
 car.Jacobian_function();
 car.CreateTrack(track);
-tSim = 20;
+tSim = 200;
 tHorizon = 1;
 
 
 % Initial matrix state
-startIdx = 63;
+startIdx = 59;
 car.x0 = track.center(1,startIdx);
 car.y0 = track.center(2,startIdx);
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
-car.u0 = 20.0;
+car.u0 = 30.0;
 car.v0 = 0.0;
 car.r0 = 0.0;
 car.d_phi = 0.0;
@@ -124,7 +124,7 @@ dist_weights=ones(1,NHorizon);
 head_weights=ones(1,NHorizon)*50;
 
 %Init aSteer
-input_vSteering = 0.03 .*ones(1,NHorizon);
+input_vSteering = 0.0 .*ones(1,NHorizon);
 % cost = Function_Cost(car,tHorizon,input_vSteering,dist_weights,head_weights,Track_Nurbs);
 [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,input_vSteering);
 % plot( CarStates(1,:),CarStates(2,:),'b.')
@@ -180,92 +180,88 @@ input_vSteering = 0.03 .*ones(1,NHorizon);
 % Optimisation - First step
 % Car states: v r d_phi e a_wheel_angle
 
-U = zeros(1,NHorizon)+0.02;
-for iIter=1:5
-    x0 =[car.v0;car.r0;car.d_phi0;car.e0;car.a_wheel_angle0];
+U = zeros(1,NHorizon);
+vSteering = U; %aSteering = zeros(1,NHorizon);
+% %Initial guess based on heading angle derivative
+% a_steereing_angle_guess = zeros(1,NHorizon);
+% for iInitialGuess = 2: NHorizon
+%     long_dist_guess = car.s0 + car.delta_t*car.u0; %  param dist
+%     a_steereing_angle_guess(iInitialGuess) = car.CalculateTrackPhi(long_dist_guess);
+%     %a_steereing_angle_guess(iInitialGuess) = atan2(ppval(traj.dppy,param_dist(1)),ppval(traj.dppx,param_dist(1)));%calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(1));
+%     if(iInitialGuess>1)
+%         vSteering(iInitialGuess) = (a_steereing_angle_guess(iInitialGuess)-a_steereing_angle_guess(iInitialGuess-1))/car.delta_t;
+%     end
+% end
+% Control state: v_wheel_angle
+x0 = [car.v0;car.r0;car.d_phi0;car.e0;car.a_wheel_angle0];
+u0 = vSteering(1);
 
-    vSteering = U; %aSteering = zeros(1,NHorizon);
-    % %Initial guess based on heading angle derivative
-    % a_steereing_angle_guess = zeros(1,NHorizon);
-    % for iInitialGuess = 2: NHorizon
-    %     long_dist_guess = car.s0 + car.delta_t*car.u0; %  param dist
-    %     a_steereing_angle_guess(iInitialGuess) = car.CalculateTrackPhi(long_dist_guess);
-    %     %a_steereing_angle_guess(iInitialGuess) = atan2(ppval(traj.dppy,param_dist(1)),ppval(traj.dppx,param_dist(1)));%calllib('SislNurbs','CalculateDerivate',Track_Nurbs,param_dist(1));
-    %     if(iInitialGuess>1)
-    %         vSteering(iInitialGuess) = (a_steereing_angle_guess(iInitialGuess)-a_steereing_angle_guess(iInitialGuess-1))/car.delta_t;
-    %     end
-    % end
-    % Control state: v_wheel_angle
-    u0 = vSteering(1);
+[ X,U,info ] = Function_Cost_v1(car,tHorizon,vSteering,x0,u0);
 
-    [ X,U,info ] = Function_Cost_v1(car,tHorizon,vSteering,x0,u0);
+[StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
+% plot( CarStates(1,:),CarStates(2,:),'m.')
+% figure(2);plot(1:NHorizon,StateVariables(5,:));title('steering')
+% figure(3);plot(1:NHorizon,StateVariables(4,:));title('lateral error')
+% figure(4);plot(1:NHorizon,StateVariables(3,:));title('heading error')
 
-    [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
-    % plot( CarStates(1,:),CarStates(2,:),'m.')
-    % figure(2);plot(1:NHorizon,StateVariables(5,:));title('steering')
-    % figure(3);plot(1:NHorizon,StateVariables(4,:));title('lateral error')
-    % figure(4);plot(1:NHorizon,StateVariables(3,:));title('heading error')
-
-    %Checking linearisation
-    x_new(:,1)=StateVariables(:,1);
-    x_sol(:,1)=X(:,1);
-    for i=1:NHorizon
-        [Ak,Bk,gk] = car.DiscretizedLinearizedMatrices(dot_StateVariables(:,i),StateVariables(:,i),vSteering(i));
-        x_new(:,i+1) = Ak *StateVariables(:,i)+Bk*vSteering(i)+gk;
-        x_sol(:,i+1) = Ak *X(:,i)+Bk*U(i)+gk;
-    end
-    figure(1)
-    plot( CarStates(1,:),CarStates(2,:),'m.')
-
-    %Car states: v r d_phi e a_wheel_angle
-    figure(2)
-    subplot(3,2,1)
-    plot((1:NHorizon)*car.delta_t,StateVariables(1,:),'b.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_new(1,1:NHorizon),'r.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,X(1,1:NHorizon),'g.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_sol(1,1:NHorizon),'m.')
-    title('v vs time')
-    subplot(3,2,2)
-    plot((1:NHorizon)*car.delta_t,StateVariables(2,:),'b.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_new(2,1:NHorizon),'r.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,X(2,1:NHorizon),'g.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_sol(2,1:NHorizon),'m.')
-    title('r vs time')
-    subplot(3,2,3)
-    plot((1:NHorizon)*car.delta_t,StateVariables(3,:),'b.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_new(3,1:NHorizon),'r.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,X(3,1:NHorizon),'g.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_sol(3,1:NHorizon),'m.')
-    title('d_phi vs time')
-    subplot(3,2,4)
-    plot((1:NHorizon)*car.delta_t,StateVariables(4,:),'b.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_new(4,1:NHorizon),'r.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,X(4,1:NHorizon),'g.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_sol(4,1:NHorizon),'m.')
-    title('lateral error vs time')
-    subplot(3,2,5)
-    plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_new(5,1:NHorizon),'r.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,X(5,1:NHorizon),'g.')
-    hold on
-    plot((1:NHorizon)*car.delta_t,x_sol(5,1:NHorizon),'m.')
-    title('Wheel_angle vs time')
-
+%Checking linearisation
+x_new(:,1)=StateVariables(:,1);
+x_sol(:,1)=X(:,1);
+for i=1:NHorizon
+    [Ak,Bk,gk] = car.DiscretizedLinearizedMatrices(dot_StateVariables(:,i),StateVariables(:,i),vSteering(i));
+    x_new(:,i+1) = Ak *StateVariables(:,i)+Bk*vSteering(i)+gk;
+    x_sol(:,i+1) = Ak *X(:,i)+Bk*U(i)+gk;
 end
+figure(1)
+plot( CarStates(1,:),CarStates(2,:),'m.')
+
+%Car states: v r d_phi e a_wheel_angle
+figure(2)
+subplot(3,2,1)
+plot((1:NHorizon)*car.delta_t,StateVariables(1,:),'b.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_new(1,1:NHorizon),'r.')
+hold on
+plot((1:NHorizon)*car.delta_t,X(1,1:NHorizon),'g.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_sol(1,1:NHorizon),'m.')
+title('v vs time')
+subplot(3,2,2)
+plot((1:NHorizon)*car.delta_t,StateVariables(2,:),'b.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_new(2,1:NHorizon),'r.')
+hold on
+plot((1:NHorizon)*car.delta_t,X(2,1:NHorizon),'g.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_sol(2,1:NHorizon),'m.')
+title('r vs time')
+subplot(3,2,3)
+plot((1:NHorizon)*car.delta_t,StateVariables(3,:),'b.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_new(3,1:NHorizon),'r.')
+hold on
+plot((1:NHorizon)*car.delta_t,X(3,1:NHorizon),'g.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_sol(3,1:NHorizon),'m.')
+title('d_phi vs time')
+subplot(3,2,4)
+plot((1:NHorizon)*car.delta_t,StateVariables(4,:),'b.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_new(4,1:NHorizon),'r.')
+hold on
+plot((1:NHorizon)*car.delta_t,X(4,1:NHorizon),'g.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_sol(4,1:NHorizon),'m.')
+title('lateral error vs time')
+subplot(3,2,5)
+plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_new(5,1:NHorizon),'r.')
+hold on
+plot((1:NHorizon)*car.delta_t,X(5,1:NHorizon),'g.')
+hold on
+plot((1:NHorizon)*car.delta_t,x_sol(5,1:NHorizon),'m.')
+title('Wheel_angle vs time')
 
 
 %% Actual Simulation
@@ -285,12 +281,13 @@ car.d_phi0 = 0.0; % always 0 if a_heading0 = track heading at x0,y0 (s0)
 car_sim.a_wheel_angle0 = car.a_wheel_angle0;
 car_sim.k0 = (car.CalculateTrackPhi(car.s0+0.01)-car.a_heading0)/0.01;
 
-
+Optimizer_Inputs = U;
+iOpt = 2;
 for iSim = 1:tSim/car.delta_t
     % Original CarState
     if iSim == 1; car_sim.InitVehicle(); end
     % Simulation
-    car_sim.Calculate_states(U(2));
+    car_sim.Calculate_states(Optimizer_Inputs(iOpt));
     % Update initial car states of controller for optimisation
     % Car states: v r d_phi e a_wheel_angle
     car.v0 = car_sim.v;
@@ -310,16 +307,25 @@ for iSim = 1:tSim/car.delta_t
     x0 = [car.v0;car.r0;car.d_phi0;car.e0;car.a_wheel_angle0];
     
     % Warm start
-    vSteering = U;   
+    vSteering = Optimizer_Inputs;   
     u0 = vSteering(1);
     % Optimise
     [ X,U,info ] = Function_Cost_v1(car,tHorizon,vSteering,x0,u0);
+    if info.exitflag == 1
+        iOpt = iOpt + 1;
+        Optimizer_Inputs = Optimizer_Inputs;
+    else
+        iOpt = 2;
+        Optimizer_Inputs = U;
+    end
     x_coord(iSim) = car_sim.x;
     y_coord(iSim) = car_sim.y;
     steering(iSim) = car_sim.a_wheel_angle;
-%     figure(1)
+    figure(1)
 %     hold on
 %     plot(car_sim.x,car_sim.y,'m.','MarkerSize',15)
+    plot( x_coord(iSim),y_coord(iSim),'m.')
+    hold on
 end
 plot( x_coord,y_coord,'m.')
 
