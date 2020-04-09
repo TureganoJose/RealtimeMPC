@@ -15,6 +15,11 @@ clc
 % With weight transfer
 % Model Predictive Stabilization Control of High-Speed Autonomous Ground Vehicles Considering the Effect of Road Topography
 %https://www.mdpi.com/2076-3417/8/5/822/pdf
+% Good complete example of LTV MPC with 4 wheels and slip angle constrains
+% Vehicle Path Tracking LTV-MPC Controller Parameter Selection Considering CPU Computational Load
+% https://www.researchgate.net/publication/329438678_Vehicle_Path_Tracking_LTV-MPC_Controller_Parameter_Selection_Considering_CPU_Computational_Load
+% Actual weight values are given here:
+% https://iopscience.iop.org/article/10.1088/1742-6596/783/1/012028
 %% Load track
 load('.\Tracks\track.mat')
 TrackScale = 1;
@@ -80,11 +85,11 @@ tHorizon = 1;
 
 
 % Initial matrix state
-startIdx = 59;
+startIdx = 300;
 car.x0 = track.center(1,startIdx);
 car.y0 = track.center(2,startIdx);
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
-car.u0 = 30.0;
+car.u0 = 40.0;
 car.v0 = 0.0;
 car.r0 = 0.0;
 car.d_phi = 0.0;
@@ -98,8 +103,8 @@ car.a_heading0 = car.CalculateTrackPhi(car.s0);
 car.k0 = (car.CalculateTrackPhi(car.s0+0.01)-car.a_heading0)/0.01;
 car.a_wheel_angle0 = 0.0;
 
-% Test Nurbs vs Splines
-% for theta=1:3000
+% % Test Nurbs vs Splines
+% for theta=1:5000
 %     test1(theta) = atan2(ppval(traj.dppy,theta),ppval(traj.dppx,theta));
 %     position = [0, 0, 0, 0];
 %     [~,~,position]=calllib('SislNurbs','interrogateNURBS',Track_Nurbs,theta,position);
@@ -216,52 +221,52 @@ figure(1)
 plot( CarStates(1,:),CarStates(2,:),'m.')
 
 %Car states: v r d_phi e a_wheel_angle
-figure(2)
-subplot(3,2,1)
-plot((1:NHorizon)*car.delta_t,StateVariables(1,:),'b.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_new(1,1:NHorizon),'r.')
-hold on
-plot((1:NHorizon)*car.delta_t,X(1,1:NHorizon),'g.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_sol(1,1:NHorizon),'m.')
-title('v vs time')
-subplot(3,2,2)
-plot((1:NHorizon)*car.delta_t,StateVariables(2,:),'b.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_new(2,1:NHorizon),'r.')
-hold on
-plot((1:NHorizon)*car.delta_t,X(2,1:NHorizon),'g.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_sol(2,1:NHorizon),'m.')
-title('r vs time')
-subplot(3,2,3)
-plot((1:NHorizon)*car.delta_t,StateVariables(3,:),'b.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_new(3,1:NHorizon),'r.')
-hold on
-plot((1:NHorizon)*car.delta_t,X(3,1:NHorizon),'g.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_sol(3,1:NHorizon),'m.')
-title('d_phi vs time')
-subplot(3,2,4)
-plot((1:NHorizon)*car.delta_t,StateVariables(4,:),'b.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_new(4,1:NHorizon),'r.')
-hold on
-plot((1:NHorizon)*car.delta_t,X(4,1:NHorizon),'g.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_sol(4,1:NHorizon),'m.')
-title('lateral error vs time')
-subplot(3,2,5)
-plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_new(5,1:NHorizon),'r.')
-hold on
-plot((1:NHorizon)*car.delta_t,X(5,1:NHorizon),'g.')
-hold on
-plot((1:NHorizon)*car.delta_t,x_sol(5,1:NHorizon),'m.')
-title('Wheel_angle vs time')
+% figure(2)
+% subplot(3,2,1)
+% plot((1:NHorizon)*car.delta_t,StateVariables(1,:),'b.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_new(1,1:NHorizon),'r.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,X(1,1:NHorizon),'g.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_sol(1,1:NHorizon),'m.')
+% title('v vs time')
+% subplot(3,2,2)
+% plot((1:NHorizon)*car.delta_t,StateVariables(2,:),'b.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_new(2,1:NHorizon),'r.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,X(2,1:NHorizon),'g.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_sol(2,1:NHorizon),'m.')
+% title('r vs time')
+% subplot(3,2,3)
+% plot((1:NHorizon)*car.delta_t,StateVariables(3,:),'b.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_new(3,1:NHorizon),'r.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,X(3,1:NHorizon),'g.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_sol(3,1:NHorizon),'m.')
+% title('d_phi vs time')
+% subplot(3,2,4)
+% plot((1:NHorizon)*car.delta_t,StateVariables(4,:),'b.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_new(4,1:NHorizon),'r.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,X(4,1:NHorizon),'g.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_sol(4,1:NHorizon),'m.')
+% title('lateral error vs time')
+% subplot(3,2,5)
+% plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_new(5,1:NHorizon),'r.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,X(5,1:NHorizon),'g.')
+% hold on
+% plot((1:NHorizon)*car.delta_t,x_sol(5,1:NHorizon),'m.')
+% title('Wheel_angle vs time')
 
 
 %% Actual Simulation
@@ -324,14 +329,47 @@ for iSim = 1:tSim/car.delta_t
     figure(1)
 %     hold on
 %     plot(car_sim.x,car_sim.y,'m.','MarkerSize',15)
+    figure(1)
     plot( x_coord(iSim),y_coord(iSim),'m.')
     hold on
-end
-plot( x_coord,y_coord,'m.')
+    
+    figure(3)
+    
+    [long_dist, lat_dist] =  car_sim.CalculateTrackdistance(car_sim.x,car_sim.y);
+    
+    subplot(3,2,1)
+    plot(iSim,car_sim.v,'m.')
+    hold on; title('v vs time')
+    subplot(3,2,2)
+    plot(iSim,car_sim.r,'m.')
+    hold on; title('r vs time')
+    subplot(3,2,3)
+    plot(iSim,car_sim.d_phi,'m.')
+    hold on; title('d_phi vs time')
+    subplot(3,2,4)
+    plot(iSim,car_sim.e,'m.')
+    hold on; title('lateral error vs time')
+    plot(iSim,lat_dist,'r.')
+    hold on;
+    subplot(3,2,5)
+    plot(iSim,car_sim.a_wheel_angle,'m.')
+    hold on; title('Wheel_angle vs time')
+    subplot(3,2,6)
+    plot(iSim,car_sim.s,'m.')
+    hold on
+    plot(iSim,long_dist,'r.')
+    hold on; title('s param');
+    
+    figure(4)
+    subplot(2,2,1)
+    plot(iSim, car_sim.k,'m.')
+    hold on; title('Curvature')
+    subplot(2,2,2)
+    subplot(2,2,2)
+    plot(iSim,car_sim.CalculateTrackPhi(long_dist),'m.')
+    hold on; title('track ref heading')
 
-figure(1)
-hold on
-plot( CarState(1,:),CarState(2,:),'b.')
+end
 
 
 %% Unloading NURBS

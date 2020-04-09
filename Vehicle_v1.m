@@ -68,6 +68,12 @@ classdef Vehicle_v1 < handle
             
             %Global coordinates
             obj.a_heading = obj.a_heading + obj.r * obj.delta_t;
+            if obj.a_heading < -pi
+                obj.a_heading = 2*pi + obj.a_heading;
+            elseif obj.a_heading>pi
+                obj.a_heading = -2*pi + obj.a_heading;
+            end
+            
             obj.x = obj.x + obj.delta_t* (obj.u.*cos(obj.a_heading) - obj.v .* sin(obj.a_heading));
             obj.y = obj.y + obj.delta_t* (obj.u.*sin(obj.a_heading) + obj.v .* cos(obj.a_heading));
             
@@ -75,9 +81,13 @@ classdef Vehicle_v1 < handle
 
             % d_phi
             a_heading_ref = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s);
-            obj.d_phi = obj.a_heading - a_heading_ref;
-            param_dist = [0, 0];
-            [~,~,~,param_dist] =  calllib('SislNurbs','closestpoint',obj.track, [obj.x, obj.y],param_dist );           
+            if obj.a_heading>0 && a_heading_ref<0
+                obj.d_phi = -2*pi + obj.a_heading - a_heading_ref;
+            elseif obj.a_heading<0 && a_heading_ref>0
+                obj.d_phi = -2*pi - obj.a_heading + a_heading_ref;
+            else
+                obj.d_phi = obj.a_heading - a_heading_ref;
+            end
             
             %curvature
             a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+0.01);
@@ -85,7 +95,6 @@ classdef Vehicle_v1 < handle
             
             % Position along trajectory
             obj.s = obj.s + obj.u * cos(obj.d_phi) * obj.delta_t; %param_dist(1);
-                                   
            
             % Steering
             obj.a_wheel_angle = obj.a_wheel_angle + obj.delta_t * v_wheel_angle;
