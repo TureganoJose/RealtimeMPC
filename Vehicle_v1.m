@@ -7,7 +7,7 @@ classdef Vehicle_v1 < handle
       wheelbase = 1.006+1.534;
       c_f = 70000;
       c_r = 130000;
-      delta_t = 0.02;
+      delta_t = 0.05;
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
@@ -68,11 +68,11 @@ classdef Vehicle_v1 < handle
             
             %Global coordinates
             obj.a_heading = obj.a_heading + obj.r * obj.delta_t;
-            if obj.a_heading < -pi
-                obj.a_heading = 2*pi + obj.a_heading;
-            elseif obj.a_heading>pi
-                obj.a_heading = -2*pi + obj.a_heading;
-            end
+%             if obj.a_heading < -pi
+%                 obj.a_heading = 2*pi + obj.a_heading;
+%             elseif obj.a_heading>pi
+%                 obj.a_heading = -2*pi + obj.a_heading;
+%             end
             
             obj.x = obj.x + obj.delta_t* (obj.u.*cos(obj.a_heading) - obj.v .* sin(obj.a_heading));
             obj.y = obj.y + obj.delta_t* (obj.u.*sin(obj.a_heading) + obj.v .* cos(obj.a_heading));
@@ -81,21 +81,26 @@ classdef Vehicle_v1 < handle
 
             % d_phi
             a_heading_ref = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s);
-            if obj.a_heading>0 && a_heading_ref<0
-                obj.d_phi = -2*pi + obj.a_heading - a_heading_ref;
-            elseif obj.a_heading<0 && a_heading_ref>0
-                obj.d_phi = -2*pi - obj.a_heading + a_heading_ref;
-            else
-                obj.d_phi = obj.a_heading - a_heading_ref;
-            end
-            
+            obj.d_phi = ang_diff( a_heading_ref,obj.a_heading); % obj.d_phi = obj.a_heading - a_heading_ref;
+%             if obj.a_heading>0 && a_heading_ref<0
+%                 obj.d_phi = -2*pi + obj.a_heading - a_heading_ref;
+%             elseif obj.a_heading<0 && a_heading_ref>0
+%                 obj.d_phi = -2*pi - obj.a_heading + a_heading_ref;
+%             elseif obj.a_heading<pi && obj.a_heading>0 && a_heading_ref<0
+%                 obj.d_phi = obj.a_heading - a_heading_ref;
+%             else
+%                 obj.d_phi = obj.a_heading - a_heading_ref;
+%             end
+%             if abs(obj.d_phi)>pi
+%                 print('wtf');
+%             end
             %curvature
             a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+0.01);
             obj.k = (a_heading_K - a_heading_ref)/0.01;
             
             % Position along trajectory
             obj.s = obj.s + obj.u * cos(obj.d_phi) * obj.delta_t; %param_dist(1);
-           
+            
             % Steering
             obj.a_wheel_angle = obj.a_wheel_angle + obj.delta_t * v_wheel_angle;
             
@@ -109,7 +114,6 @@ classdef Vehicle_v1 < handle
             
             % Lateral position along tracjectory
             obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
-            
         end
         
         function obj = CreateTrack(obj,track)
@@ -138,6 +142,7 @@ classdef Vehicle_v1 < handle
             % State vector: v r d_phi e a_wheel_angle
             state_matrix = zeros(5,NHorizon);
             carstate_matrix = zeros(3, NHorizon);
+            dot_state_matrix = zeros(5,NHorizon);
             obj.InitVehicle();
             for i=1:NHorizon
                 obj.Calculate_states(v_wheel_angle(i));
@@ -220,11 +225,11 @@ classdef Vehicle_v1 < handle
             d_phi = x(3);
             e = x(4);
             a_wheel_angle = x(5);
-            Jacobian_output = [     - 5000/(497*(((767*r)/5000 - v/10)^2 + 1)) - (5000*cos(a_wheel_angle))/(923*(((503*r)/5000 + v/10)^2 + 1)),        7670/(497*(((767*r)/5000 - v/10)^2 + 1)) - (5030*cos(a_wheel_angle))/(923*(((503*r)/5000 + v/10)^2 + 1)) - 10,  0, 0,     (50000*cos(a_wheel_angle))/923 - (5*sin(a_wheel_angle)*(70000*a_wheel_angle - 70000*atan((503*r)/5000 + v/10)))/6461;
-                 199420/(23807*(((767*r)/5000 - v/10)^2 + 1)) - (10060*cos(a_wheel_angle))/(3401*(((503*r)/5000 + v/10)^2 + 1)), - 7647757/(595175*(((767*r)/5000 - v/10)^2 + 1)) - (253009*cos(a_wheel_angle))/(85025*(((503*r)/5000 + v/10)^2 + 1)),  0, 0, (100600*cos(a_wheel_angle))/3401 - (10*sin(a_wheel_angle)*(70420*a_wheel_angle - 70420*atan((503*r)/5000 + v/10)))/23807;
-                                                                                                                              0,                                                                                                                    1,  0, 0,                                                                                                                        0;
-                                                                                                                              1,                                                                                                                    0, 10, 0,                                                                                                                        0;
-                                                                                                                              0,                                                                                                                    0,  0, 0,                                                                                                                        0];
+            Jacobian_output = [   - 1250/(497*(((767*r)/20000 - v/40)^2 + 1)) - (1250*cos(a_wheel_angle))/(923*(((503*r)/20000 + v/40)^2 + 1)),         3835/(994*(((767*r)/20000 - v/40)^2 + 1)) - (2515*cos(a_wheel_angle))/(1846*(((503*r)/20000 + v/40)^2 + 1)) - 40,  0, 0,     (50000*cos(a_wheel_angle))/923 - (5*sin(a_wheel_angle)*(70000*a_wheel_angle - 70000*atan((503*r)/20000 + v/40)))/6461;
+ 49855/(23807*(((767*r)/20000 - v/40)^2 + 1)) - (2515*cos(a_wheel_angle))/(3401*(((503*r)/20000 + v/40)^2 + 1)), - 7647757/(2380700*(((767*r)/20000 - v/40)^2 + 1)) - (253009*cos(a_wheel_angle))/(340100*(((503*r)/20000 + v/40)^2 + 1)),  0, 0, (100600*cos(a_wheel_angle))/3401 - (10*sin(a_wheel_angle)*(70420*a_wheel_angle - 70420*atan((503*r)/20000 + v/40)))/23807;
+                                                                                                              0,                                                                                                                        1,  0, 0,                                                                                                                         0;
+                                                                                                              1,                                                                                                                        0, 40, 0,                                                                                                                         0;
+                                                                                                              0,                                                                                                                        0,  0, 0,                                                                                                                         0];
 
 
         end
