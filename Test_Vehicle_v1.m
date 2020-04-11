@@ -30,14 +30,6 @@ track.center = track.center * TrackScale;
 track.outer = track.outer * TrackScale;
 track.inner = track.inner * TrackScale;
 
-figure(1);
-plot(track.outer(1,:),track.outer(2,:),'r')
-hold on
-plot(track.inner(1,:),track.inner(2,:),'r')
-hold on
-plot(track.center(1,:),track.center(2,:),'k.')
-hold on
-
 
 %% Fit spline to track
 % add spline library
@@ -54,8 +46,8 @@ knots(1332)=1;
 %% Input Parameters and class construction
 car = Vehicle_v1();
 car.CreateTrack(track);
-tSim = 400;
-tHorizon = 2;
+tSim = 100;
+tHorizon = 2.5;
 
 
 % Initial matrix state
@@ -106,9 +98,6 @@ for i=1:NHorizon
     x_new(:,i+1) = Ak *StateVariables(:,i)+Bk*vSteering(i)+gk;
     x_sol(:,i+1) = Ak *X(:,i)+Bk*U(i)+gk;
 end
-figure(1)
-plot( CarStates(1,:),CarStates(2,:),'m.')
-
 
 
 %% Actual Simulation
@@ -128,10 +117,33 @@ car.d_phi0 = 0.0; % always 0 if a_heading0 = track heading at x0,y0 (s0)
 car_sim.a_wheel_angle0 = car.a_wheel_angle0;
 car_sim.k0 = (car.CalculateTrackPhi(car.s0+0.01)-car.a_heading0)/0.01;
 
+%Initialise logging struct
+NSim = tSim/car.delta_t;
+logging.track = track;
+logging.time = (1:NSim) * car_sim.delta_t;
+
+logging.x_coord = zeros(NSim,1);
+logging.y_coord = zeros(NSim,1);
+logging.u_opt = zeros(NSim,NHorizon);
+    
+logging.v = zeros(NSim,1);
+logging.r = zeros(NSim,1);
+logging.d_phi = zeros(NSim,1);
+logging.e = zeros(NSim,1);
+logging.s = zeros(NSim,1);
+logging.a_wheel_angle = zeros(NSim,1);
+logging.v_wheel_angle = zeros(NSim,1);
+
+logging.a_heading = zeros(NSim,1);
+logging.k = zeros(NSim,1);
+logging.QPtime = zeros(NSim,1);
+logging.Failed = zeros(NSim,1);
+
+%Initialise inputs to simulation
 Optimizer_Inputs = U;
 iOpt = 2;
 tic
-for iSim = 1:tSim/car.delta_t
+for iSim = 1:NSim
     % Original CarState
     if iSim == 1; car_sim.InitVehicle(); end
     % Simulation
@@ -159,64 +171,39 @@ for iSim = 1:tSim/car.delta_t
     u0 = vSteering(1);
     % Optimise
     [ X,U,info ] = Function_Cost_v1(car,tHorizon,vSteering,x0,u0);
+    
+    % Fall back strategy in case optimisation fails:
+    % take the following prediction in the last solved optimisation
     if info.exitflag == 1
         iOpt = iOpt + 1;
-        Optimizer_Inputs = Optimizer_Inputs;
     else
         iOpt = 2;
         Optimizer_Inputs = U;
     end
-    x_coord(iSim) = car_sim.x;
-    y_coord(iSim) = car_sim.y;
-    steering(iSim) = car_sim.a_wheel_angle;
+    
+    % logging
+    logging.x_coord(iSim) = car_sim.x;
+    logging.y_coord(iSim) = car_sim.y;
+    logging.u_opt(iSim,1:NHorizon) = Optimizer_Inputs;
+    
+    logging.v(iSim) = car_sim.v;
+    logging.r(iSim) = car_sim.r;
+    logging.d_phi(iSim) = car_sim.d_phi;
+    logging.e(iSim) = car_sim.e;
+    logging.s(iSim) = car_sim.s;
+    logging.a_wheel_angle(iSim) = car_sim.a_wheel_angle;
+    logging.v_wheel_angle(iSim) = Optimizer_Inputs(iOpt);
 
-%     figure(1)
-%     plot( x_coord(iSim),y_coord(iSim),'m.')
-%     hold on
-%     
-%     figure(3)
-%     
-%     [long_dist, lat_dist] =  car_sim.CalculateTrackdistance(car_sim.x,car_sim.y);
-%     
-%     subplot(3,2,1)
-%     plot(iSim,car_sim.v,'m.')
-%     hold on; title('v vs time')
-%     subplot(3,2,2)
-%     plot(iSim,car_sim.r,'m.')
-%     hold on; title('r vs time')
-%     subplot(3,2,3)
-%     plot(iSim,car_sim.d_phi,'m.')
-%     hold on; title('d_phi vs time')
-%     subplot(3,2,4)
-%     plot(iSim,abs(car_sim.e),'m.')
-%     hold on; title('lateral error vs time')
-%     plot(iSim,lat_dist,'r.')
-%     hold on;
-%     subplot(3,2,5)
-%     plot(iSim,car_sim.a_wheel_angle,'m.')
-%     hold on; title('Wheel_angle vs time')
-%     subplot(3,2,6)
-%     plot(iSim,car_sim.s,'m.')
-%     hold on
-%     plot(iSim,long_dist,'r.')
-%     hold on; title('s param');
-%     
-%     figure(4)
-%     subplot(2,2,1)
-%     plot(iSim, car_sim.k,'m.')
-%     hold on; title('Curvature')
-%     subplot(2,2,2)
-%     plot(iSim,car_sim.CalculateTrackPhi(long_dist),'m.')
-%     hold on; title('track ref heading')
-%     subplot(2,2,3)
-%     plot(iSim,car_sim.a_heading,'m.')
-%     hold on; title('car Heading angle')
-%     subplot(2,2,4)
-%     plot(iSim,info.QPtime,'m.')
-%     hold on; title('QP solving time (s)')
+    logging.a_heading(iSim) = car_sim.a_heading;
+    logging.k(iSim) = car_sim.k;
+    logging.QPtime(iSim) = info.QPtime;
+    logging.Failed(iSim) = info.exitflag;
+
 end
 toc
 
+%% Plots
+Plot_Simulation(logging)
 %% Unloading NURBS
 
 calllib('SislNurbs','freeNURBS',Track_Nurbs)

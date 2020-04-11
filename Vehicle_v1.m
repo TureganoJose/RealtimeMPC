@@ -68,11 +68,6 @@ classdef Vehicle_v1 < handle
             
             %Global coordinates
             obj.a_heading = obj.a_heading + obj.r * obj.delta_t;
-%             if obj.a_heading < -pi
-%                 obj.a_heading = 2*pi + obj.a_heading;
-%             elseif obj.a_heading>pi
-%                 obj.a_heading = -2*pi + obj.a_heading;
-%             end
             
             obj.x = obj.x + obj.delta_t* (obj.u.*cos(obj.a_heading) - obj.v .* sin(obj.a_heading));
             obj.y = obj.y + obj.delta_t* (obj.u.*sin(obj.a_heading) + obj.v .* cos(obj.a_heading));
@@ -82,18 +77,7 @@ classdef Vehicle_v1 < handle
             % d_phi
             a_heading_ref = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s);
             obj.d_phi = ang_diff( a_heading_ref,obj.a_heading); % obj.d_phi = obj.a_heading - a_heading_ref;
-%             if obj.a_heading>0 && a_heading_ref<0
-%                 obj.d_phi = -2*pi + obj.a_heading - a_heading_ref;
-%             elseif obj.a_heading<0 && a_heading_ref>0
-%                 obj.d_phi = -2*pi - obj.a_heading + a_heading_ref;
-%             elseif obj.a_heading<pi && obj.a_heading>0 && a_heading_ref<0
-%                 obj.d_phi = obj.a_heading - a_heading_ref;
-%             else
-%                 obj.d_phi = obj.a_heading - a_heading_ref;
-%             end
-%             if abs(obj.d_phi)>pi
-%                 print('wtf');
-%             end
+
             %curvature
             a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+0.01);
             obj.k = (a_heading_K - a_heading_ref)/0.01;
@@ -114,6 +98,17 @@ classdef Vehicle_v1 < handle
             
             % Lateral position along tracjectory
             obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
+            
+            % two points in NURBS
+            [long_dist, lat_dist] =  obj.CalculateTrackdistance(obj.x,obj.y);
+            position = obj.InterrogateNURBS(long_dist);
+            x1 = position(1);
+            y1 = position(2);
+            x2 = x1 + 0.01*cos(obj.a_heading);
+            y2 = y1 + 0.01*sin(obj.a_heading);
+            % determine position of point relative to NURBS
+            side_pos = sign(  (x2-x1) * (obj.y-y1)  -  (y2-y1) * (obj.x-x1)  );
+            obj.e = side_pos * lat_dist;
         end
         
         function obj = CreateTrack(obj,track)
@@ -136,6 +131,10 @@ classdef Vehicle_v1 < handle
         end
         function phi_track = CalculateTrackPhi(obj,long_dist)
             phi_track = calllib('SislNurbs','CalculateDerivate',obj.track,long_dist);
+        end
+        function position = InterrogateNURBS(obj,long_param)
+            position = [0, 0];
+            [~,~,position]=calllib('SislNurbs','interrogateNURBS',obj.track,long_param,position);
         end
         function [state_matrix, dot_state_matrix, carstate_matrix] = RunSimulation(obj,tfinal,v_wheel_angle)
             NHorizon = tfinal/obj.delta_t;
