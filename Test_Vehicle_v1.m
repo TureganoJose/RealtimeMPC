@@ -22,6 +22,13 @@ clc
 % https://iopscience.iop.org/article/10.1088/1742-6596/783/1/012028
 % Minimum distance
 % https://ieeexplore.ieee.org/document/8695742 
+% Good definition of Lyapunov stability
+% https://www.sciencedirect.com/science/article/pii/S2405896316302191
+% Cambered road
+% Model Predictive Stabilization Control of High-Speed
+% Autonomous Ground Vehicles Considering the Effect of Road Topography
+% Two proposal: 1) Non-linear MPC (solving non-linear optimization problem at each time step rather than horizon) and 2) LTV MPC
+% https://borrelli.me.berkeley.edu/pdfpub/pub-2.pdf
 %% Load track
 load('.\Tracks\track.mat')
 TrackScale = 1;
