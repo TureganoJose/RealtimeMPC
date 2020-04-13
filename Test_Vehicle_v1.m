@@ -29,6 +29,8 @@ clc
 % Autonomous Ground Vehicles Considering the Effect of Road Topography
 % Two proposal: 1) Non-linear MPC (solving non-linear optimization problem at each time step rather than horizon) and 2) LTV MPC
 % https://borrelli.me.berkeley.edu/pdfpub/pub-2.pdf
+% Explicit MPC
+% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5849315/
 %% Load track
 load('.\Tracks\track.mat')
 TrackScale = 1;
