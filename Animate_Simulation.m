@@ -11,8 +11,9 @@ function Animate_Simulation(car,logging)
     steering_max = max(logging.a_wheel_angle);
     steering_min = min(logging.a_wheel_angle);
     
-    figure(4)
-    figure('units','normalized','outerposition',[0 0 1 1])
+    h = figure('units','normalized','outerposition',[0 0 1 1]);
+    filename = 'testAnimated.gif';
+
     for iSim=1:NSim-NHorizon
         % Initialise prediction
         car.x0 = logging.x_coord(iSim);
@@ -55,6 +56,7 @@ function Animate_Simulation(car,logging)
         ylabel('steering angle [deg]')
         
         subplot(3,2,4)
+        hold on
         plot( (1:NHorizon)*car.delta_t , StateVariables(4,:), 'g')
         plot( (1:NHorizon)*car.delta_t , logging.e(iSim:iSim+NHorizon-1), 'm')
         ylim([e_min e_max]);
@@ -63,6 +65,7 @@ function Animate_Simulation(car,logging)
         ylabel('lateral tracking error [m]')
 
         subplot(3,2,6)
+        hold on
         plot( (1:NHorizon)*car.delta_t , StateVariables(3,:), 'g')
         plot( (1:NHorizon)*car.delta_t , logging.d_phi(iSim:iSim+NHorizon-1), 'm')
 
@@ -71,6 +74,18 @@ function Animate_Simulation(car,logging)
         xlabel('tHorizon [s]')
         ylabel('lateral heading angle error [deg]')
         hold off; 
-        pause(0.0001)
+        
+        %pause(0.01)
+        drawnow 
+        % Capture the plot as an image 
+        frame = getframe(h); 
+        im = frame2im(frame); 
+        [imind,cm] = rgb2ind(im,256); 
+        % Write to the GIF File 
+        if iSim == 1 
+            imwrite(imind,cm,filename,'gif', 'Loopcount',inf); 
+        else 
+            imwrite(imind,cm,filename,'gif','DelayTime',0.1,'WriteMode','append'); 
+        end 
     end
 end
