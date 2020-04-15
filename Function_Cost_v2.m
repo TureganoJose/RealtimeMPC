@@ -1,12 +1,12 @@
-function [ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0)
+function [ X,U,info,carstate_matrix ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0)
 
 
-    Solver = 'CVX';
+%     Solver = 'CVX';
     Solver = 'QuadProg';
 
     [State_Variables, dot_State_Variables, carstate_matrix] = car.RunSimulation(tHorizon,vSteering);
     NHorizon = size(State_Variables,2);
-    
+
     % Pose QP 
     %                min   1/2*x'Hx + x'g
     %                s.t.  lb  <=  x <= ub
@@ -21,12 +21,12 @@ function [ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0)
         HorizonIter(i).dot_x = dot_State_Variables(:,i);
         HorizonIter(i).u = vSteering(i);
         [HorizonIter(i).Ak,HorizonIter(i).Bk,HorizonIter(i).gk] = car.DiscretizedLinearizedMatrices(HorizonIter(i).dot_x, HorizonIter(i).x,HorizonIter(i).u);
-        HorizonIter(i).Qk = diag([0,0,1,1,0]);
-        HorizonIter(i).Rk = 15;
+        HorizonIter(i).Qk = diag([0,0,1,5,0]);
+        HorizonIter(i).Rk = 5;
         HorizonIter(i).fk = zeros(5,1);%[0;0;-1;-1;0];
                            % v   r d_phi  e   a_wheel_angle v_wheel_angle
-        HorizonIter(i).lb = [-5 -3 -1.5  -20  -0.4          -0.5]';
-        HorizonIter(i).ub = [ 5  3  1.5   20   0.4           0.5]';
+        HorizonIter(i).lb = [-5 -3 -1.5  -20  -0.5          -0.5]';
+        HorizonIter(i).ub = [ 5  3  1.5   20   0.5           0.5]';
     end
     
        

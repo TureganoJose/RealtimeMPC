@@ -37,9 +37,15 @@ clc
 % http://publications.lib.chalmers.se/records/fulltext/225751/local_225751.pdf
 % More stabililty analysis from a vehicle dynamics point of view
 % https://ddl.stanford.edu/sites/g/files/sbiybj9456/f/publications/2011_Thesis_Beal_Applications_of_Model_Predictive_Control_to_Vehicle_Dynamics_for_Active_Safety_and_Stability.pdf
+% Comprehensive Phd thesis with 14-dof vehicle model. Some interesting
+% thoughts about MPC in AV
+% https://www.researchgate.net/publication/335970485_Optimal_Coordination_of_Chassis_Systems_for_Vehicle_Motion_Control
+% Shows influence of roll (although it doesn't show the influence of Fz)
+% A Switched MPC Lateral Steering Controller Which Considered Tracking Quality and Handling Quality for Autonomous Vehicle
+
 
 %% Load track
-load('.\Tracks\track.mat')
+load('.\Tracks\dlc2.mat')
 TrackScale = 1;
 
 track.center = track.center * TrackScale;
@@ -51,37 +57,44 @@ track.inner = track.inner * TrackScale;
 % add spline library
 addpath('splines');
 addpath('nurbs_toolbox');
-
-for i=1:2:666*2
-    knots(i)= (i-1)/1331;
-    knots(i+1)=(i-1)/1331;
+NTrack = size(track.center  ,2);
+for i=1:2:NTrack*2
+    knots(i)= (i-1)/(NTrack*2-1);
+    knots(i+1)=(i-1)/(NTrack*2-1);
 end
-knots(1331)=1;
-knots(1332)=1;
+knots(NTrack*2-1)=1;
+knots(NTrack*2)=1;
 
 %% Input Parameters and class construction
 car = Vehicle_v2();
 car.CreateTrack(track);
-tSim = 100;
+tSim = 5;
 tHorizon = 2;
 
 
 % Initial matrix state
-startIdx = 53;
+startIdx = 3;
 car.x0 = track.center(1,startIdx);
 car.y0 = track.center(2,startIdx);
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
-car.u0 = 33.0;
+car.u0 = 33.333;
 car.u = car.u0;
 car.v0 = 0.0;
 car.r0 = 0.0;
 car.d_phi = 0.0;
-trackWidth = 5;
 NHorizon = tHorizon/car.delta_t;
 
 car.a_heading0 = car.CalculateTrackPhi(car.s0);
 car.k0 = (car.CalculateTrackPhi(car.s0+0.01)-car.a_heading0)/0.01;
 car.a_wheel_angle0 = 0.0;
+
+
+
+% % Check track
+% for theta=1:160
+%     position(theta,:)=car.InterrogateNURBS(theta);
+% end
+% plot(position(:,1),position(:,2),'b.')
 
 % Note that the Jacobian is calculated for a specific value of parameters
 % (including u, tyre params,...) using matlab sym
@@ -108,107 +121,107 @@ car.a_wheel_angle0 = 0.0;
 
 
 
-%% Vehicle checks
-
-%Init aSteer
-input_vSteering = 0.0 .*ones(1,NHorizon);
-input_vSteering(1:20)=0.00;
-[StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,input_vSteering);
-hold on
-figure(1)
-subplot(2,1,1)
-plot(CarStates(1,:),CarStates(2,:),'b.')
-title('X vs Y')
-subplot(2,1,2)
-plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
-title('time vs asteering')
-figure(2)
-subplot(2,2,1)
-plot(CarStates(8,1:end),CarStates(12,1:end),'b')
-title('Fy vs slip angle FL')
-subplot(2,2,2)
-plot(CarStates(9,1:end),CarStates(13,1:end),'b')
-title('Fy vs slip angle FR')
-subplot(2,2,3)
-plot(CarStates(10,1:end),CarStates(14,1:end),'b')
-title('Fy vs slip angle RL')
-subplot(2,2,4)
-plot(CarStates(11,1:end),CarStates(15,1:end),'b')
-title('Fy vs slip angle RR')
-figure(3)
-subplot(2,2,1)
-plot((1:NHorizon)*car.delta_t,CarStates(4,:))
-title('time vs Fz FL')
-subplot(2,2,2)
-plot((1:NHorizon)*car.delta_t,CarStates(5,:))
-title('time vs Fz FR')
-subplot(2,2,3)
-plot((1:NHorizon)*car.delta_t,CarStates(6,:))
-title('time vs Fz RL')
-subplot(2,2,4)
-plot((1:NHorizon)*car.delta_t,CarStates(7,:))
-title('time vs Fz RR')
-
-figure(4)
-plot((1:NHorizon)*car.delta_t,dot_StateVariables(1,:) + 40*StateVariables(2,:))
-title('time vs lateral acc')
-
-figure(5)
-subplot(2,2,1)
-plot((1:NHorizon)*car.delta_t,    car.u0  - 0.75.* StateVariables(2,:))
-title('time vs vx FL')
-subplot(2,2,2)
-plot((1:NHorizon)*car.delta_t,car.u0  + 0.75.* StateVariables(2,:))
-title('time vs vx FR')
-subplot(2,2,3)
-plot((1:NHorizon)*car.delta_t,car.u0  - 0.75.* StateVariables(2,:))
-title('time vs vx RL')
-subplot(2,2,4)
-plot((1:NHorizon)*car.delta_t,car.u0  + 0.75.* StateVariables(2,:))
-title('time vs vx RR')
-
-figure(6)
-subplot(2,2,1)
-plot((1:NHorizon)*car.delta_t,CarStates(12,1:end),'b')
-title('Fy vs time FL')
-subplot(2,2,2)
-plot((1:NHorizon)*car.delta_t,CarStates(13,1:end),'b')
-title('Fy vs time FR')
-subplot(2,2,3)
-plot((1:NHorizon)*car.delta_t,CarStates(14,1:end),'b')
-title('Fy vs time RL')
-subplot(2,2,4)
-plot((1:NHorizon)*car.delta_t,CarStates(15,1:end),'b')
-title('Fy vs time RR')
-
-
-%% Check linearisation
-new_states(:,1) = StateVariables(:,1);
-for i=2:NHorizon
-    [Ak,Bk,gk] = car.DiscretizedLinearizedMatrices(dot_StateVariables(:,i),StateVariables(:,i),input_vSteering(i));
-    new_states(:,i)=Ak*StateVariables(:,i-1)+Bk*input_vSteering(:,i-1)+gk;
-end
-figure(7)
-subplot(3,2,1)
-plot(1:NHorizon,StateVariables(1,:),'b.')
-hold on
-plot(1:NHorizon,new_states(1,:),'r.')
-subplot(3,2,2)
-plot(1:NHorizon,StateVariables(2,:),'b.')
-hold on
-plot(1:NHorizon,new_states(2,:),'r.')
-subplot(3,2,3)
-plot(1:NHorizon,StateVariables(3,:),'b.')
-hold on
-plot(1:NHorizon,new_states(3,:),'r.')
-subplot(3,2,4)
-plot(1:NHorizon,StateVariables(4,:),'b.')
-hold on
-plot(1:NHorizon,new_states(4,:),'r.')
-subplot(3,2,5)
-plot(1:NHorizon,StateVariables(5,:),'b.')
-hold on
-plot(1:NHorizon,new_states(5,:),'r.')
+% %% Vehicle checks
+% 
+% %Init aSteer
+% input_vSteering = 0.0 .*ones(1,NHorizon);
+% input_vSteering(1:20)=0.00;
+% [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,input_vSteering);
+% hold on
+% figure(1)
+% subplot(2,1,1)
+% plot(CarStates(1,:),CarStates(2,:),'b.')
+% title('X vs Y')
+% subplot(2,1,2)
+% plot((1:NHorizon)*car.delta_t,StateVariables(5,:),'b.')
+% title('time vs asteering')
+% figure(2)
+% subplot(2,2,1)
+% plot(CarStates(8,1:end),CarStates(12,1:end),'b')
+% title('Fy vs slip angle FL')
+% subplot(2,2,2)
+% plot(CarStates(9,1:end),CarStates(13,1:end),'b')
+% title('Fy vs slip angle FR')
+% subplot(2,2,3)
+% plot(CarStates(10,1:end),CarStates(14,1:end),'b')
+% title('Fy vs slip angle RL')
+% subplot(2,2,4)
+% plot(CarStates(11,1:end),CarStates(15,1:end),'b')
+% title('Fy vs slip angle RR')
+% figure(3)
+% subplot(2,2,1)
+% plot((1:NHorizon)*car.delta_t,CarStates(4,:))
+% title('time vs Fz FL')
+% subplot(2,2,2)
+% plot((1:NHorizon)*car.delta_t,CarStates(5,:))
+% title('time vs Fz FR')
+% subplot(2,2,3)
+% plot((1:NHorizon)*car.delta_t,CarStates(6,:))
+% title('time vs Fz RL')
+% subplot(2,2,4)
+% plot((1:NHorizon)*car.delta_t,CarStates(7,:))
+% title('time vs Fz RR')
+% 
+% figure(4)
+% plot((1:NHorizon)*car.delta_t,dot_StateVariables(1,:) + 40*StateVariables(2,:))
+% title('time vs lateral acc')
+% 
+% figure(5)
+% subplot(2,2,1)
+% plot((1:NHorizon)*car.delta_t,    car.u0  - 0.75.* StateVariables(2,:))
+% title('time vs vx FL')
+% subplot(2,2,2)
+% plot((1:NHorizon)*car.delta_t,car.u0  + 0.75.* StateVariables(2,:))
+% title('time vs vx FR')
+% subplot(2,2,3)
+% plot((1:NHorizon)*car.delta_t,car.u0  - 0.75.* StateVariables(2,:))
+% title('time vs vx RL')
+% subplot(2,2,4)
+% plot((1:NHorizon)*car.delta_t,car.u0  + 0.75.* StateVariables(2,:))
+% title('time vs vx RR')
+% 
+% figure(6)
+% subplot(2,2,1)
+% plot((1:NHorizon)*car.delta_t,CarStates(12,1:end),'b')
+% title('Fy vs time FL')
+% subplot(2,2,2)
+% plot((1:NHorizon)*car.delta_t,CarStates(13,1:end),'b')
+% title('Fy vs time FR')
+% subplot(2,2,3)
+% plot((1:NHorizon)*car.delta_t,CarStates(14,1:end),'b')
+% title('Fy vs time RL')
+% subplot(2,2,4)
+% plot((1:NHorizon)*car.delta_t,CarStates(15,1:end),'b')
+% title('Fy vs time RR')
+% 
+% 
+% %% Check linearisation
+% new_states(:,1) = StateVariables(:,1);
+% for i=2:NHorizon
+%     [Ak,Bk,gk] = car.DiscretizedLinearizedMatrices(dot_StateVariables(:,i),StateVariables(:,i),input_vSteering(i));
+%     new_states(:,i)=Ak*StateVariables(:,i-1)+Bk*input_vSteering(:,i-1)+gk;
+% end
+% figure(7)
+% subplot(3,2,1)
+% plot(1:NHorizon,StateVariables(1,:),'b.')
+% hold on
+% plot(1:NHorizon,new_states(1,:),'r.')
+% subplot(3,2,2)
+% plot(1:NHorizon,StateVariables(2,:),'b.')
+% hold on
+% plot(1:NHorizon,new_states(2,:),'r.')
+% subplot(3,2,3)
+% plot(1:NHorizon,StateVariables(3,:),'b.')
+% hold on
+% plot(1:NHorizon,new_states(3,:),'r.')
+% subplot(3,2,4)
+% plot(1:NHorizon,StateVariables(4,:),'b.')
+% hold on
+% plot(1:NHorizon,new_states(4,:),'r.')
+% subplot(3,2,5)
+% plot(1:NHorizon,StateVariables(5,:),'b.')
+% hold on
+% plot(1:NHorizon,new_states(5,:),'r.')
 
 
 %% Main Loop
@@ -236,6 +249,23 @@ u0 = vSteering(1);
 %     x_new(:,i+1) = Ak *StateVariables(:,i)+Bk*vSteering(i)+gk;
 %     x_sol(:,i+1) = Ak *X(:,i)+Bk*U(i)+gk;
 % end
+
+
+for theta=1:150
+    position(theta,:)=car.InterrogateNURBS(theta);
+end
+figure(1)
+plot(position(:,1),position(:,2),'b.')
+hold on
+plot(CarStates(1,:),CarStates(2,:))
+
+% 
+% 
+% figure(2)
+% plot(1:NHorizon,X(4,:),'b.')
+% hold on
+% plot(1:NHorizon,StateVariables(4,:),'r.')
+% title('lateral error en MPC')
 
 
 %% Actual Simulation
@@ -308,8 +338,8 @@ for iSim = 1:NSim
     vSteering = Optimizer_Inputs;   
     u0 = vSteering(1);
     % Optimise
-    [ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0);
-    
+    [ X,U,info,carstate_matrix ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0);
+       
     % Fall back strategy in case optimisation fails:
     % take the following prediction in the last solved optimisation
     if info.exitflag == 1
@@ -337,6 +367,14 @@ for iSim = 1:NSim
     logging.QPtime(iSim) = info.QPtime;
     logging.Failed(iSim) = info.exitflag;
 
+    hold off
+    plot(position(:,1),position(:,2),'b.')
+    hold on
+    plot(carstate_matrix(1,:),carstate_matrix(2,:),'r.')
+    hold on
+    plot(logging.x_coord(1:iSim),logging.y_coord(1:iSim),'g.')
+    
+    
 end
 toc
 

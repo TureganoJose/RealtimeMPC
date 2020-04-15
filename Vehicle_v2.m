@@ -16,7 +16,7 @@ classdef Vehicle_v2 < handle
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
-      u = 33.0;
+      u = 33.333;
       v = 0.0;
       r = 0.0;
       s = 0.0;
@@ -27,7 +27,7 @@ classdef Vehicle_v2 < handle
       x0 = 0.0;
       y0 = 0.0;
       a_heading0 = 0.0;
-      u0 = 33.0;
+      u0 = 33.333;
       v0 = 0.0;
       r0 = 0.0;
       s0 = 0.0;
@@ -138,11 +138,11 @@ classdef Vehicle_v2 < handle
         end
         function obj = Calculate_states(obj,v_wheel_angle)
             % Slip angles
-            obj.alpha_fl = -obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),obj.u); %-obj.track_w*obj.r
-            obj.alpha_fr = -obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),obj.u); %+obj.track_w*obj.r
+            obj.alpha_fl = -obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),obj.u-obj.track_w*obj.r); %
+            obj.alpha_fr = -obj.a_wheel_angle + atan2((obj.v + obj.a*obj.r),obj.u+obj.track_w*obj.r); %
 
-            obj.alpha_rl = atan2(obj.v-obj.b*obj.r,obj.u); %-obj.track_w*obj.r
-            obj.alpha_rr = atan2(obj.v-obj.b*obj.r,obj.u); %+obj.track_w*obj.r
+            obj.alpha_rl = atan2(obj.v-obj.b*obj.r,obj.u-obj.track_w*obj.r); %
+            obj.alpha_rr = atan2(obj.v-obj.b*obj.r,obj.u+obj.track_w*obj.r); %
 
             % Vertical loads (Note ay = dot_v + u*r)
             obj.Fz_fl = obj.mass*(obj.b*9.81)/(2*(obj.a+obj.b))  -  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
@@ -150,6 +150,19 @@ classdef Vehicle_v2 < handle
             obj.Fz_rl = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  -  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
             obj.Fz_rr = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  +  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
 
+            if(obj.Fz_fl<0) 
+                obj.Fz_fl = 1;
+            end
+            if(obj.Fz_fr<0) 
+                obj.Fz_fr = 1;
+            end
+            if(obj.Fz_rl<0) 
+                obj.Fz_rl = 1;
+            end
+            if(obj.Fz_rr<0) 
+                obj.Fz_rr = 1;
+            end
+            
             %% Lateral Forces
             % FL
             alpha = obj.alpha_fl;
@@ -179,8 +192,7 @@ classdef Vehicle_v2 < handle
             g = 0.02;
 
             obj.force_rr = -1.*(((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz).* sin( (obj.r_Pcy1 .* obj.r_lambdaCy) * atan( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - ((obj.r_Pey1 + obj.r_Pey2*dfz).* ( 1. - (obj.r_Pey3 + obj.r_Pey4 * g .* obj.r_lambdagy).*sign(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy))) .* obj.r_lambdaEy).* ( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - atan((((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)))))) + (Fz.* ((obj.r_Pvy1 + obj.r_Pvy2 * dfz).*obj.r_lambdaVy + (obj.r_Pvy3 + obj.r_Pvy4*dfz).*g .* obj.r_lambdagy) .* obj.r_lambdamuy);
-            
-%             
+                   
 %             obj.force_fl = -obj.c_f.*obj.alpha_fl;
 %             obj.force_fr = -obj.c_f.*obj.alpha_fr;
 %             obj.force_rl = -obj.c_r.*obj.alpha_rl;
@@ -272,15 +284,16 @@ classdef Vehicle_v2 < handle
             
         end
         function obj = CreateTrack(obj,track)
+            NTrack = size(track.center  ,2);
             % Vector form of track
-            for i=1:1:666
+            for i=1:1:NTrack
                 vector(2*i-1)= track.center(1,i);
                 vector(2*i)=track.center(2,i);
                 nptyp(i)=1;
             end
             % libfunctions('SislNurbs')
             % libfunctionsview SislNurbs
-            Track_Nurbs = calllib('SislNurbs','createNURBS',vector,nptyp,666);
+            Track_Nurbs = calllib('SislNurbs','createNURBS',vector,nptyp,NTrack);
             obj.track = Track_Nurbs;
         end
         function [long_dist, lat_dist] =  CalculateTrackdistance(obj,x,y)
@@ -427,12 +440,12 @@ classdef Vehicle_v2 < handle
             % Slip angles
             syms alpha_fl alpha_fr alpha_rl alpha_rr 
             
-            alpha_fl(v, r, d_phi, e, a_wheel_angle)  = -a_wheel_angle + atan2((v + a*r),u); %-track_w*r
-            alpha_fr(v, r, d_phi, e, a_wheel_angle)  = -a_wheel_angle + atan2((v + a*r),u); %+track_w*r
+            alpha_fl(v, r, d_phi, e, a_wheel_angle)  = -a_wheel_angle + atan2((v + a*r),u-track_w*r); %
+            alpha_fr(v, r, d_phi, e, a_wheel_angle)  = -a_wheel_angle + atan2((v + a*r),u+track_w*r); %
 
-            alpha_rl(v, r, d_phi, e, a_wheel_angle)  = atan2(v-b*r,u); %-track_w*r
-            alpha_rr(v, r, d_phi, e, a_wheel_angle)  = atan2(v-b*r,u); %+track_w*r
-
+            alpha_rl(v, r, d_phi, e, a_wheel_angle)  = atan2(v-b*r,u-track_w*r); %
+            alpha_rr(v, r, d_phi, e, a_wheel_angle)  = atan2(v-b*r,u+track_w*r); %
+            
             % Vertical loads (Note ay = dot_v + u*r) and dot_v = f1
             syms Fz_fl Fz_fr Fz_rl Fz_rr
             syms dot_v
@@ -442,7 +455,7 @@ classdef Vehicle_v2 < handle
             Fz_rl(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  -  mass*(dot_v+r.*u)*cg_height/(2*track_w);
             Fz_rr(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  +  mass*(dot_v+r.*u)*cg_height/(2*track_w);
             
-          
+                        
             % Force
             syms force_fl force_fr force_rl force_rr
             
@@ -465,8 +478,7 @@ classdef Vehicle_v2 < handle
             g = 0.02;
 
             force_rr(v, r, d_phi, e, a_wheel_angle) = -1.*(((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr).* sin( (r_Pcy1 .* r_lambdaCy) * atan( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - ((r_Pey1 + r_Pey2*dFz_rr).* ( 1. - (r_Pey3 + r_Pey4 * g .* r_lambdagy).*sign(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy))) .* r_lambdaEy).* ( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - atan((((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)))))) + (Fz_rr.* ((r_Pvy1 + r_Pvy2 * dFz_rr).*r_lambdaVy + (r_Pvy3 + r_Pvy4*dFz_rr).*g .* r_lambdagy) .* r_lambdamuy);
-            
-            
+
 %             force_fl(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fl;
 %             force_fr(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fr;
 %             force_rl(v, r, d_phi, e, a_wheel_angle) = -c_r.*alpha_rl;
@@ -490,7 +502,7 @@ classdef Vehicle_v2 < handle
         end
         function Jacobian_output = Jacobian_eval(obj,dot_x,x)
 %             Jacobian_output = double(obj.J(x(1), x(2), x(3), x(4), x(5)));
-%             matlabFunction(obj.J,'File','CalculateJ');
+%             matlabFunction(car.J,'File','CalculateJ');
             v = x(1);
             r = x(2);
             d_phi = x(3);

@@ -10,6 +10,7 @@ function Plot_Simulation(logging)
 
     figure(1)
     plot( logging.x_coord,logging.y_coord,'b.')
+    %axis equal
     hold on
     
     figure(2)
