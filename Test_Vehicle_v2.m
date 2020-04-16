@@ -68,7 +68,7 @@ knots(NTrack*2)=1;
 %% Input Parameters and class construction
 car = Vehicle_v2();
 car.CreateTrack(track);
-tSim = 5;
+tSim = 4.5;
 tHorizon = 2;
 
 
@@ -254,10 +254,10 @@ u0 = vSteering(1);
 for theta=1:150
     position(theta,:)=car.InterrogateNURBS(theta);
 end
-figure(1)
-plot(position(:,1),position(:,2),'b.')
-hold on
-plot(CarStates(1,:),CarStates(2,:))
+% figure(1)
+% plot(position(:,1),position(:,2),'b.')
+% hold on
+% plot(CarStates(1,:),CarStates(2,:))
 
 % 
 % 
@@ -301,6 +301,19 @@ logging.e = zeros(NSim,1);
 logging.s = zeros(NSim,1);
 logging.a_wheel_angle = zeros(NSim,1);
 logging.v_wheel_angle = zeros(NSim,1);
+
+logging.Fz_fl = zeros(NSim,1);
+logging.Fz_fr = zeros(NSim,1);
+logging.Fz_rl = zeros(NSim,1);
+logging.Fz_rr = zeros(NSim,1);
+logging.alpha_fl = zeros(NSim,1);
+logging.alpha_fr = zeros(NSim,1);
+logging.alpha_rl = zeros(NSim,1);
+logging.alpha_rr = zeros(NSim,1);
+logging.force_fl = zeros(NSim,1);
+logging.force_fr = zeros(NSim,1);
+logging.force_rl = zeros(NSim,1);
+logging.force_rr = zeros(NSim,1);
 
 logging.a_heading = zeros(NSim,1);
 logging.k = zeros(NSim,1);
@@ -362,6 +375,19 @@ for iSim = 1:NSim
     logging.a_wheel_angle(iSim) = car_sim.a_wheel_angle;
     logging.v_wheel_angle(iSim) = Optimizer_Inputs(iOpt);
 
+    logging.Fz_fl(iSim) = car_sim.Fz_fl;
+    logging.Fz_fr(iSim) = car_sim.Fz_fr;
+    logging.Fz_rl(iSim) = car_sim.Fz_rl;
+    logging.Fz_rr(iSim) = car_sim.Fz_rr;
+    logging.alpha_fl(iSim) = car_sim.alpha_fl;
+    logging.alpha_fr(iSim) = car_sim.alpha_fr;
+    logging.alpha_rl(iSim) = car_sim.alpha_rl;
+    logging.alpha_rr(iSim) = car_sim.alpha_rr;
+    logging.force_fl(iSim) = car_sim.force_fl;
+    logging.force_fr(iSim) = car_sim.force_fr;
+    logging.force_rl(iSim) = car_sim.force_rl;
+    logging.force_rr(iSim) = car_sim.force_rr;
+    
     logging.a_heading(iSim) = car_sim.a_heading;
     logging.k(iSim) = car_sim.k;
     logging.QPtime(iSim) = info.QPtime;
@@ -373,16 +399,15 @@ for iSim = 1:NSim
     plot(carstate_matrix(1,:),carstate_matrix(2,:),'r.')
     hold on
     plot(logging.x_coord(1:iSim),logging.y_coord(1:iSim),'g.')
-    
-    
+  
 end
 toc
 
 %% Plots
 Plot_Simulation(logging)
-%% Unloading NURBS
 
-calllib('SislNurbs','freeNURBS',Track_Nurbs)
-unloadlibrary SislNurbs
+%% Unloading NURBS
+car.FreeNURBS();
+car_sim.FreeNURBS();
 
 

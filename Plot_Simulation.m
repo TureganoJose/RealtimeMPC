@@ -1,17 +1,19 @@
 function Plot_Simulation(logging)
 
+
     figure(1);
+    %set(0,'DefaultFigureWindowStyle','docked')
+    %set(0,'DefaultFigureWindowStyle','normal')
     plot(logging.track.outer(1,:),logging.track.outer(2,:),'r')
     hold on
     plot(logging.track.inner(1,:),logging.track.inner(2,:),'r')
     hold on
     plot(logging.track.center(1,:),logging.track.center(2,:),'k.')
     hold on
-
-    figure(1)
     plot( logging.x_coord,logging.y_coord,'b.')
     %axis equal
     hold on
+    
     
     figure(2)
     subplot(3,2,1)
@@ -46,4 +48,34 @@ function Plot_Simulation(logging)
     subplot(2,2,4)
     plot(logging.QPtime,'b')
     grid on; title('QP solving time (s)')
+    
+    figure(4)
+    title('Fz vs time')
+    subplot(2,2,1)
+    plot(logging.time, logging.Fz_fl,'b.')
+    grid on; title('Fz FL vs time')
+    subplot(2,2,2)
+    plot(logging.time,logging.Fz_fr,'b.')
+    grid on; title('Fz FR vs time')
+    subplot(2,2,3)
+    plot(logging.time,logging.Fz_rl,'b.')
+    grid on; title('Fz RL vs time')
+    subplot(2,2,4)
+    plot(logging.time,logging.Fz_rr,'b')
+    grid on; title('Fz RR vs time')
+    
+    figure(5)
+    title('slip angles vs time')
+    subplot(2,2,1)
+    plot(logging.time, logging.alpha_fl,'b.')
+    grid on; title('alpha FL vs time')
+    subplot(2,2,2)
+    plot(logging.time,logging.alpha_fr,'b.')
+    grid on; title('alpha FR vs time')
+    subplot(2,2,3)
+    plot(logging.time,logging.alpha_rl,'b.')
+    grid on; title('alpha RL vs time')
+    subplot(2,2,4)
+    plot(logging.time,logging.alpha_rr,'b')
+    grid on; title('alpha RR vs time')
 end

@@ -21,7 +21,7 @@ function [ X,U,info,carstate_matrix ] = Function_Cost_v2(car,tHorizon,vSteering,
         HorizonIter(i).dot_x = dot_State_Variables(:,i);
         HorizonIter(i).u = vSteering(i);
         [HorizonIter(i).Ak,HorizonIter(i).Bk,HorizonIter(i).gk] = car.DiscretizedLinearizedMatrices(HorizonIter(i).dot_x, HorizonIter(i).x,HorizonIter(i).u);
-        HorizonIter(i).Qk = diag([0,0,1,5,0]);
+        HorizonIter(i).Qk = diag([0,0,1,1,0]);
         HorizonIter(i).Rk = 5;
         HorizonIter(i).fk = zeros(5,1);%[0;0;-1;-1;0];
                            % v   r d_phi  e   a_wheel_angle v_wheel_angle

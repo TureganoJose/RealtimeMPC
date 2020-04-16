@@ -11,7 +11,17 @@ function Animate_Simulation(car,logging)
     steering_max = max(logging.a_wheel_angle);
     steering_min = min(logging.a_wheel_angle);
     
-    h = figure('units','normalized','outerposition',[0 0 1 1]);
+	a = car.a;
+	b = car.b;
+	wheelbase = a + b;
+	track_w = car.track_w;
+	sqrt_a = sqrt( a^2 + track_w^2);
+	sqrt_b = sqrt( b^2 + track_w^2);
+	X_box = logging.x_coord + [  sqrt_a.*cos(logging.a_heading + acos(a./sqrt_a)) sqrt_b.*cos(logging.a_heading + pi-acos(b/sqrt_b))    sqrt_b.*cos(logging.a_heading - pi+acos(b/sqrt_b))    sqrt_a*cos(logging.a_heading - acos(a./sqrt_a))         ];
+	Y_box = logging.y_coord + [  sqrt_a.*sin(logging.a_heading + acos(a./sqrt_a)) sqrt_b.*sin(logging.a_heading + pi-acos(b/sqrt_b))    sqrt_b.*sin(logging.a_heading - pi+acos(b/sqrt_b))    sqrt_a*sin(logging.a_heading - acos(a./sqrt_a))         ];
+    
+    
+	h = figure('units','normalized','outerposition',[0 0 1 1]);
     filename = 'testAnimated.gif';
 
     for iSim=1:NSim-NHorizon
@@ -42,6 +52,9 @@ function Animate_Simulation(car,logging)
         plot(logging.x_coord(iSim),logging.y_coord(iSim),'m.')
         xlim([logging.x_coord(iSim)-30 logging.x_coord(iSim)+30] )
         ylim([logging.y_coord(iSim)-30 logging.y_coord(iSim)+30])
+
+        fill(X_box(iSim,:),Y_box(iSim,:),'r')
+        axis equal
         xlabel('X [m]')
         ylabel('Y [m]')
         

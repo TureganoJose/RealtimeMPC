@@ -6,7 +6,7 @@ classdef Vehicle_v2 < handle
       a = 1.006;
       b = 1.534;
       wheelbase =  0.0;
-      track_w = 0.75;
+      track_w = 0.8;
       cg_height = 0.6;
       c_f = 43730;%70000;
       c_r = 57350;%130000;
@@ -144,11 +144,11 @@ classdef Vehicle_v2 < handle
             obj.alpha_rl = atan2(obj.v-obj.b*obj.r,obj.u-obj.track_w*obj.r); %
             obj.alpha_rr = atan2(obj.v-obj.b*obj.r,obj.u+obj.track_w*obj.r); %
 
-            % Vertical loads (Note ay = dot_v + u*r)
-            obj.Fz_fl = obj.mass*(obj.b*9.81)/(2*(obj.a+obj.b))  -  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
-            obj.Fz_fr = obj.mass*(obj.b*9.81)/(2*(obj.a+obj.b))  +  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
-            obj.Fz_rl = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  -  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
-            obj.Fz_rr = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  +  obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
+            % Vertical loads (Note ay = dot_v + u*r) 50% Mech Bal
+            obj.Fz_fl = obj.mass*(obj.b*9.81)/(2*(obj.a+obj.b))  -  0.5*obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
+            obj.Fz_fr = obj.mass*(obj.b*9.81)/(2*(obj.a+obj.b))  +  0.5*obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
+            obj.Fz_rl = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  -  0.5*obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
+            obj.Fz_rr = obj.mass*(obj.a*9.81)/(2*(obj.a+obj.b))  +  0.5*obj.mass*(obj.dot_v+obj.r.*obj.u)*obj.cg_height/(2*obj.track_w);
 
             if(obj.Fz_fl<0) 
                 obj.Fz_fl = 1;
@@ -309,6 +309,10 @@ classdef Vehicle_v2 < handle
             position = [0, 0];
             [~,~,position]=calllib('SislNurbs','interrogateNURBS',obj.track,long_param,position);
         end
+        function FreeNURBS(obj)
+            calllib('SislNurbs','freeNURBS',obj.track)
+            unloadlibrary SislNurbs
+        end
         function [state_matrix, dot_state_matrix, carstate_matrix] = RunSimulation(obj,tfinal,v_wheel_angle)
             NHorizon = tfinal/obj.delta_t;
             % State vector: v r d_phi e a_wheel_angle
@@ -450,10 +454,10 @@ classdef Vehicle_v2 < handle
             syms Fz_fl Fz_fr Fz_rl Fz_rr
             syms dot_v
             
-            Fz_fl(v, r, d_phi, e, a_wheel_angle) = mass*(b*9.81)/(2*(a+b))  -  mass*(dot_v+r.*u)*cg_height/(2*track_w);
-            Fz_fr(v, r, d_phi, e, a_wheel_angle) = mass*(b*9.81)/(2*(a+b))  +  mass*(dot_v+r.*u)*cg_height/(2*track_w);
-            Fz_rl(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  -  mass*(dot_v+r.*u)*cg_height/(2*track_w);
-            Fz_rr(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  +  mass*(dot_v+r.*u)*cg_height/(2*track_w);
+            Fz_fl(v, r, d_phi, e, a_wheel_angle) = mass*(b*9.81)/(2*(a+b))  -  0.5*mass*(dot_v+r.*u)*cg_height/(2*track_w);
+            Fz_fr(v, r, d_phi, e, a_wheel_angle) = mass*(b*9.81)/(2*(a+b))  +  0.5*mass*(dot_v+r.*u)*cg_height/(2*track_w);
+            Fz_rl(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  -  0.5*mass*(dot_v+r.*u)*cg_height/(2*track_w);
+            Fz_rr(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  +  0.5*mass*(dot_v+r.*u)*cg_height/(2*track_w);
             
                         
             % Force
