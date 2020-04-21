@@ -29,14 +29,14 @@ track_width1 = 1.1*B+0.25;
 track_width2 = 1.2*B+0.25;
 track_width3 = 1.3*B+0.25;
 
-track.center(1,:)= [ 0:1:15 45:70 95:155];
-track.center(2,:)= [ zeros(size(0:1:15)) (3.5-track_width1/2+track_width2/2)*ones(size(45:70)) zeros(size(95:155))];
+track.center(1,:)= [ 0:1:15 45:70 95:250];
+track.center(2,:)= [ zeros(size(0:1:15)) (3.5-track_width1/2+track_width2/2)*ones(size(45:70)) zeros(size(95:250))];
     
 track.inner(1,:)= track.center(1,:);
-track.inner(2,:)= [ zeros(size(0:1:15))-track_width1/2 (3.5-track_width1/2)*ones(size(45:70)) zeros(size(95:155))-track_width3/2];
+track.inner(2,:)= [ zeros(size(0:1:15))-track_width1/2 (3.5-track_width1/2)*ones(size(45:70)) zeros(size(95:250))-track_width3/2];
 
 track.outer(1,:)= track.center(1,:);
-track.outer(2,:)= [ zeros(size(0:1:15))+track_width1/2 (3.5-track_width1/2+track_width2)*ones(size(45:70)) zeros(size(95:155))+track_width3/2];
+track.outer(2,:)= [ zeros(size(0:1:15))+track_width1/2 (3.5-track_width1/2+track_width2)*ones(size(45:70)) zeros(size(95:250))+track_width3/2];
 
 hold on
 plot(track.center(1,:),track.center(2,:),'r.')

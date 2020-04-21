@@ -8,7 +8,7 @@ function [ X,U,info,carstate_matrix ] = Function_Cost_v2(car,tHorizon,vSteering,
     NHorizon = size(State_Variables,2);
 
     % Pose QP 
-    %                min   1/2*x'Hx + x'g
+    %                min   1/2*x'Hx + x'f
     %                s.t.  lb  <=  x <= ub
     %                      lbA <= Ax <= ubA  {optional}
     %                x = [ v r d_phi e a_wheel_angle ]

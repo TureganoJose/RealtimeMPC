@@ -1,10 +1,7 @@
 
 function [ X,U,info ] = QuadProgoptimizer(HorizonIter,NHorizon)
-nx = 5;
-nu = 1;
-ng = 2;
-nz = nx+2*nu;
-nxu = nx+nu;
+nx = 5; % number of car states
+nu = 1; % number of control states
 
 
 H = zeros( (nx+nu)*NHorizon,(nx+nu)*NHorizon);
@@ -14,38 +11,21 @@ for i = 1:NHorizon
     H( (i-1)*(nx+nu)+1:i*(nu+nx),(i-1)*(nx+nu)+1:i*(nu+nx))= H_i;
 end
 
-% H = 0.5*(H+H');
-
+% Sizes require +nx to accomodate the initial condition x0
 Aeq = zeros( (nx)*NHorizon+nx,(nx+nu)*NHorizon);
 beq = zeros((nx)*NHorizon+nx,1);
-
 
 for i = 1:NHorizon-1
     Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+1:(i-1)*(nx+nu)+nx) = -HorizonIter(i).Ak;
     Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+nx+1:(i-1)*(nx+nu)+nx+nu)= -HorizonIter(i).Bk;
     Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+nx+nu+1:(i-1)*(nx+nu)+nx+nu+nx)= eye(nx);
-%     	A_i = [-HorizonIter(i).Ak -HorizonIter(i).Bk eye(nx) zeros(nx,nu); zeros(nx,nx) zeros(nx,nu) zeros(nx,nx) zeros(nx,nu) ];
-%     x_test = A_i * [HorizonIter(i).x;HorizonIter(i).u] + [HorizonIter(i).gk;zeros(1,nu)];
-%     Aeq( (i-1)*(nx+nu)+1:i*(nu+nx),(i-1)*(nx+nu)+1:i*(nu+nx))= A_i;
 
-      beq( (i-1)*nx+1:i*nx,1) = [HorizonIter(i).gk];
-    
-%     if i==1
-%         Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+1:(i-1)*(nx+nu)+nx) = eye(nx);
-%         Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+nx+1:(i-1)*(nx+nu)+nx+nu)= 0;
-%         Aeq((i-1)*nx+1:i*nx, (i-1)*(nx+nu)+nx+nu+1:(i-1)*(nx+nu)+nx+nu+nx)= 0;
-%         beq( (i-1)*nx+1:i*nx,1) = HorizonIter(1).x;
-%     end
-    
-% 	A_i = [-HorizonIter(i).Ak -HorizonIter(i).Bk eye(nx) zeros(nx,nu); zeros(nx,nx) zeros(nx,nu) zeros(nx,nx) zeros(nx,nu) ];
-% %     x_test = A_i * [HorizonIter(i).x;HorizonIter(i).u] + [HorizonIter(i).gk;zeros(1,nu)];
-%     Aeq( (i-1)*(nx+nu)+1:i*(nu+nx),(i-1)*(nx+nu)+1:i*(nu+nx))= A_i;
-%     beq( (i-1)*(nx+nu)+1:i*(nu+nx),1) = -[HorizonIter(i).gk;zeros(1,nu)];
+    beq( (i-1)*nx+1:i*nx,1) = [HorizonIter(i).gk];
 end
 
 % Last rows to stablish the initial conditions I*x0 = x0*(optimised value)
-Aeq(251:255,1:5)=eye(nx);
-beq(251:255,:)= HorizonIter(1).x;
+Aeq(nx*NHorizon+1:(nx)*NHorizon+nx,1:nx)=eye(nx);
+beq(nx*NHorizon+1:(nx)*NHorizon+nx,:)= HorizonIter(1).x;
 
 % figure(3)
 % plot(1:NHorizon,x_test)

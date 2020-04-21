@@ -42,7 +42,9 @@ clc
 % https://www.researchgate.net/publication/335970485_Optimal_Coordination_of_Chassis_Systems_for_Vehicle_Motion_Control
 % Shows influence of roll (although it doesn't show the influence of Fz)
 % A Switched MPC Lateral Steering Controller Which Considered Tracking Quality and Handling Quality for Autonomous Vehicle
-
+% Good explanation of terminal cost and constraints to ensure
+% stability/feasibility
+% https://d-nb.info/1054135541/34
 
 %% Load track
 load('.\Tracks\dlc2.mat')
@@ -68,7 +70,7 @@ knots(NTrack*2)=1;
 %% Input Parameters and class construction
 car = Vehicle_v2();
 car.CreateTrack(track);
-tSim = 4.5;
+tSim = 5;
 tHorizon = 2;
 
 
