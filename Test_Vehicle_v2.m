@@ -45,7 +45,12 @@ clc
 % Good explanation of terminal cost and constraints to ensure
 % stability/feasibility
 % https://d-nb.info/1054135541/34
-
+% General overview of optimal control problems
+% https://www.stardust2013.eu/Portals/63/Images/Training/OTS%20Repository/OTS-Talk-Topputo.pdf
+% Good explaining the QP. Comparing the QP to Newton-Raphson method
+% https://ecal.berkeley.edu/files/ce191/CH02-QuadraticProgramming.pdf
+% General overview of MPC, indirect/direct methods for transcription, 
+% A_Nonlinear_Model_Predictive_Control_based_Evasive_Manoeuvre_Assist_Function.pdf
 %% Load track
 load('.\Tracks\dlc2.mat')
 TrackScale = 1;

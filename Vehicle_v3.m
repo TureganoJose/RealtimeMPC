@@ -1,4 +1,4 @@
-classdef Vehicle_v2 < handle
+classdef Vehicle_v3 < handle
     properties
       %% Car parameters
       Izz = 2380.7;
@@ -501,16 +501,17 @@ classdef Vehicle_v2 < handle
             % dot_a_steering_wheel = v_steering_wheel
             f5(v, r, d_phi, e, a_wheel_angle)= v_wheel_angle;
             
-            
+            % Weights
+            syms q_e q_phi q_R
             % e
             f6(v, r, d_phi, e, a_wheel_angle) = e + (v+u*d_phi)*delta_t;
             % d_phi
             f7(v, r, d_phi, e, a_wheel_angle) = d_phi + (r - k*u)*delta_t;
             
-            cost(v, r, d_phi, e, a_wheel_angle)= f6^2 + f7^2 + v_wheel_angle^2;
-            cost_taylor2 = taylor(cost, [v, r, d_phi, e, a_wheel_angle], 'Order', 2, 'OrderMode', 'absolute');
-            
-            
+            cost(v, r, d_phi, e, a_wheel_angle)= q_e*(f6^2) + q_phi*(f7^2) + q_R*(v_wheel_angle^2);
+            J_cost = jacobian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
+            H_cost = hessian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
+
             obj.J = jacobian([f1,f2,f3,f4,f5],[v, r, d_phi, e, a_wheel_angle]);
         end
         function Jacobian_output = Jacobian_eval(obj,dot_x,x)
