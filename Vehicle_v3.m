@@ -29,6 +29,7 @@ classdef Vehicle_v3 < handle
       a_heading0 = 0.0;
       u0 = 33.333;
       v0 = 0.0;
+      dot_v0 = 0.0;
       r0 = 0.0;
       s0 = 0.0;
       k0 = 0.0;
@@ -123,7 +124,7 @@ classdef Vehicle_v3 < handle
       J = []; %Placeholder for Jacobian matrix
     end
     methods
-        function obj = Vehicle_v2(obj)
+        function obj = Vehicle_v3(obj)
             %Load library
             addpath('C:\Workspaces\MPC\SISL\x64\Debug')
             addpath('C:\Workspaces\MPC\SISL-master\app')
@@ -319,9 +320,37 @@ classdef Vehicle_v3 < handle
             state_matrix = zeros(5,NHorizon);
             carstate_matrix = zeros(3, NHorizon);
             dot_state_matrix = zeros(5,NHorizon);
+            
             obj.InitVehicle();
-            for i=1:NHorizon
-                obj.Calculate_states(v_wheel_angle(i));
+
+            state_matrix(1,1) = obj.v;
+            state_matrix(2,1) = obj.r;
+            state_matrix(3,1) = obj.d_phi;
+            state_matrix(4,1) = obj.e;
+            state_matrix(5,1) = obj.a_wheel_angle;
+            dot_state_matrix(1,1) = obj.dot_v;
+            dot_state_matrix(2,1) = obj.dot_r;
+            dot_state_matrix(3,1) = obj.dot_d_phi;
+            dot_state_matrix(4,1) = obj.dot_e;
+            dot_state_matrix(5,1) = v_wheel_angle(1);
+            carstate_matrix(1,1) = obj.x;
+            carstate_matrix(2,1) = obj.y;
+            carstate_matrix(3,1) = obj.s;
+            carstate_matrix(4,1) = obj.Fz_fl;
+            carstate_matrix(5,1) = obj.Fz_fr;
+            carstate_matrix(6,1) = obj.Fz_rl;
+            carstate_matrix(7,1) = obj.Fz_rr;
+            carstate_matrix(8,1) = obj.alpha_fl;
+            carstate_matrix(9,1) = obj.alpha_fr;
+            carstate_matrix(10,1) = obj.alpha_rl;
+            carstate_matrix(11,1) = obj.alpha_rr;
+            carstate_matrix(12,1) = obj.force_fl;
+            carstate_matrix(13,1) = obj.force_fr;
+            carstate_matrix(14,1) = obj.force_rl;
+            carstate_matrix(15,1) = obj.force_rr;
+
+            for i=2:NHorizon
+                obj.Calculate_states(v_wheel_angle(i-1));
                 state_matrix(1,i) = obj.v;
                 state_matrix(2,i) = obj.r;
                 state_matrix(3,i) = obj.d_phi;
@@ -331,7 +360,7 @@ classdef Vehicle_v3 < handle
                 dot_state_matrix(2,i) = obj.dot_r;
                 dot_state_matrix(3,i) = obj.dot_d_phi;
                 dot_state_matrix(4,i) = obj.dot_e;
-                dot_state_matrix(5,i) = v_wheel_angle(i);
+                dot_state_matrix(5,i) = v_wheel_angle(i-1);
                 carstate_matrix(1,i) = obj.x;
                 carstate_matrix(2,i) = obj.y;
                 carstate_matrix(3,i) = obj.s;
@@ -551,7 +580,10 @@ classdef Vehicle_v3 < handle
             Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
             Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
             gk(1:sx,1) =tmp(1:sx,sx+su+1);
-
+            %gk(sx,1) = 0.0;
+            
+            % Alternatively use c2d(sys,Ts)
+            % sys = ss(A,B,C,D,ts)
            
             % following to avoid numerical errors
 %             Ad(end,end)=1;

@@ -1,5 +1,5 @@
 
-function [ X,U,info ] = QuadProgoptimizer(HorizonIter,NHorizon)
+function [ X,U,info ] = QuadProgoptimizer_v3(HorizonIter,NHorizon)
 nx = 5; % number of car states
 nu = 1; % number of control states
 
