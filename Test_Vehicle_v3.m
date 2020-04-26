@@ -62,8 +62,14 @@ clc
 % http://www-personal.umich.edu/~tersal/papers/paper30.pdf
 % 14 DOF vehicle
 % https://documents.pub/document/understanding-the-limitations-of-different-vehicle-models-for-roll-dynamics.html
+% New solver
+% https://alphaville.github.io/optimization-engine/
+% good material from italian professor
+% http://cse.lab.imtlucca.it/~bemporad/mpc_course.html
+% From linear to non-linear MPC
+% https://www.researchgate.net/publication/308737646_From_linear_to_nonlinear_MPC_bridging_the_gap_via_the_real-time_iteration
 %% Load track
-load('.\Tracks\dlc2.mat')
+load('.\Tracks\track.mat') %dlc2
 TrackScale = 1;
 
 track.center = track.center * TrackScale;
@@ -86,12 +92,12 @@ knots(NTrack*2)=1;
 %% Input Parameters and class construction
 car = Vehicle_v3();
 car.CreateTrack(track);
-tSim = 5;
+tSim = 50;
 tHorizon = 2;
 
 
 % Initial matrix state
-startIdx = 3;
+startIdx = 35;
 car.x0 = track.center(1,startIdx);
 car.y0 = track.center(2,startIdx);
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
@@ -218,22 +224,22 @@ for iSim = 1:NSim
     u0 = vSteering(1);
     % Optimise
     [ X,U,info,pre_opt_state, pre_opt_dot_state, pre_opt_car_state,HorizonIter ] = Function_Cost_v3(car,tHorizon,vSteering,x0,u0);
-       
-    % Checking discretization/linearization
-    [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
     
-    x_opt_linear = zeros(5,NHorizon);
-    x_opt_linear(:,1) = X(:,1);
-    cost_aheading = HorizonIter(1).Qk(3,3) * X(3,1)^2;
-    cost_lat_error = HorizonIter(1).Qk(4,4) * X(4,1)^2;
-    cost_v_steering =  HorizonIter(1).Rk*U(1)^2;
-    for i=2:NHorizon
-        x_opt_linear(:,i)= HorizonIter(i).Ak * X(:,i-1) + HorizonIter(i).Bk*U(i-1)+ HorizonIter(i).gk;
-        cost_aheading = cost_aheading + HorizonIter(i).Qk(3,3) * X(3,i)^2;
-        cost_lat_error= cost_lat_error + HorizonIter(i).Qk(4,4) * X(4,i)^2;
-        cost_v_steering = cost_v_steering + HorizonIter(i).Rk*U(i)^2;
-    end
-    
+%     % Checking discretization/linearization
+%     [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
+%     
+%     x_opt_linear = zeros(5,NHorizon);
+%     x_opt_linear(:,1) = X(:,1);
+%     cost_aheading = HorizonIter(1).Qk(3,3) * X(3,1)^2;
+%     cost_lat_error = HorizonIter(1).Qk(4,4) * X(4,1)^2;
+%     cost_v_steering =  HorizonIter(1).Rk*U(1)^2;
+%     for i=2:NHorizon
+%         x_opt_linear(:,i)= HorizonIter(i).Ak * X(:,i-1) + HorizonIter(i).Bk*U(i-1)+ HorizonIter(i).gk;
+%         cost_aheading = cost_aheading + HorizonIter(i).Qk(3,3) * X(3,i)^2;
+%         cost_lat_error= cost_lat_error + HorizonIter(i).Qk(4,4) * X(4,i)^2;
+%         cost_v_steering = cost_v_steering + HorizonIter(i).Rk*U(i)^2;
+%     end
+%     
 %     fprintf('error heading %f error lateral %f error steering speed %f \n',cost_aheading, cost_lat_error, cost_v_steering)
 %     % Error reference optimized inputs with dynamic simulation
 %     % Error 1: Optimum states accordding to QP solver
@@ -259,9 +265,7 @@ for iSim = 1:NSim
 %     subplot(3,2,6)
 %     plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
 %     legend('Optimized','Previous Optimization');grid on
-    
-
-    
+   
     
     % Fall back strategy in case optimisation fails:
     % take the following prediction in the last solved optimisation

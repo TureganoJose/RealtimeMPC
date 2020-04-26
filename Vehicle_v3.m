@@ -164,40 +164,40 @@ classdef Vehicle_v3 < handle
                 obj.Fz_rr = 1;
             end
             
-            %% Lateral Forces
-            % FL
-            alpha = obj.alpha_fl;
-            Fz = obj.Fz_fl;
-            dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
-            g = 0.02;
-
-            obj.force_fl = (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz).* sin( (obj.f_Pcy1 .* obj.f_lambdaCy) * atan( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - ((obj.f_Pey1 + obj.f_Pey2*dfz).* ( 1. - (obj.f_Pey3 + obj.f_Pey4 * g .* obj.f_lambdagy).*sign(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy))) .* obj.f_lambdaEy).* ( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - atan((((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)))))) + (Fz.* ((obj.f_Pvy1 + obj.f_Pvy2 * dfz).*obj.f_lambdaVy + (obj.f_Pvy3 + obj.f_Pvy4*dfz).*g .* obj.f_lambdagy) .* obj.f_lambdamuy);
-
-            alpha = -obj.alpha_fr;
-            Fz = obj.Fz_fr;
-            dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
-            g = 0.02;
-
-            obj.force_fr = -1.*(((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz).* sin( (obj.f_Pcy1 .* obj.f_lambdaCy) * atan( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - ((obj.f_Pey1 + obj.f_Pey2*dfz).* ( 1. - (obj.f_Pey3 + obj.f_Pey4 * g .* obj.f_lambdagy).*sign(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy))) .* obj.f_lambdaEy).* ( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - atan((((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)))))) + (Fz.* ((obj.f_Pvy1 + obj.f_Pvy2 * dfz).*obj.f_lambdaVy + (obj.f_Pvy3 + obj.f_Pvy4*dfz).*g .* obj.f_lambdagy) .* obj.f_lambdamuy);
-
-            alpha = obj.alpha_rl;
-            Fz = obj.Fz_rl;
-            dfz =(Fz-obj.r_Fz0)/obj.r_Fz0;
-            g = 0.02;
-
-            obj.force_rl = (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz).* sin( (obj.r_Pcy1 .* obj.r_lambdaCy) * atan( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - ((obj.r_Pey1 + obj.r_Pey2*dfz).* ( 1. - (obj.r_Pey3 + obj.r_Pey4 * g .* obj.r_lambdagy).*sign(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy))) .* obj.r_lambdaEy).* ( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - atan((((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)))))) + (Fz.* ((obj.r_Pvy1 + obj.r_Pvy2 * dfz).*obj.r_lambdaVy + (obj.r_Pvy3 + obj.r_Pvy4*dfz).*g .* obj.r_lambdagy) .* obj.r_lambdamuy);
-
-            alpha = -obj.alpha_rr;
-            Fz = obj.Fz_rr;
-            dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
-            g = 0.02;
-
-            obj.force_rr = -1.*(((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz).* sin( (obj.r_Pcy1 .* obj.r_lambdaCy) * atan( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - ((obj.r_Pey1 + obj.r_Pey2*dfz).* ( 1. - (obj.r_Pey3 + obj.r_Pey4 * g .* obj.r_lambdagy).*sign(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy))) .* obj.r_lambdaEy).* ( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - atan((((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)))))) + (Fz.* ((obj.r_Pvy1 + obj.r_Pvy2 * dfz).*obj.r_lambdaVy + (obj.r_Pvy3 + obj.r_Pvy4*dfz).*g .* obj.r_lambdagy) .* obj.r_lambdamuy);
-                   
-%             obj.force_fl = -obj.c_f.*obj.alpha_fl;
-%             obj.force_fr = -obj.c_f.*obj.alpha_fr;
-%             obj.force_rl = -obj.c_r.*obj.alpha_rl;
-%             obj.force_rr = -obj.c_r.*obj.alpha_rr;
+%             %% Lateral Forces
+%             % FL
+%             alpha = obj.alpha_fl;
+%             Fz = obj.Fz_fl;
+%             dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
+%             g = 0.02;
+% 
+%             obj.force_fl = (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz).* sin( (obj.f_Pcy1 .* obj.f_lambdaCy) * atan( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - ((obj.f_Pey1 + obj.f_Pey2*dfz).* ( 1. - (obj.f_Pey3 + obj.f_Pey4 * g .* obj.f_lambdagy).*sign(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy))) .* obj.f_lambdaEy).* ( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - atan((((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)))))) + (Fz.* ((obj.f_Pvy1 + obj.f_Pvy2 * dfz).*obj.f_lambdaVy + (obj.f_Pvy3 + obj.f_Pvy4*dfz).*g .* obj.f_lambdagy) .* obj.f_lambdamuy);
+% 
+%             alpha = -obj.alpha_fr;
+%             Fz = obj.Fz_fr;
+%             dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
+%             g = 0.02;
+% 
+%             obj.force_fr = -1.*(((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz).* sin( (obj.f_Pcy1 .* obj.f_lambdaCy) * atan( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - ((obj.f_Pey1 + obj.f_Pey2*dfz).* ( 1. - (obj.f_Pey3 + obj.f_Pey4 * g .* obj.f_lambdagy).*sign(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy))) .* obj.f_lambdaEy).* ( (((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)) - atan((((obj.f_Pky1*obj.f_Fz0 * sin(2. * atan(Fz/(obj.f_Pky2*obj.f_Fz0)))).* (1. - obj.f_Pky3 * abs(g .* obj.f_lambdagy)) .* obj.f_lambdaFz0 .* obj.f_lambdaKy)./ ((obj.f_Pcy1 .* obj.f_lambdaCy) * (((obj.f_Pdy1 + obj.f_Pdy2*dfz).* (1.- obj.f_Pdy3 * (g .* obj.f_lambdagy).^2) .* obj.f_lambdamuy).* Fz))).*(alpha + ((obj.f_Phy1 + obj.f_Phy2 * dfz).*obj.f_lambdaHy + obj.f_Phy3 * g .* obj.f_lambdagy)))))) + (Fz.* ((obj.f_Pvy1 + obj.f_Pvy2 * dfz).*obj.f_lambdaVy + (obj.f_Pvy3 + obj.f_Pvy4*dfz).*g .* obj.f_lambdagy) .* obj.f_lambdamuy);
+% 
+%             alpha = obj.alpha_rl;
+%             Fz = obj.Fz_rl;
+%             dfz =(Fz-obj.r_Fz0)/obj.r_Fz0;
+%             g = 0.02;
+% 
+%             obj.force_rl = (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz).* sin( (obj.r_Pcy1 .* obj.r_lambdaCy) * atan( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - ((obj.r_Pey1 + obj.r_Pey2*dfz).* ( 1. - (obj.r_Pey3 + obj.r_Pey4 * g .* obj.r_lambdagy).*sign(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy))) .* obj.r_lambdaEy).* ( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - atan((((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)))))) + (Fz.* ((obj.r_Pvy1 + obj.r_Pvy2 * dfz).*obj.r_lambdaVy + (obj.r_Pvy3 + obj.r_Pvy4*dfz).*g .* obj.r_lambdagy) .* obj.r_lambdamuy);
+% 
+%             alpha = -obj.alpha_rr;
+%             Fz = obj.Fz_rr;
+%             dfz =(Fz-obj.f_Fz0)/obj.f_Fz0;
+%             g = 0.02;
+% 
+%             obj.force_rr = -1.*(((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz).* sin( (obj.r_Pcy1 .* obj.r_lambdaCy) * atan( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - ((obj.r_Pey1 + obj.r_Pey2*dfz).* ( 1. - (obj.r_Pey3 + obj.r_Pey4 * g .* obj.r_lambdagy).*sign(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy))) .* obj.r_lambdaEy).* ( (((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)) - atan((((obj.r_Pky1*obj.r_Fz0 * sin(2. * atan(Fz/(obj.r_Pky2*obj.r_Fz0)))).* (1. - obj.r_Pky3 * abs(g .* obj.r_lambdagy)) .* obj.r_lambdaFz0 .* obj.r_lambdaKy)./ ((obj.r_Pcy1 .* obj.r_lambdaCy) * (((obj.r_Pdy1 + obj.r_Pdy2*dfz).* (1.- obj.r_Pdy3 * (g .* obj.r_lambdagy).^2) .* obj.r_lambdamuy).* Fz))).*(alpha + ((obj.r_Phy1 + obj.r_Phy2 * dfz).*obj.r_lambdaHy + obj.r_Phy3 * g .* obj.r_lambdagy)))))) + (Fz.* ((obj.r_Pvy1 + obj.r_Pvy2 * dfz).*obj.r_lambdaVy + (obj.r_Pvy3 + obj.r_Pvy4*dfz).*g .* obj.r_lambdagy) .* obj.r_lambdamuy);
+%                    
+            obj.force_fl = -obj.c_f.*obj.alpha_fl;
+            obj.force_fr = -obj.c_f.*obj.alpha_fr;
+            obj.force_rl = -obj.c_r.*obj.alpha_rl;
+            obj.force_rr = -obj.c_r.*obj.alpha_rr;
             
             % Equations of motion
             % Constant longitudinal speed         
@@ -489,33 +489,33 @@ classdef Vehicle_v3 < handle
             Fz_rr(v, r, d_phi, e, a_wheel_angle) = mass*(a*9.81)/(2*(a+b))  +  0.5*mass*(dot_v+r.*u)*cg_height/(2*track_w);
             
                         
-            % Force
-            syms force_fl force_fr force_rl force_rr
-            
-            dFz_fl(v, r, d_phi, e, a_wheel_angle) =(Fz_fl-f_Fz0)/f_Fz0;
-            g = 0.02;
+%             % Force
+%             syms force_fl force_fr force_rl force_rr
+%             
+%             dFz_fl(v, r, d_phi, e, a_wheel_angle) =(Fz_fl-f_Fz0)/f_Fz0;
+%             g = 0.02;
+% 
+%             force_fl(v, r, d_phi, e, a_wheel_angle) = (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl).* sin( (f_Pcy1 .* f_lambdaCy) * atan( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - ((f_Pey1 + f_Pey2*dFz_fl).* ( 1. - (f_Pey3 + f_Pey4 * g .* f_lambdagy).*sign(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy))) .* f_lambdaEy).* ( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - atan((((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)))))) + (Fz_fl.* ((f_Pvy1 + f_Pvy2 * dFz_fl).*f_lambdaVy + (f_Pvy3 + f_Pvy4*dFz_fl).*g .* f_lambdagy) .* f_lambdamuy);
+% 
+%             dFz_fr(v, r, d_phi, e, a_wheel_angle) =(Fz_fr-f_Fz0)/f_Fz0;
+%             g = 0.02;
+% 
+%             force_fr(v, r, d_phi, e, a_wheel_angle) = -1.*(((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr).* sin( (f_Pcy1 .* f_lambdaCy) * atan( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - ((f_Pey1 + f_Pey2*dFz_fr).* ( 1. - (f_Pey3 + f_Pey4 * g .* f_lambdagy).*sign(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy))) .* f_lambdaEy).* ( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - atan((((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)))))) + (Fz_fr.* ((f_Pvy1 + f_Pvy2 * dFz_fr).*f_lambdaVy + (f_Pvy3 + f_Pvy4*dFz_fr).*g .* f_lambdagy) .* f_lambdamuy);
+% 
+%             dFz_rl(v, r, d_phi, e, a_wheel_angle) =(Fz_rl-r_Fz0)/r_Fz0;
+%             g = 0.02;
+% 
+%             force_rl(v, r, d_phi, e, a_wheel_angle) = (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl).* sin( (r_Pcy1 .* r_lambdaCy) * atan( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - ((r_Pey1 + r_Pey2*dFz_rl).* ( 1. - (r_Pey3 + r_Pey4 * g .* r_lambdagy).*sign(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy))) .* r_lambdaEy).* ( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - atan((((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)))))) + (Fz_rl.* ((r_Pvy1 + r_Pvy2 * dFz_rl).*r_lambdaVy + (r_Pvy3 + r_Pvy4*dFz_rl).*g .* r_lambdagy) .* r_lambdamuy);
+% 
+%             dFz_rr(v, r, d_phi, e, a_wheel_angle) =(Fz_rr-r_Fz0)/r_Fz0;
+%             g = 0.02;
+% 
+%             force_rr(v, r, d_phi, e, a_wheel_angle) = -1.*(((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr).* sin( (r_Pcy1 .* r_lambdaCy) * atan( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - ((r_Pey1 + r_Pey2*dFz_rr).* ( 1. - (r_Pey3 + r_Pey4 * g .* r_lambdagy).*sign(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy))) .* r_lambdaEy).* ( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - atan((((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)))))) + (Fz_rr.* ((r_Pvy1 + r_Pvy2 * dFz_rr).*r_lambdaVy + (r_Pvy3 + r_Pvy4*dFz_rr).*g .* r_lambdagy) .* r_lambdamuy);
 
-            force_fl(v, r, d_phi, e, a_wheel_angle) = (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl).* sin( (f_Pcy1 .* f_lambdaCy) * atan( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - ((f_Pey1 + f_Pey2*dFz_fl).* ( 1. - (f_Pey3 + f_Pey4 * g .* f_lambdagy).*sign(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy))) .* f_lambdaEy).* ( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - atan((((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fl/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fl).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fl))).*(alpha_fl + ((f_Phy1 + f_Phy2 * dFz_fl).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)))))) + (Fz_fl.* ((f_Pvy1 + f_Pvy2 * dFz_fl).*f_lambdaVy + (f_Pvy3 + f_Pvy4*dFz_fl).*g .* f_lambdagy) .* f_lambdamuy);
-
-            dFz_fr(v, r, d_phi, e, a_wheel_angle) =(Fz_fr-f_Fz0)/f_Fz0;
-            g = 0.02;
-
-            force_fr(v, r, d_phi, e, a_wheel_angle) = -1.*(((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr).* sin( (f_Pcy1 .* f_lambdaCy) * atan( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - ((f_Pey1 + f_Pey2*dFz_fr).* ( 1. - (f_Pey3 + f_Pey4 * g .* f_lambdagy).*sign(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy))) .* f_lambdaEy).* ( (((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)) - atan((((f_Pky1*f_Fz0 * sin(2. * atan(Fz_fr/(f_Pky2*f_Fz0)))).* (1. - f_Pky3 * abs(g .* f_lambdagy)) .* f_lambdaFz0 .* f_lambdaKy)./ ((f_Pcy1 .* f_lambdaCy) * (((f_Pdy1 + f_Pdy2*dFz_fr).* (1.- f_Pdy3 * (g .* f_lambdagy).^2) .* f_lambdamuy).* Fz_fr))).*(-alpha_fr + ((f_Phy1 + f_Phy2 * dFz_fr).*f_lambdaHy + f_Phy3 * g .* f_lambdagy)))))) + (Fz_fr.* ((f_Pvy1 + f_Pvy2 * dFz_fr).*f_lambdaVy + (f_Pvy3 + f_Pvy4*dFz_fr).*g .* f_lambdagy) .* f_lambdamuy);
-
-            dFz_rl(v, r, d_phi, e, a_wheel_angle) =(Fz_rl-r_Fz0)/r_Fz0;
-            g = 0.02;
-
-            force_rl(v, r, d_phi, e, a_wheel_angle) = (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl).* sin( (r_Pcy1 .* r_lambdaCy) * atan( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - ((r_Pey1 + r_Pey2*dFz_rl).* ( 1. - (r_Pey3 + r_Pey4 * g .* r_lambdagy).*sign(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy))) .* r_lambdaEy).* ( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - atan((((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rl/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rl).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rl))).*(alpha_rl + ((r_Phy1 + r_Phy2 * dFz_rl).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)))))) + (Fz_rl.* ((r_Pvy1 + r_Pvy2 * dFz_rl).*r_lambdaVy + (r_Pvy3 + r_Pvy4*dFz_rl).*g .* r_lambdagy) .* r_lambdamuy);
-
-            dFz_rr(v, r, d_phi, e, a_wheel_angle) =(Fz_rr-r_Fz0)/r_Fz0;
-            g = 0.02;
-
-            force_rr(v, r, d_phi, e, a_wheel_angle) = -1.*(((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr).* sin( (r_Pcy1 .* r_lambdaCy) * atan( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - ((r_Pey1 + r_Pey2*dFz_rr).* ( 1. - (r_Pey3 + r_Pey4 * g .* r_lambdagy).*sign(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy))) .* r_lambdaEy).* ( (((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)) - atan((((r_Pky1*r_Fz0 * sin(2. * atan(Fz_rr/(r_Pky2*r_Fz0)))).* (1. - r_Pky3 * abs(g .* r_lambdagy)) .* r_lambdaFz0 .* r_lambdaKy)./ ((r_Pcy1 .* r_lambdaCy) * (((r_Pdy1 + r_Pdy2*dFz_rr).* (1.- r_Pdy3 * (g .* r_lambdagy).^2) .* r_lambdamuy).* Fz_rr))).*(-alpha_rr + ((r_Phy1 + r_Phy2 * dFz_rr).*r_lambdaHy + r_Phy3 * g .* r_lambdagy)))))) + (Fz_rr.* ((r_Pvy1 + r_Pvy2 * dFz_rr).*r_lambdaVy + (r_Pvy3 + r_Pvy4*dFz_rr).*g .* r_lambdagy) .* r_lambdamuy);
-
-%             force_fl(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fl;
-%             force_fr(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fr;
-%             force_rl(v, r, d_phi, e, a_wheel_angle) = -c_r.*alpha_rl;
-%             force_rr(v, r, d_phi, e, a_wheel_angle) = -c_r.*alpha_rr;
+            force_fl(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fl;
+            force_fr(v, r, d_phi, e, a_wheel_angle) = -c_f.*alpha_fr;
+            force_rl(v, r, d_phi, e, a_wheel_angle) = -c_r.*alpha_rl;
+            force_rr(v, r, d_phi, e, a_wheel_angle) = -c_r.*alpha_rr;
             
             
             %% dot state vector dot_v dot_r dot_d_phi dot_e v_wheel_angle
@@ -530,16 +530,16 @@ classdef Vehicle_v3 < handle
             % dot_a_steering_wheel = v_steering_wheel
             f5(v, r, d_phi, e, a_wheel_angle)= v_wheel_angle;
             
-            % Weights
-            syms q_e q_phi q_R
-            % e
-            f6(v, r, d_phi, e, a_wheel_angle) = e + (v+u*d_phi)*delta_t;
-            % d_phi
-            f7(v, r, d_phi, e, a_wheel_angle) = d_phi + (r - k*u)*delta_t;
-            
-            cost(v, r, d_phi, e, a_wheel_angle)= q_e*(f6^2) + q_phi*(f7^2) + q_R*(v_wheel_angle^2);
-            J_cost = jacobian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
-            H_cost = hessian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
+%             % Weights
+%             syms q_e q_phi q_R
+%             % e
+%             f6(v, r, d_phi, e, a_wheel_angle) = e + (v+u*d_phi)*delta_t;
+%             % d_phi
+%             f7(v, r, d_phi, e, a_wheel_angle) = d_phi + (r - k*u)*delta_t;
+%             
+%             cost(v, r, d_phi, e, a_wheel_angle)= q_e*(f6^2) + q_phi*(f7^2) + q_R*(v_wheel_angle^2);
+%             J_cost = jacobian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
+%             H_cost = hessian(cost,[v, r, d_phi, e, a_wheel_angle, v_wheel_angle]);
 
             obj.J = jacobian([f1,f2,f3,f4,f5],[v, r, d_phi, e, a_wheel_angle]);
         end
@@ -552,8 +552,8 @@ classdef Vehicle_v3 < handle
             e = x(4);
             a_wheel_angle = x(5);
             dot_v = dot_x(1);
-            Jacobian_output = CalculateJ(v,r,d_phi,e,a_wheel_angle,dot_v);
-%             Jacobian_output = CalculateJ_linear(v,r,d_phi,e,a_wheel_angle);
+%             Jacobian_output = CalculateJ(v,r,d_phi,e,a_wheel_angle,dot_v);
+            Jacobian_output = CalculateJ_linear(v,r,d_phi,e,a_wheel_angle);
             
         
         end

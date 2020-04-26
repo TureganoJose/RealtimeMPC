@@ -22,9 +22,9 @@ cvx_begin
            x((i-1)*nx+1:(i-1)*nx+nx,1) == HorizonIter(i).Ak*x((i-2)*nx+1:(i-2)*nx+nx,1) + HorizonIter(i).Bk*u(i-1,1) + HorizonIter(i).gk ; %dynamics
            HorizonIter(i).lb <= [x((i-2)*nx+1:(i-2)*nx+nx,1);u(i-1,1)] <= HorizonIter(i).ub; % bounds
         end
-        for i=1:NHorizon
-            norm(HorizonIter(i).x- x( (i-1)*nx+1:i*nx),1) <= 0.2;
-        end
+%         for i=1:NHorizon
+%             norm(HorizonIter(i).x- x( (i-1)*nx+1:i*nx),1) <= 0.2;
+%         end
 cvx_end   
 
 QPtime = toc();
