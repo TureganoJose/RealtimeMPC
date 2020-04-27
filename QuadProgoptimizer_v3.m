@@ -52,7 +52,7 @@ b = [];
 options = optimoptions(@quadprog,'MaxIterations',1000,'Display','off','ConstraintTolerance',1e-8); %'iter-detailed'
 tic
 
-[z,~,exitflag] = quadprog(H,f,A,b,Aeq,beq,LB,UB,[],options);
+[z,cost,exitflag] = quadprog(H,f,A,b,Aeq,beq,LB,UB,[],options);
 QPtime = toc;
 
 X = zeros(nx,NHorizon);
@@ -72,6 +72,7 @@ end
 
 
 info.QPtime = QPtime;
+info.cost = cost;
 if exitflag == 1
     info.exitflag = 0;
 else

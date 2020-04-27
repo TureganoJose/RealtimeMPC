@@ -97,11 +97,11 @@ tHorizon = 2;
 
 
 % Initial matrix state
-startIdx = 35;
+startIdx = 10;
 car.x0 = track.center(1,startIdx);
-car.y0 = track.center(2,startIdx);
+car.y0 = track.center(2,startIdx)+5;
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
-car.u0 = 33.333;
+car.u0 = 20;
 car.u = car.u0;
 car.v0 = 0.0;
 car.r0 = 0.0;
@@ -126,8 +126,11 @@ vSteering = U; %aSteering = zeros(1,NHorizon);
 x0 = [car.v0;car.r0;car.d_phi0;car.e0;car.a_wheel_angle0];
 u0 = vSteering(1);
 
-[ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0);
-
+%SQL
+for iOpt = 1:5
+    [ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0);
+    vSteering = U;
+end
 [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
 
 % %Checking linearisation
@@ -191,6 +194,7 @@ logging.a_heading = zeros(NSim,1);
 logging.k = zeros(NSim,1);
 logging.QPtime = zeros(NSim,1);
 logging.Failed = zeros(NSim,1);
+logging.cost = ones(NSim,1)*1e6;
 
 %Initialise inputs to simulation
 Optimizer_Inputs = U;
@@ -224,7 +228,7 @@ for iSim = 1:NSim
     u0 = vSteering(1);
     % Optimise
     [ X,U,info,pre_opt_state, pre_opt_dot_state, pre_opt_car_state,HorizonIter ] = Function_Cost_v3(car,tHorizon,vSteering,x0,u0);
-    
+
 %     % Checking discretization/linearization
 %     [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
 %     
@@ -264,8 +268,28 @@ for iSim = 1:NSim
 %     title('steering');grid on
 %     subplot(3,2,6)
 %     plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
-%     legend('Optimized','Previous Optimization');grid on
-   
+%     grid on
+%    
+%     figure(2)
+%     subplot(3,2,1)
+%     plot(1:NHorizon,StateVariables(1,:),'b.',1:NHorizon,X(1,:),'r.',1:NHorizon,x_opt_linear(1,:),'g.')
+%     title('lateral v');grid on
+%     subplot(3,2,2)
+%     plot(1:NHorizon,StateVariables(2,:),'b.',1:NHorizon,X(2,:),'r.',1:NHorizon,x_opt_linear(2,:),'g.')
+%     title('yaw rate');grid on
+%     subplot(3,2,3)
+%     plot(1:NHorizon,StateVariables(3,:),'b.',1:NHorizon,X(3,:),'r.',1:NHorizon,x_opt_linear(3,:),'g.')
+%     title('dphi');grid on
+%     subplot(3,2,4)
+%     plot(1:NHorizon,StateVariables(4,:),'b.',1:NHorizon,X(4,:),'r.',1:NHorizon,x_opt_linear(4,:),'g.')
+%     title('lateral error');grid on
+%     subplot(3,2,5)
+%     plot(1:NHorizon,StateVariables(5,:),'b.',1:NHorizon,X(5,:),'r.',1:NHorizon,x_opt_linear(5,:),'g.')
+%     title('steering');grid on
+%     subplot(3,2,6)
+%     plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
+%     grid on
+%     
     
     % Fall back strategy in case optimisation fails:
     % take the following prediction in the last solved optimisation
@@ -306,7 +330,7 @@ for iSim = 1:NSim
     logging.k(iSim) = car_sim.k;
     logging.QPtime(iSim) = info.QPtime;
     logging.Failed(iSim) = info.exitflag;
-
+    logging.cost(iSim) = info.cost;
   
 end
 toc

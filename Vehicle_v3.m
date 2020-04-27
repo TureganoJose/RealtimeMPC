@@ -16,7 +16,7 @@ classdef Vehicle_v3 < handle
       x = 0.0;
       y = 0.0;
       a_heading = 0.0;
-      u = 33.333;
+      u = 20;
       v = 0.0;
       r = 0.0;
       s = 0.0;
@@ -27,7 +27,7 @@ classdef Vehicle_v3 < handle
       x0 = 0.0;
       y0 = 0.0;
       a_heading0 = 0.0;
-      u0 = 33.333;
+      u0 = 20;
       v0 = 0.0;
       dot_v0 = 0.0;
       r0 = 0.0;
@@ -240,7 +240,7 @@ classdef Vehicle_v3 < handle
             obj.dot_d_phi = obj.r - obj.k*obj.u;
             
             % Lateral position along tracjectory
-            obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
+            %obj.e = obj.e + obj.dot_e * obj.delta_t; %param_dist(2);
             
             % two points in NURBS
             [long_dist, lat_dist] =  obj.CalculateTrackdistance(obj.x,obj.y);
@@ -526,7 +526,7 @@ classdef Vehicle_v3 < handle
             % dot_d_phi
             f3(v, r, d_phi, e, a_wheel_angle)=  r - k*u;
             % dot_e
-            f4(v, r, d_phi, e, a_wheel_angle)= v + u * d_phi;
+            f4(v, r, d_phi, e, a_wheel_angle)= v + u * d_phi;%v + u * d_phi;
             % dot_a_steering_wheel = v_steering_wheel
             f5(v, r, d_phi, e, a_wheel_angle)= v_wheel_angle;
             
@@ -580,11 +580,15 @@ classdef Vehicle_v3 < handle
             Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
             Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
             gk(1:sx,1) =tmp(1:sx,sx+su+1);
-            %gk(sx,1) = 0.0;
+            gk(sx-1,1) = 0.0;
+            gk(sx,1) = 0.0;
             
             % Alternatively use c2d(sys,Ts)
-            % sys = ss(A,B,C,D,ts)
-           
+%             C = zeros(5,5);
+%             D = zeros(5,1);
+%             state_space = ss(Ac,Bc,C,D);
+%             sysd1 = c2d(state_space,obj.delta_t,'zoh');
+            
             % following to avoid numerical errors
 %             Ad(end,end)=1;
 %             Bd(end,end)=obj.delta_t;

@@ -42,6 +42,7 @@ else
     info.exitflag = 1;
 end
 info.QPtime = QPtime;
+info.cost = cvx_optval;
 
 cvx_clear
 
