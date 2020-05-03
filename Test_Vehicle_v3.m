@@ -97,9 +97,9 @@ tHorizon = 2;
 
 
 % Initial matrix state
-startIdx = 10;
+startIdx = 63;
 car.x0 = track.center(1,startIdx);
-car.y0 = track.center(2,startIdx)+5;
+car.y0 = track.center(2,startIdx);
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
 car.u0 = 20;
 car.u = car.u0;
@@ -115,9 +115,6 @@ car.a_wheel_angle0 = 0.0;
 
 %% Main Loop
 
-%Init aSteer
-input_vSteering = 0.0 .*ones(1,NHorizon);
-
 % Optimisation - First step
 % Car states: v r d_phi e a_wheel_angle
 
@@ -127,9 +124,44 @@ x0 = [car.v0;car.r0;car.d_phi0;car.e0;car.a_wheel_angle0];
 u0 = vSteering(1);
 
 %SQL
+C = {'k','b','r','g','m',[.5 .6 .7],[.8 .2 .6]}; % Cell array of colros.
 for iOpt = 1:5
-    [ X,U,info ] = Function_Cost_v2(car,tHorizon,vSteering,x0,u0);
+    [ X,U,info,pre_opt_state, pre_opt_dot_state, pre_opt_car_state,HorizonIter ] = Function_Cost_v3(car,tHorizon,vSteering,x0,u0);
     vSteering = U;
+    
+    
+%     figure(1)
+%     plot(pre_opt_car_state(1,:),pre_opt_car_state(2,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     figure(2)
+%     subplot(3,2,1)
+%     plot(1:NHorizon,pre_opt_state(1,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     plot(1:NHorizon,X(1,:),'color',C{iOpt},'marker','x')
+%     hold on
+%     title('lateral v');grid on
+%     subplot(3,2,2)
+%     plot(1:NHorizon,pre_opt_state(2,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     plot(1:NHorizon,X(2,:),'color',C{iOpt},'marker','x')
+%     hold on
+%     title('yaw rate');grid on
+%     subplot(3,2,3)
+%     plot(1:NHorizon,pre_opt_state(3,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     plot(1:NHorizon,X(3,:),'color',C{iOpt},'marker','x')
+%     hold on    title('dphi');grid on
+%     subplot(3,2,4)
+%     plot(1:NHorizon,pre_opt_state(4,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     plot(1:NHorizon,X(4,:),'color',C{iOpt},'marker','x')
+%     hold on    title('lateral error');grid on
+%     subplot(3,2,5)
+%     plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','.')
+%     hold on
+%     plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','x')
+%     hold on    title('steering');grid on
+%     subplot(3,2,6)
 end
 [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
 
@@ -229,67 +261,68 @@ for iSim = 1:NSim
     % Optimise
     [ X,U,info,pre_opt_state, pre_opt_dot_state, pre_opt_car_state,HorizonIter ] = Function_Cost_v3(car,tHorizon,vSteering,x0,u0);
 
-%     % Checking discretization/linearization
-%     [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
-%     
-%     x_opt_linear = zeros(5,NHorizon);
-%     x_opt_linear(:,1) = X(:,1);
-%     cost_aheading = HorizonIter(1).Qk(3,3) * X(3,1)^2;
-%     cost_lat_error = HorizonIter(1).Qk(4,4) * X(4,1)^2;
-%     cost_v_steering =  HorizonIter(1).Rk*U(1)^2;
-%     for i=2:NHorizon
-%         x_opt_linear(:,i)= HorizonIter(i).Ak * X(:,i-1) + HorizonIter(i).Bk*U(i-1)+ HorizonIter(i).gk;
-%         cost_aheading = cost_aheading + HorizonIter(i).Qk(3,3) * X(3,i)^2;
-%         cost_lat_error= cost_lat_error + HorizonIter(i).Qk(4,4) * X(4,i)^2;
-%         cost_v_steering = cost_v_steering + HorizonIter(i).Rk*U(i)^2;
-%     end
-%     
-%     fprintf('error heading %f error lateral %f error steering speed %f \n',cost_aheading, cost_lat_error, cost_v_steering)
-%     % Error reference optimized inputs with dynamic simulation
-%     % Error 1: Optimum states accordding to QP solver
-%     % Error 2: States according to linearisation/discretization
-%     error_dis_lin = StateVariables - X;
-%     error_dis_lin_opt = StateVariables - x_opt_linear;
-%     figure(1)
-%     subplot(3,2,1)
-%     plot(1:NHorizon,error_dis_lin(1,:),'b.',1:NHorizon,error_dis_lin_opt(1,:),'r.')
-%     title('lateral v');grid on
-%     subplot(3,2,2)
-%     plot(1:NHorizon,error_dis_lin(2,:),'b.',1:NHorizon,error_dis_lin_opt(2,:),'r.')
-%     title('yaw rate');grid on
-%     subplot(3,2,3)
-%     plot(1:NHorizon,error_dis_lin(3,:),'b.',1:NHorizon,error_dis_lin_opt(3,:),'r.')
-%     title('dphi');grid on
-%     subplot(3,2,4)
-%     plot(1:NHorizon,error_dis_lin(4,:),'b.',1:NHorizon,error_dis_lin_opt(4,:),'r.')
-%     title('lateral error');grid on
-%     subplot(3,2,5)
-%     plot(1:NHorizon,error_dis_lin(5,:),'b.',1:NHorizon,error_dis_lin_opt(5,:),'r.')
-%     title('steering');grid on
-%     subplot(3,2,6)
-%     plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
-%     grid on
-%    
-%     figure(2)
-%     subplot(3,2,1)
-%     plot(1:NHorizon,StateVariables(1,:),'b.',1:NHorizon,X(1,:),'r.',1:NHorizon,x_opt_linear(1,:),'g.')
-%     title('lateral v');grid on
-%     subplot(3,2,2)
-%     plot(1:NHorizon,StateVariables(2,:),'b.',1:NHorizon,X(2,:),'r.',1:NHorizon,x_opt_linear(2,:),'g.')
-%     title('yaw rate');grid on
-%     subplot(3,2,3)
-%     plot(1:NHorizon,StateVariables(3,:),'b.',1:NHorizon,X(3,:),'r.',1:NHorizon,x_opt_linear(3,:),'g.')
-%     title('dphi');grid on
-%     subplot(3,2,4)
-%     plot(1:NHorizon,StateVariables(4,:),'b.',1:NHorizon,X(4,:),'r.',1:NHorizon,x_opt_linear(4,:),'g.')
-%     title('lateral error');grid on
-%     subplot(3,2,5)
-%     plot(1:NHorizon,StateVariables(5,:),'b.',1:NHorizon,X(5,:),'r.',1:NHorizon,x_opt_linear(5,:),'g.')
-%     title('steering');grid on
-%     subplot(3,2,6)
-%     plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
-%     grid on
-%     
+    % Checking discretization/linearization
+    [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
+       
+    
+    x_opt_linear = zeros(5,NHorizon);
+    x_opt_linear(:,1) = X(:,1);
+    cost_aheading = HorizonIter(1).Qk(3,3) * X(3,1)^2;
+    cost_lat_error = HorizonIter(1).Qk(4,4) * X(4,1)^2;
+    cost_v_steering =  HorizonIter(1).Rk*U(1)^2;
+    for i=2:NHorizon
+        x_opt_linear(:,i)= HorizonIter(i).Ak * X(:,i-1) + HorizonIter(i).Bk*U(i-1)+ HorizonIter(i).gk;
+        cost_aheading = cost_aheading + HorizonIter(i).Qk(3,3) * X(3,i)^2;
+        cost_lat_error= cost_lat_error + HorizonIter(i).Qk(4,4) * X(4,i)^2;
+        cost_v_steering = cost_v_steering + HorizonIter(i).Rk*U(i)^2;
+    end
+    
+    fprintf('error heading %f error lateral %f error steering speed %f \n',cost_aheading, cost_lat_error, cost_v_steering)
+    % Error reference optimized inputs with dynamic simulation
+    % Error 1: Optimum states accordding to QP solver
+    % Error 2: States according to linearisation/discretization
+    error_dis_lin = StateVariables - X;
+    error_dis_lin_opt = StateVariables - x_opt_linear;
+    figure(1)
+    subplot(3,2,1)
+    plot(1:NHorizon,error_dis_lin(1,:),'b.',1:NHorizon,error_dis_lin_opt(1,:),'r.')
+    title('lateral v');grid on
+    subplot(3,2,2)
+    plot(1:NHorizon,error_dis_lin(2,:),'b.',1:NHorizon,error_dis_lin_opt(2,:),'r.')
+    title('yaw rate');grid on
+    subplot(3,2,3)
+    plot(1:NHorizon,error_dis_lin(3,:),'b.',1:NHorizon,error_dis_lin_opt(3,:),'r.')
+    title('dphi');grid on
+    subplot(3,2,4)
+    plot(1:NHorizon,error_dis_lin(4,:),'b.',1:NHorizon,error_dis_lin_opt(4,:),'r.')
+    title('lateral error');grid on
+    subplot(3,2,5)
+    plot(1:NHorizon,error_dis_lin(5,:),'b.',1:NHorizon,error_dis_lin_opt(5,:),'r.')
+    title('steering');grid on
+    subplot(3,2,6)
+    plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
+    grid on
+   
+    figure(2)
+    subplot(3,2,1)
+    plot(1:NHorizon,StateVariables(1,:),'b.',1:NHorizon,X(1,:),'r.',1:NHorizon,x_opt_linear(1,:),'g.')
+    title('lateral v');grid on
+    subplot(3,2,2)
+    plot(1:NHorizon,StateVariables(2,:),'b.',1:NHorizon,X(2,:),'r.',1:NHorizon,x_opt_linear(2,:),'g.')
+    title('yaw rate');grid on
+    subplot(3,2,3)
+    plot(1:NHorizon,StateVariables(3,:),'b.',1:NHorizon,X(3,:),'r.',1:NHorizon,x_opt_linear(3,:),'g.')
+    title('dphi');grid on
+    subplot(3,2,4)
+    plot(1:NHorizon,StateVariables(4,:),'b.',1:NHorizon,X(4,:),'r.',1:NHorizon,x_opt_linear(4,:),'g.')
+    title('lateral error');grid on
+    subplot(3,2,5)
+    plot(1:NHorizon,StateVariables(5,:),'b.',1:NHorizon,X(5,:),'r.',1:NHorizon,x_opt_linear(5,:),'g.')
+    title('steering');grid on
+    subplot(3,2,6)
+    plot(CarStates(1,:),CarStates(2,:),'r.',pre_opt_car_state(1,:),pre_opt_car_state(2,:),'b.')
+    grid on
+    
     
     % Fall back strategy in case optimisation fails:
     % take the following prediction in the last solved optimisation

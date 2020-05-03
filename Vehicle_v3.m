@@ -10,7 +10,7 @@ classdef Vehicle_v3 < handle
       cg_height = 0.6;
       c_f = 43730;%70000;
       c_r = 57350;%130000;
-      delta_t = 0.05;
+      delta_t = 0.02;
             
       %% Car states
       x = 0.0;
@@ -222,8 +222,8 @@ classdef Vehicle_v3 < handle
             obj.d_phi = ang_diff( a_heading_ref,obj.a_heading); % obj.d_phi = obj.a_heading - a_heading_ref;
 
             %curvature
-            a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+0.01);
-            obj.k = (a_heading_K - a_heading_ref)/0.01;
+            a_heading_K = calllib('SislNurbs','CalculateDerivate',obj.track,obj.s+ obj.delta_t * obj.u);
+            obj.k = (a_heading_K - a_heading_ref)/(obj.delta_t * obj.u);
             
             % Position along trajectory
             obj.s = obj.s + obj.u * cos(obj.d_phi) * obj.delta_t; %param_dist(1);
@@ -252,6 +252,9 @@ classdef Vehicle_v3 < handle
             % determine position of point relative to NURBS
             side_pos = sign(  (x2-x1) * (obj.y-y1)  -  (y2-y1) * (obj.x-x1)  );
             obj.e = side_pos * lat_dist;
+            
+%             fprintf('error e %f \n',alt_e-obj.e)
+            
         end
         function [fy_fl, fy_fr, fy_rl, fy_rr] = CalculateTyreForces(obj,slip_a, gamma, Fz_input)
             % FL
@@ -554,8 +557,6 @@ classdef Vehicle_v3 < handle
             dot_v = dot_x(1);
 %             Jacobian_output = CalculateJ(v,r,d_phi,e,a_wheel_angle,dot_v);
             Jacobian_output = CalculateJ_linear(v,r,d_phi,e,a_wheel_angle);
-            
-        
         end
         function [Ak,Bk,gk] = DiscretizedLinearizedMatrices(obj,dot_x,x,v_wheel_angle)
             % Note this is just for one timestep
@@ -580,8 +581,8 @@ classdef Vehicle_v3 < handle
             Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
             Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
             gk(1:sx,1) =tmp(1:sx,sx+su+1);
-            gk(sx-1,1) = 0.0;
-            gk(sx,1) = 0.0;
+%             gk(sx-1,1) = 0.0;
+%             gk(sx,1) = 0.0;
             
             % Alternatively use c2d(sys,Ts)
 %             C = zeros(5,5);
