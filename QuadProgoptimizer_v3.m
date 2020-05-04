@@ -21,16 +21,18 @@ beq = zeros( nx*NHorizon +1,1);
 Aeq(1:nx,1:nx)=eye(nx);
 beq(1:nx,:)= HorizonIter(1).x0;
 
+Aeq(nx+1, nx+nu) = 1;
+beq(nx+1, 1) = HorizonIter(1).u0;
 
-for i = 2:NHorizon-1
-    Aeq((i-1)*nx+1:i*nx, (i-1)+(i-2)*nx:(i-1)+(i-1)*nx-1) = -HorizonIter(i-1).Ak;
-    Aeq((i-1)*nx+1:i*nx, (i-1)+(i-1)*nx)= -HorizonIter(i-1).Bk;
-    Aeq((i-1)*nx+1:i*nx, (i-1)+(i-1)*nx+1: (i-1)+(i-1)*nx+nx   )= eye(nx);
 
-    beq((i-1)*nx+1:i*nx) = [HorizonIter(i-1).gk];
+for i = 2:NHorizon
+    Aeq((i-1)*nx+2:i*nx+1, (i-1)+(i-2)*nx:(i-1)+(i-1)*nx-1) = -HorizonIter(i-1).Ak;
+    Aeq((i-1)*nx+2:i*nx+1, (i-1)+(i-1)*nx)= -HorizonIter(i-1).Bk;
+    Aeq((i-1)*nx+2:i*nx+1, (i-1)+(i-1)*nx+1: (i-1)+(i-1)*nx+nx   )= eye(nx);
+
+    beq((i-1)*nx+2:i*nx+1) = [HorizonIter(i-1).gk];
 end
-Aeq(nx*NHorizon +1, nx+nu) = 1;
-beq(nx*NHorizon +1, 1) = HorizonIter(1).u0;
+
 
 % figure(3)
 % plot(1:NHorizon,x_test)

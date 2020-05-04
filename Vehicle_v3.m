@@ -569,20 +569,35 @@ classdef Vehicle_v3 < handle
             gc=f-Ac*x-Bc*v_wheel_angle;
 
             Bc_aug=[Bc gc];
-
-            %discretize
+            
+%             %discretize
             su=1;%Num control variables 
             sx=5;%Num state variables 
             tmp = expm([Ac Bc_aug; zeros(su+1,sx+su+1)]*obj.delta_t);
-
             Ad = zeros(sx,sx);
             Bd = zeros(sx,su);
             gd = zeros(sx,1);
             Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
             Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
-            gk(1:sx,1) =tmp(1:sx,sx+su+1);
-%             gk(sx-1,1) = 0.0;
-%             gk(sx,1) = 0.0;
+
+            
+%             Ak = expm(Ac*obj.delta_t);
+%             Bk = Bc*obj.delta_t+(1/factorial(2))*Ac*Bc*(obj.delta_t^2)+(1/factorial(3))*(Ac^2)*Bc*(obj.delta_t^3)+(1/factorial(4))*(Ac^3)*Bc*(obj.delta_t^4)+(1/factorial(5))*(Ac^4)*Bc*(obj.delta_t^5);
+%             gk = gk;
+
+%             su=1;%Num control variables 
+%             sx=5;%Num state variables
+%             ZOH_matrix = [ Ac Bc;zeros(1,6)];
+% %             ZOH_matrix(end,end) = 1;
+%             tmp = expm(ZOH_matrix*obj.delta_t);
+%             Ak(1:sx,1:sx) =tmp(1:sx,1:sx);
+%             Bk(1:sx,1:su) =tmp(1:sx,sx+1:sx+su);
+%             gk(1:sx,1) = 0;
+
+            
+            gk(sx-2,1) = 0.0;
+            gk(sx-1,1) = 0.0;
+            gk(sx,1) = 0.0;
             
             % Alternatively use c2d(sys,Ts)
 %             C = zeros(5,5);

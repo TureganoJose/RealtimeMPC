@@ -16,7 +16,7 @@ function [ X,U,info,State_Variables, dot_State_Variables,carstate_matrix, Horizo
     
     HorizonIter(1).x0 = x0;
     HorizonIter(1).u0 = u0;
-    for i=2:NHorizon
+    for i=1:NHorizon
         HorizonIter(i).x = State_Variables(:,i);
         HorizonIter(i).dot_x = dot_State_Variables(:,i);
         HorizonIter(i).u = vSteering(i);

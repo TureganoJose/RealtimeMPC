@@ -97,9 +97,9 @@ tHorizon = 2;
 
 
 % Initial matrix state
-startIdx = 63;
+startIdx = 43;
 car.x0 = track.center(1,startIdx);
-car.y0 = track.center(2,startIdx);
+car.y0 = track.center(2,startIdx)+5;
 [car.s0, car.e0] =  car.CalculateTrackdistance(car.x0,car.y0);
 car.u0 = 20;
 car.u = car.u0;
@@ -125,54 +125,133 @@ u0 = vSteering(1);
 
 %SQL
 C = {'k','b','r','g','m',[.5 .6 .7],[.8 .2 .6]}; % Cell array of colros.
-for iOpt = 1:5
+for iOpt = 1:7
+    input_to_opt = vSteering;
     [ X,U,info,pre_opt_state, pre_opt_dot_state, pre_opt_car_state,HorizonIter ] = Function_Cost_v3(car,tHorizon,vSteering,x0,u0);
     vSteering = U;
     
     
-%     figure(1)
-%     plot(pre_opt_car_state(1,:),pre_opt_car_state(2,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     figure(2)
-%     subplot(3,2,1)
-%     plot(1:NHorizon,pre_opt_state(1,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     plot(1:NHorizon,X(1,:),'color',C{iOpt},'marker','x')
-%     hold on
-%     title('lateral v');grid on
-%     subplot(3,2,2)
-%     plot(1:NHorizon,pre_opt_state(2,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     plot(1:NHorizon,X(2,:),'color',C{iOpt},'marker','x')
-%     hold on
-%     title('yaw rate');grid on
-%     subplot(3,2,3)
-%     plot(1:NHorizon,pre_opt_state(3,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     plot(1:NHorizon,X(3,:),'color',C{iOpt},'marker','x')
-%     hold on    title('dphi');grid on
-%     subplot(3,2,4)
-%     plot(1:NHorizon,pre_opt_state(4,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     plot(1:NHorizon,X(4,:),'color',C{iOpt},'marker','x')
-%     hold on    title('lateral error');grid on
-%     subplot(3,2,5)
-%     plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','.')
-%     hold on
-%     plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','x')
-%     hold on    title('steering');grid on
-%     subplot(3,2,6)
+    figure(1)
+    plot(pre_opt_car_state(1,:),pre_opt_car_state(2,:),'color',C{iOpt},'marker','.')
+    hold on
+    figure(2)
+    subplot(3,2,1)
+    plot(1:NHorizon,pre_opt_state(1,:),'color',C{iOpt},'marker','.')
+    hold on
+    plot(1:NHorizon,X(1,:),'color',C{iOpt},'marker','x')
+    hold on
+    title('lateral v');grid on
+    subplot(3,2,2)
+    plot(1:NHorizon,pre_opt_state(2,:),'color',C{iOpt},'marker','.')
+    hold on
+    plot(1:NHorizon,X(2,:),'color',C{iOpt},'marker','x')
+    hold on
+    title('yaw rate');grid on
+    subplot(3,2,3)
+    plot(1:NHorizon,pre_opt_state(3,:),'color',C{iOpt},'marker','.')
+    hold on
+    plot(1:NHorizon,X(3,:),'color',C{iOpt},'marker','x')
+    hold on    title('dphi');grid on
+    subplot(3,2,4)
+    plot(1:NHorizon,pre_opt_state(4,:),'color',C{iOpt},'marker','.')
+    hold on
+    plot(1:NHorizon,X(4,:),'color',C{iOpt},'marker','x')
+    hold on    title('lateral error');grid on
+    subplot(3,2,5)
+    plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','.')
+    hold on
+    plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','x')
+    hold on    title('steering');grid on
+    subplot(3,2,6)
 end
 [StateVariables, dot_StateVariables, CarStates] =  car.RunSimulation(tHorizon,U);
 
-% %Checking linearisation
-% x_new(:,1)=StateVariables(:,1);
-% x_sol(:,1)=X(:,1);
-% for i=1:NHorizon
+figure(3)
+subplot(3,2,1)
+plot(1:NHorizon,StateVariables(1,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,X(1,:),'color',C{iOpt},'marker','x')
+hold on
+plot(1:NHorizon,pre_opt_state(1,:),'color',C{iOpt},'marker','o')
+hold on
+title('lateral v');grid on
+subplot(3,2,2)
+plot(1:NHorizon,StateVariables(2,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,X(2,:),'color',C{iOpt},'marker','x')
+hold on
+plot(1:NHorizon,pre_opt_state(2,:),'color',C{iOpt},'marker','o')
+hold on
+title('yaw rate');grid on
+subplot(3,2,3)
+plot(1:NHorizon,StateVariables(3,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,X(3,:),'color',C{iOpt},'marker','x')
+hold on    
+plot(1:NHorizon,pre_opt_state(3,:),'color',C{iOpt},'marker','o')
+hold on
+title('dphi');grid on
+subplot(3,2,4)
+plot(1:NHorizon,StateVariables(4,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,X(4,:),'color',C{iOpt},'marker','x')
+hold on    
+plot(1:NHorizon,pre_opt_state(4,:),'color',C{iOpt},'marker','o')
+hold on
+title('lateral error');grid on
+subplot(3,2,5)
+plot(1:NHorizon,StateVariables(5,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,X(5,:),'color',C{iOpt},'marker','x')
+hold on    
+plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','o')
+hold on
+title('steering');grid on
+subplot(3,2,6)
+
+%Checking linearisation
+x_new(:,1)=StateVariables(:,1);
+x_sol(:,1)=X(:,1);
+x_alt(:,1)=X(:,1);
+for i=1:NHorizon-1
 %     [Ak,Bk,gk] = car.DiscretizedLinearizedMatrices(dot_StateVariables(:,i),StateVariables(:,i),vSteering(i));
 %     x_new(:,i+1) = Ak *StateVariables(:,i)+Bk*vSteering(i)+gk;
 %     x_sol(:,i+1) = Ak *X(:,i)+Bk*U(i)+gk;
-% end
+      x_sol(:,i+1) = HorizonIter(i).Ak * pre_opt_state(:,i) + HorizonIter(i).Bk * input_to_opt(:,i) + HorizonIter(i).gk;
+      x_alt(:,i+1) = HorizonIter(i).Ak * x_alt(:,i) + HorizonIter(i).Bk * input_to_opt(:,i) + HorizonIter(i).gk;
+end
+
+figure(5)
+subplot(3,2,1)
+plot(1:NHorizon,pre_opt_state(1,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,x_sol(1,:),'color',C{iOpt},'marker','x')
+hold on
+title('lateral v');grid on
+subplot(3,2,2)
+plot(1:NHorizon,pre_opt_state(2,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,x_sol(2,:),'color',C{iOpt},'marker','x')
+hold on
+title('yaw rate');grid on
+subplot(3,2,3)
+plot(1:NHorizon,pre_opt_state(3,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,x_sol(3,:),'color',C{iOpt},'marker','x')
+hold on    title('dphi');grid on
+subplot(3,2,4)
+plot(1:NHorizon,pre_opt_state(4,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,x_sol(4,:),'color',C{iOpt},'marker','x')
+hold on    title('lateral error');grid on
+subplot(3,2,5)
+plot(1:NHorizon,pre_opt_state(5,:),'color',C{iOpt},'marker','.')
+hold on
+plot(1:NHorizon,x_sol(5,:),'color',C{iOpt},'marker','x')
+hold on    title('steering');grid on
+subplot(3,2,6)
+
+
 
 
 %% Actual Simulation
