@@ -2,8 +2,8 @@ function [ X,U,info,State_Variables, dot_State_Variables,carstate_matrix, Horizo
 
 
 %     Solver = 'CVX';
-    Solver = 'QuadProg';
-%     Solver = 'hpipm';
+%     Solver = 'QuadProg';
+    Solver = 'hpipm';
     [State_Variables, dot_State_Variables, carstate_matrix] = car.RunSimulation(tHorizon,vSteering);
     NHorizon = size(State_Variables,2);
 
