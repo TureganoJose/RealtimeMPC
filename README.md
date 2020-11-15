@@ -25,7 +25,7 @@ I was lazy calculating Jacobians and Hessians, I let Matlab do all the heavy lif
 ### Optimisation:
 [General overview of optimal control problems](https://www.stardust2013.eu/Portals/63/Images/Training/OTS%20Repository/OTS-Talk-Topputo.pdf)  
 [A few solvers evaluated. Some simplifications in calculation of theta](https://arxiv.org/pdf/1711.07300.pdf)  
-[Approach QP](https://arxiv.org/pdf/1903.04240.pdf)
+[Adaptative RTI-SQP](https://arxiv.org/pdf/1903.04240.pdf)  
 [From lineal to nonlinear MPC](https://www.researchgate.net/publication/308737646_From_linear_to_nonlinear_MPC_bridging_the_gap_via_the_real-time_iteration)  
 [General overview of MPC, indirect/direct methods for transcription](https://repository.tudelft.nl/islandora/object/uuid:21edac7c-93b5-4140-bc28-663879f63108)  
 [Good explaining the QP. Comparing the QP to Newton-Raphson method](https://ecal.berkeley.edu/files/ce191/CH02-QuadraticProgramming.pdf)  
