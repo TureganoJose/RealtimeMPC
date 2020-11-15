@@ -12,6 +12,8 @@ Obviously the first two lack speed compared to HPIPM, they are dense solvers. I 
 
 Used this library for splines, I had to create a wrapper around the functions. [SISL](https://github.com/SINTEF-Geometry/SISL)
 
+I was lazy calculating Jacobians and Hessians, I let Matlab do all the heavy lifting when I should have used AD or something more sofisticated.
+
 ## Research
 
 ### Basic material and books 
